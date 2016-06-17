@@ -545,33 +545,16 @@ h1 {
   margin-top: -1vw;
   font-family: Arial, sans-serif;
 }
-@media (min-width: 62em) {
-  h1 {
-    font-size: 7.5vw;
-  }
-}
 h2 {
   font-size: 1.3rem;
   font-family: Arial, sans-serif;
   margin: 0em 0 0.5em 0;
-}
-@media (min-width: 62em) {
-  h2 {
-    font-size: 3rem;
-    margin: -0.53rem 0px 2.5rem 0px;
-  }
 }
 h3,
 h4 {
   font-size: 0.9rem;
   font-family: Arial, sans-serif;
   margin-bottom: 10vw;
-}
-@media (min-width: 62em) {
-  h3,
-  h4 {
-    margin-bottom: 2rem;
-  }
 }
 h5 {
   font-size: 1.8rem;

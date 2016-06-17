@@ -12,12 +12,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    concat: {
-      dist: {
-        src: ['node_modules/jquery/dist/jquery.min.js', 'src/_scripts/main.js'],
-        dest: 'dist/master.js',
-      }
-    },
     concat: {   
       dist: {
         src: [
