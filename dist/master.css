@@ -456,6 +456,7 @@ p {
   margin: -0.5em 0 1em 0;
   text-align: left;
   cursor: default;
+  font-size: 0.86rem;
 }
 a {
   text-decoration: none;
@@ -473,7 +474,7 @@ h6 {
   margin: 0 0;
   padding: 0 0;
   font-weight: normal;
-  line-height: 130%;
+  line-height: 100%;
   position: relative;
   z-index: 9999;
   cursor: default;
@@ -503,12 +504,10 @@ h6 i {
   font-size: 1rem;
   font-weight: bold;
 }
-.Body1 {
-  font-size: 0.86rem;
-}
 .Caption2 {
   font-size: 0.73rem;
   font-weight: bold;
+  letter-spacing: 0.08rem;
   text-transform: uppercase;
 }
 .Caption {
@@ -517,7 +516,7 @@ h6 i {
 .CallToAction {
   font-size: 0.86rem;
   font-weight: bold;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.08rem;
   text-transform: uppercase;
 }
 .mb1 {
