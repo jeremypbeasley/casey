@@ -567,3 +567,9 @@ body {
 .IconHeartDark {
   background-image: url("_img/_icon/dark/heart.svg");
 }
+.IconPlusLight {
+  background-image: url("_img/_icon/light/plus.svg");
+}
+.IconPlusDark {
+  background-image: url("_img/_icon/dark/plus.svg");
+}
