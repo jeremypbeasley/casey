@@ -418,24 +418,33 @@ textarea {
   font: inherit; /* 2 */
 }
 
+@font-face {
+	font-family: 'CircularStdBook';
+	src: url('_fonts/CircularStdBook.eot');
+	src: url('_fonts/CircularStdBook.eot') format('embedded-opentype'),
+	     url('_fonts/CircularStdBook.woff2') format('woff2'),
+	     url('_fonts/CircularStdBook.woff') format('woff'),
+	     url('_fonts/CircularStdBook.ttf') format('truetype'),
+	     url('_fonts/CircularStdBook.svg#CircularStdBook') format('svg');
+}
+@font-face {
+  font-family: 'CircularStdBold';
+  src: url('_fonts/CircularStdBold.eot');
+  src: url('_fonts/CircularStdBold.eot') format('embedded-opentype'),
+       url('_fonts/CircularStdBold.woff2') format('woff2'),
+       url('_fonts/CircularStdBold.woff') format('woff'),
+       url('_fonts/CircularStdBold.ttf') format('truetype'),
+       url('_fonts/CircularStdBold.svg#CircularStdBold') format('svg');
+}
+
 html {
   font-size: 15px;
-  font-family: Arial, sans-serif, serif;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-@media (min-width: 62em) {
-  html {
-    font-size: 15px;
-  }
+  font-family: CircularStdBook, Arial, sans-serif;
 }
 body,
 p {
   font-size: 1rem;
+  color: #2d2926;
 }
 .unselectable {
   -moz-user-select: none;
@@ -447,66 +456,10 @@ p {
   margin: -0.5em 0 1em 0;
   text-align: left;
   cursor: default;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-p.large {
-  font-size: 18px;
-  font-family: Avenir-Medium;
-}
-p.Shaded {
-  opacity: 0.5;
-}
-@media (min-width: 48em) {
-  p {
-    text-align: justify;
-  }
-}
-.col-md-4 p {
-  text-align: left;
 }
 a {
   text-decoration: none;
   color: text-color;
-}
-a.cta {
-  padding: 0.5rem 0.8rem;
-  border: 1px solid;
-  transition: all 200ms ease-out;
-  border-radius: 0.3rem;
-  position: relative;
-  top: 1.2rem;
-  background: transparent;
-  color: #000;
-  border-color: #000;
-  cursor: pointer;
-}
-a.cta:hover {
-  background: #000;
-  color: #fff;
-  border-color: #000;
-}
-a.cta.inverted {
-  border-color: #fff;
-  color: #fff;
-  background: transparent;
-}
-a.cta.inverted:hover {
-  border-color: #fff;
-  background: #fff;
-  color: #000;
-}
-hr {
-  width: 100%;
-  height: 1px;
-  border: none;
-  background: #000;
-  opacity: 0.2;
-  margin: 4vw 0;
 }
 strong {
   font-weight: normal;
@@ -519,7 +472,6 @@ h5,
 h6 {
   margin: 0 0;
   padding: 0 0;
-  font-family: Arial, sans-serif;
   font-weight: normal;
   line-height: 130%;
   position: relative;
@@ -583,4 +535,7 @@ body {
 .hidden {
   display: none;
   opacity: 0;
+}
+.StylesContainer {
+  padding: 50px;
 }

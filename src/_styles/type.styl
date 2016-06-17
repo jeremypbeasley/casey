@@ -1,17 +1,10 @@
 html
 	font-size 15px
-	font-family typeface-body, serif
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	@media laptop
-		font-size 15px
+	font-family typeface-body
 
 body, p
 	font-size 1rem
+	color: color-black
 
 .unselectable
 	-moz-user-select: none;
@@ -22,59 +15,11 @@ p
 	line-height 150%
 	margin -.5em 0 1em 0
 	text-align left
-	cursor: default;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	&.large
-		font-size 18px
-		font-family Avenir-Medium
-	&.Shaded
-		opacity .5
-	@media tablet
-		text-align justify
-		
-.col-md-4 p
-	text-align left
+	cursor: default
 	
 a
 	text-decoration: none
-	color text-color
-	&.cta
-		padding .5rem .8rem
-		border 1px solid
-		transition all 200ms ease-out
-		border-radius .3rem
-		position relative 
-		top 1.2rem
-		background transparent
-		color black
-		border-color black
-		cursor pointer
-		&:hover
-			background black
-			color white
-			border-color black
-		&.inverted
-			border-color white
-			color white
-			background transparent
-			&:hover
-				border-color white
-				background white
-				color black
-		
-
-hr
-	width 100%
-	height 1px
-	border none
-	background black
-	opacity .2
-	margin 4vw 0
+	color text-color		
 	
 strong 
 	font-weight normal
@@ -82,7 +27,6 @@ strong
 h1,h2,h3,h4,h5,h6
 	margin 0 0
 	padding: 0 0
-	font-family: typeface-headline
 	font-weight: normal
 	line-height 130%
 	position relative
