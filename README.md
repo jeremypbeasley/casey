@@ -1,8 +1,10 @@
-# Shirt & Pants
+# Midas
 
-My boilerplate for basic websites. You'll do fine now that you've at least got a shirt and pants.
+It's an app that keep you from being all like...
 
-I'm using `Bower` to manage libraries, `npm` to manage `Grunt`, and `Grunt` to compile `Stylus` and concatonate Javascript.
+1[](https://media0.giphy.com/media/Vfbloa5iOdix2/200.gif)
+
+We're using `Bower` to manage libraries, `npm` to manage `Grunt`, and `Grunt` to compile `Stylus` and concatonate Javascript.
 
 How can I use this?
 
