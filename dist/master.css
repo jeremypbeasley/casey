@@ -495,7 +495,8 @@ h6 i {
   font-size: 2.26rem;
 }
 .Headline {
-  font-size: 1.6rem;
+  font-size: 1.667rem;
+  font-family: CircularStdBold;
 }
 .Title {
   font-size: 1.2rem;
@@ -506,7 +507,7 @@ h6 i {
 }
 .Caption2 {
   font-size: 0.73rem;
-  font-weight: bold;
+  font-family: CircularStdBold;
   letter-spacing: 0.08rem;
   text-transform: uppercase;
 }
@@ -515,9 +516,12 @@ h6 i {
 }
 .CallToAction {
   font-size: 0.86rem;
-  font-weight: bold;
+  font-family: CircularStdBold;
   letter-spacing: 0.08rem;
   text-transform: uppercase;
+}
+.TextWhite {
+  color: #fff;
 }
 .mb1 {
   margin-bottom: 1rem;
