@@ -456,6 +456,7 @@ p {
   margin: -0.5em 0 1em 0;
   text-align: left;
   cursor: default;
+  font-size: 0.86rem;
 }
 a {
   text-decoration: none;
@@ -473,7 +474,7 @@ h6 {
   margin: 0 0;
   padding: 0 0;
   font-weight: normal;
-  line-height: 130%;
+  line-height: 100%;
   position: relative;
   z-index: 9999;
   cursor: default;
@@ -489,46 +490,50 @@ h6 i {
 }
 .Display2 {
   font-size: 3rem;
-  margin: 1rem 1rem;
 }
 .Display1 {
   font-size: 2.26rem;
-  margin: 1rem 1rem;
 }
 .Headline {
-  font-size: 1.6rem;
-  margin: 1rem 1rem;
+  font-size: 1.667rem;
+  font-family: CircularStdBold;
 }
 .Title {
   font-size: 1.2rem;
-  margin: 1rem 1rem;
 }
 .Subhead1 {
   font-size: 1rem;
   font-weight: bold;
-  margin: 1rem 1rem;
-}
-.Body1 {
-  font-size: 0.86rem;
-  margin: 1rem 1rem;
 }
 .Caption2 {
   font-size: 0.73rem;
-  margin: 1rem 1rem;
-  font-weight: bold;
+  font-family: CircularStdBold;
+  letter-spacing: 0.08rem;
   text-transform: uppercase;
 }
 .Caption {
   font-size: 0.8;
-  margin: 1rem 1rem;
 }
 .CallToAction {
   font-size: 0.86rem;
-  font-weight: bold;
-  letter-spacing: 0.06rem;
-  margin: 1rem 1rem;
+  font-family: CircularStdBold;
+  letter-spacing: 0.08rem;
   text-transform: uppercase;
 }
+
+.TextWhite {
+  color: #fff;
+}
+.mb1 {
+  margin-bottom: 1rem;
+}
+.mb2 {
+  margin-bottom: 2rem;
+}
+.Opa50 {
+  opacity: 0.5;
+}
+
 html {
   min-height: 100%;
 }
@@ -552,4 +557,24 @@ body {
 }
 .StylesContainer {
   padding: 50px;
+  background-color: #faf9f7;
+}
+.Icon {
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+}
+.IconHeartLight {
+  background-image: url("_img/_icon/light/heart.svg");
+}
+.IconHeartDark {
+  background-image: url("_img/_icon/dark/heart.svg");
+}
+.IconPlusLight {
+  background-image: url("_img/_icon/light/plus.svg");
+}
+.IconPlusDark {
+  background-image: url("_img/_icon/dark/plus.svg");
 }
