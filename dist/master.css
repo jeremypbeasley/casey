@@ -487,31 +487,6 @@ h5 i,
 h6 i {
   font-style: normal;
 }
-<<<<<<< HEAD
-=======
-h1 {
-  font-size: 9vw;
-  margin-top: -1vw;
-  font-family: Arial, sans-serif;
-}
-h2 {
-  font-size: 1.3rem;
-  font-family: Arial, sans-serif;
-  margin: 0em 0 0.5em 0;
-}
-h3,
-h4 {
-  font-size: 0.9rem;
-  font-family: Arial, sans-serif;
-  margin-bottom: 10vw;
-}
-h5 {
-  font-size: 1.8rem;
-}
-h6 {
-  font-size: 1.25rem;
-  color: #00f;
-}
 .Display2 {
   font-size: 3rem;
   margin: 1rem 1rem;
@@ -554,7 +529,6 @@ h6 {
   margin: 1rem 1rem;
   text-transform: uppercase;
 }
->>>>>>> jennsbranch
 html {
   min-height: 100%;
 }
