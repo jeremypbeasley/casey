@@ -520,6 +520,7 @@ h6 i {
   letter-spacing: 0.08rem;
   text-transform: uppercase;
 }
+
 .TextWhite {
   color: #fff;
 }
@@ -532,6 +533,7 @@ h6 i {
 .Opa50 {
   opacity: 0.5;
 }
+
 html {
   min-height: 100%;
 }
