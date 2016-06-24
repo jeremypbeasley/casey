@@ -24,7 +24,7 @@ How can I use this?
 
 If you come back to the work later for any reason, do not reuse that same branch. Once the PR is submitted, consider it gone forever.
 
-7.
+7. Once PR is approved. Checkout master and pull the latest `git pull origin master`
 
 ### Branch naming
 
