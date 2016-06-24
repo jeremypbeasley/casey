@@ -20,9 +20,11 @@ How can I use this?
 3. Code away! Commit often. 
 4. Don't push until the issue is complete or code is ready for review
 5. When it's complete, add files, commit, push your branch. 
-6. Open github, make a Pull Request for that branch. Specify a merge to master, a reviewer, and to delete the branch when PR is approved.
+6. Open github, make a Pull Request for that branch. Specify a merge to master, and a reviewer when PR is approved.
 
 If you come back to the work later for any reason, do not reuse that same branch. Once the PR is submitted, consider it gone forever.
+
+7.
 
 ### Branch naming
 
