@@ -618,3 +618,25 @@ body {
 .IconStarDark {
   background-image: url("_img/_icon/dark/star.svg");
 }
+.AppNav {
+  width: 100%;
+  height: 10%;
+  font-size: 1.06rem;
+}
+.AppNav ul {
+  list-style: none;
+}
+.AppNav ul li {
+  display: inline-block;
+}
+.AppNavAccount {
+  background: url("_img/_icon/dark/account.svg") no-repeat;
+  background-position: center center;
+  position: relative;
+  top: 0.6rem;
+  left: 1rem;
+  background-size: 80%;
+  height: 16px;
+  width: 16px;
+  text-indent: -9999px;
+}
