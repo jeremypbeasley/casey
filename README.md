@@ -28,17 +28,6 @@ If you come back to the work later for any reason, do not reuse that same branch
 
 ### Branch naming
 
-wip       Works in progress; stuff I know won't be finished soon
-feat      Feature I'm adding or expanding
-bug       Bug fix or experiment
-junk      Throwaway branch created to experiment
+nameofworkitem_yourinitials_issuenumber
 
-Example:
-
-bug_addbuttonsize
-
-Note:
-
-If the branch is related to an open issue, include that in the title as follows:
-
-bug_addbuttonsize_issue#3465
+Example: `globalnav_jb_5`
