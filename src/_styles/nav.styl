@@ -1,47 +1,60 @@
 .AppNav {
-	width: 100%;
+	background-color: white;
+	border-top: 1px solid #ccc;
+	font-size: .9rem;
 	height: 10%
-	// background-color: #ccc;
-	font-size: 1.06rem;
+	width: 100%;
+	position: relative;
+	top: 90vh;
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
 }
 
 .AppNav ul {
 	list-style: none;
-	padding: 0;
-	margin: 0
+	padding: .5rem;
 }
 
 .AppNav ul li {
 	display: inline-block;
-	padding: 0;
-	margin: 0
-	// padding: .7rem;
+	padding: 1.2rem;
 }
 
 .AppNavHome {
-
+	opacity: .5;
 }
 
 .AppNavSpend {
-
+	opacity: .5;
 }
 
 .AppNavBudget {
-
+	opacity: .5;
 }
 
 .AppNavBills {
-
+	opacity: .5;
 }
 
 .AppNavAccount {
 	background: url("_img/_icon/dark/account.svg") no-repeat;
+	background-size: 40%;	
 	background-position: center center;
-	position: relative;
-	top: .6rem;
-	left: 1rem;
-	background-size: 80%;	
 	height: 16px;
 	width: 16px;
+	opacity: .52
+	position: relative;
+	top: .5rem;
+	left: 1rem;
 	text-indent: -9999px;
+}
+
+.ActiveTab {
+	font-weight: bold;
+	opacity: 1;
 }
