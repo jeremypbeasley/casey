@@ -678,7 +678,6 @@ body {
 }
 .ViewLabel {
   font-size: 0.7rem;
-  font-family: CircularStdBold;
   letter-spacing: 0.08rem;
   padding: 1.5rem 1rem;
   opacity: 0.5;
@@ -694,6 +693,7 @@ body {
   text-indent: -9999px;
 }
 .BankInfo {
+  margin-top: -2rem;
   position: relative;
   padding: 0 1rem;
   font-size: 0.9rem;
@@ -703,10 +703,30 @@ body {
 }
 .BankSearch {
   background: url("_img/_icon/dark/search.svg") no-repeat;
-  text-indent: -9999px;
   position: relative;
   height: 24px;
   width: 24px;
   top: -2rem;
   left: 94%;
+  text-indent: -9999px;
+}
+#ViewOutput {
+  font-size: 0.9rem;
+}
+.TransactionSingle {
+  border-top: 1px solid #ccc;
+}
+.TransactionCategory {
+  padding: 1rem 0 0 1rem;
+  opacity: 0.5;
+}
+.TransactionVendor {
+  padding: 0 0 0 1rem;
+}
+.TransactionAmount {
+  position: relative;
+  text-align: right;
+  padding: 0 1rem;
+  top: -1.1rem;
+  font-family: 'Inconsolata', courier;
 }
