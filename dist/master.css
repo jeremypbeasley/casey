@@ -624,7 +624,7 @@ body {
   font-size: 0.9rem;
   height: 10%;
   width: 100%;
-  position: relative;
+  position: fixed;
   top: 90vh;
   margin: 0;
   padding: 0;
