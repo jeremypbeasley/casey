@@ -670,6 +670,9 @@ ul {
   opacity: 1;
 }
 @import url("https://fonts.googleapis.com/css?family=Inconsolata");
+.AppNav {
+  position: fixed;
+}
 body {
   background: #fff;
 }
@@ -682,11 +685,28 @@ body {
   text-transform: uppercase;
 }
 .ViewSettings {
-  background: url("_img/_icon/dark/gear.svg");
+  background: url("_img/_icon/dark/gear.svg") no-repeat;
   height: 24px;
   width: 24px;
   position: relative;
   top: -2.7rem;
   left: 90%;
   text-indent: -9999px;
+}
+.BankInfo {
+  position: relative;
+  padding: 0 1rem;
+  font-size: 0.9rem;
+}
+.BankAccountName {
+  opacity: 0.5;
+}
+.BankSearch {
+  background: url("_img/_icon/dark/search.svg") no-repeat;
+  text-indent: -9999px;
+  position: relative;
+  height: 24px;
+  width: 24px;
+  top: -2rem;
+  left: 94%;
 }

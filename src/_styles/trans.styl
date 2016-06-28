@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
+// this bitch right here
+
+.AppNav {
+	position: fixed;
+}
+
+// end
+
 body {
 	background: white;
 }
@@ -22,7 +30,7 @@ body {
 }
 
 .ViewSettings {
-	background: url('_img/_icon/dark/gear.svg')
+	background: url('_img/_icon/dark/gear.svg') no-repeat;
 	height: 24px;
 	width: 24px;
 	position: relative;
@@ -32,18 +40,26 @@ body {
 }
 
 .BankInfo {
-	
+	position: relative;
+	padding: 0 1rem;
+	font-size: .9rem;
 }
 
 .BankName {
-	
 }
 	
 .BankAccountName {
-	
+	opacity: .5;
 }
 	
 .BankSearch {
+	background: url('_img/_icon/dark/search.svg') no-repeat; 
+	text-indent: -9999px;
+	position: relative;
+	height: 24px;
+	width: 24px;
+	top: -2rem;
+	left: 94%;
 	
 }
 	
