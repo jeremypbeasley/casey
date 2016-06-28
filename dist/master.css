@@ -672,15 +672,17 @@ ul {
 @import url("https://fonts.googleapis.com/css?family=Inconsolata");
 .AppNav {
   position: fixed;
+  z-index: 99999;
 }
 body {
   background: #fff;
 }
 .ViewLabel {
   font-size: 0.7rem;
+  font-weight: bold;
   letter-spacing: 0.08rem;
-  padding: 1.5rem 1rem;
   opacity: 0.5;
+  padding: 1.5rem 1rem;
   text-transform: uppercase;
 }
 .ViewSettings {
@@ -693,20 +695,20 @@ body {
   text-indent: -9999px;
 }
 .BankInfo {
+  font-size: 0.9rem;
   margin-top: -2rem;
   position: relative;
   padding: 0 1rem;
-  font-size: 0.9rem;
 }
 .BankAccountName {
   opacity: 0.5;
 }
 .BankSearch {
   background: url("_img/_icon/dark/search.svg") no-repeat;
-  position: relative;
   height: 24px;
   width: 24px;
-  top: -2rem;
+  position: relative;
+  top: -1.5rem;
   left: 94%;
   text-indent: -9999px;
 }
@@ -717,16 +719,16 @@ body {
   border-top: 1px solid #ccc;
 }
 .TransactionCategory {
-  padding: 1rem 0 0 1rem;
   opacity: 0.5;
+  padding: 1rem 0 0 1rem;
 }
 .TransactionVendor {
   padding: 0 0 0 1rem;
 }
 .TransactionAmount {
-  position: relative;
-  text-align: right;
-  padding: 0 1rem;
-  top: -1.1rem;
   font-family: 'Inconsolata', courier;
+  position: relative;
+  top: -1.1rem;
+  padding: 0 1rem;
+  text-align: right;
 }
