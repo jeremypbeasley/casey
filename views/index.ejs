@@ -29,12 +29,31 @@
   <div class="TransactionContainer">
     <% for(var i=0; i<50; i++) {%>
       <div class="TransactionSingle">
-        <div class="TransactionCategory"><%= tranzactions[i].category %></div>
-        <div class="TransactionVendor"><%= tranzactions[i].name %></div>
-        <div class="TransactionAmount"><%= tranzactions[i].amount %></div>
+        <div class="TransactionCategory">
+        <% if(tranzactions[i].category) { %>
+              <div><%= tranzactions[i].category[0] %></div>
+          <% } else { %>
+              <div class="Unlabeled">Unlabeled</div>
+          <% } %>
+        </div>
+        <div class="TransactionVendor">
+          <% if(tranzactions[i].name.length > 30) { %>
+              <div> 
+                <% var string = tranzactions[i].name;
+                var trimmedString = string.substring(0, 30) + "...";%>
+                <%= trimmedString %> 
+              </div>
+          <% } else { %>
+              <div><%= tranzactions[i].name %></div>
+          <% } %>
+        </div>
+        <div class="TransactionAmount">
+          <%= tranzactions[i].amount.toFixed(2) %>
+        </div>
       </div>
     <% } %>
   </div>
 </div>
 </body>
 </html>
+

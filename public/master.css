@@ -439,14 +439,14 @@ textarea {
 
 @import url('https://fonts.googleapis.com/css?family=Inconsolata')
 
-html {
+html,
+body {
   font-size: 15px;
   font-family: CircularStdBook, Arial, sans-serif;
   color: #2d2926;
 }
-body,
 p {
-  font-size: 1rem;
+  font-size: 0.86rem;
 }
 .Unselectable {
   -moz-user-select: none;
@@ -550,6 +550,7 @@ body {
   margin: 0;
   background: #f2f2f2;
   padding-bottom: 10vw;
+  font-family: CircularStdBook, Arial, sans-serif;
 }
 .hidden {
   display: none;
@@ -684,13 +685,6 @@ body {
   letter-spacing: 0.08rem;
   opacity: 0.5;
   padding: 1.5rem 1rem;
-}
-.ViewLabel {
-  font-size: 0.7rem;
-  font-family: CircularStdBold;
-  letter-spacing: 0.08rem;
-  padding: 1.5rem 1rem;
-  opacity: 0.5;
   text-transform: uppercase;
 }
 .ViewSettings {
@@ -703,7 +697,7 @@ body {
   text-indent: -9999px;
 }
 .BankInfo {
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   margin-top: -2rem;
   position: relative;
   padding: 0 1rem;
@@ -720,15 +714,23 @@ body {
   left: 94%;
   text-indent: -9999px;
 }
-#ViewOutput {
+.TransactionContainer {
   font-size: 0.9rem;
+  margin-bottom: 4rem;
 }
 .TransactionSingle {
   border-top: 1px solid #ccc;
+  font-size: 0.86rem;
 }
 .TransactionCategory {
-  opacity: 0.5;
   padding: 1rem 0 0 1rem;
+}
+.TransactionCategory div {
+  opacity: 0.5;
+}
+.TransactionCategory .Unlabeled {
+  opacity: 1;
+  color: #f00;
 }
 .TransactionVendor {
   padding: 0 0 0 1rem;
