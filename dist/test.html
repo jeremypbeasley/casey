@@ -1,0 +1,22 @@
+<!-- A hidden input named public_token will be appended to this form
+once the user has completed the Link flow. Link will then submit the
+form, sending the public_token to your server. -->
+<form id="theformid" method="POST" action="auth.html"></form>
+
+<!-- To use Link with longtail institutions on Connect, set the
+data-longtail attribute to 'true'. See the Parameter Reference for
+additional documentation. -->
+<script
+  src="https://cdn.plaid.com/link/stable/link-initialize.js"
+  data-client-name="Midas"
+  data-form-id="theformid"
+  data-key="61fca877932b0332361fd81aa43439"
+  data-product="auth"
+  data-env="tartan">
+</script>
+
+<style>
+	#plaid-link-button {
+	  border: 10px solid pink;
+	}
+</style>
