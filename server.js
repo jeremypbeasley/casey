@@ -21,18 +21,34 @@ app.use(express.static('public'))
 // DISPLAYING ITEMS
 
 app.get('/', (req, res) => {
-  db.collection('tranzactions').find().toArray((err, result) => {
+    res.render('pages/index.ejs')
+})
+
+app.get('/transactions', (req, res) => {
+  db.collection('transactions').find().toArray((err, result) => {
     if (err) return console.log(err)
-    res.render('index.ejs', {tranzactions: result})
+    res.render('pages/transactions.ejs', {transactions: result})
   })
+})
+
+app.get('/budget', (req, res) => {
+    res.render('pages/budget.ejs')
+})
+
+app.get('/bills', (req, res) => {
+    res.render('pages/bills.ejs')
+})
+
+app.get('/account', (req, res) => {
+    res.render('pages/account.ejs')
 })
 
 // ADDING NEW ITEMS
 
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.post('/tranzactions', (req, res) => {
-  db.collection('tranzactions').save(req.body, (err, result) => {
+app.post('/transactions', (req, res) => {
+  db.collection('transactions').save(req.body, (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
     res.redirect('/')
@@ -41,8 +57,8 @@ app.post('/tranzactions', (req, res) => {
 
 // UPDATING ITEMS
 
-app.put('/tranzactions', (req, res) => {
-  db.collection('tranzactions')
+app.put('/transactions', (req, res) => {
+  db.collection('transactions')
   .findOneAndUpdate({category: 'France'}, {
     $set: {
       amount: req.body.amount,
@@ -56,15 +72,15 @@ app.put('/tranzactions', (req, res) => {
   })
 })
 
-app.delete('/tranzactions', (req, res) => {
-  db.collection('tranzactions').findOneAndDelete({category: req.body.category}, (err, result) => {
+app.delete('/transactions', (req, res) => {
+  db.collection('transactions').findOneAndDelete({category: req.body.category}, (err, result) => {
     if (err) return res.send(500, err)
     res.send('A darth vadar quote got deleted')
   })
 })
 
-// app.put('/tranzactions', (req, res) => {
-//   db.collection('tranzactions')
+// app.put('/transactions', (req, res) => {
+//   db.collection('transactions')
 //   .findOneAndUpdate({category: 'France'}, {
 //     $set: {
 //       amount: req.body.amount,

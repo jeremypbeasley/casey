@@ -548,7 +548,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   margin: 0;
-  background: #f2f2f2;
+  background: #fff;
   padding-bottom: 10vw;
   font-family: CircularStdBook, Arial, sans-serif;
 }
@@ -623,14 +623,18 @@ body {
 }
 .AppNav {
   background-color: #fff;
-  border-top: 1px solid #ccc;
-  font-size: 0.9rem;
+  border-top: 1px solid #f2f2f2;
+  font-size: 0.8rem;
   height: 10%;
   width: 100%;
   position: fixed;
   top: 90vh;
   margin: 0;
   padding: 0;
+  z-index: 99999;
+}
+.AppNav a {
+  color: #000;
 }
 ul {
   margin: 0;
@@ -671,13 +675,6 @@ ul {
 .ActiveTab {
   font-weight: bold;
   opacity: 1;
-}
-.AppNav {
-  position: fixed;
-  z-index: 99999;
-}
-body {
-  background: #fff;
 }
 .ViewLabel {
   font-size: 0.7rem;

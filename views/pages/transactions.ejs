@@ -1,0 +1,37 @@
+ <% include ../partials/header %>
+  <div class="ViewHeader">
+    <div class="ViewLabel">Spend</div>
+    <div class="ViewSettings">Settings</div>
+    <div class="BankInfo">
+      <div class="BankName">Wells Fargo</div>
+      <div class="BankAccountName">Premium Checking Account (#XXXX)</div>
+      <div class="BankSearch">Search</div>
+    </div>
+  <div class="TransactionContainer">
+    <% for(var i=0; i<100; i++) {%>
+      <div class="TransactionSingle">
+        <div class="TransactionCategory">
+        <% if(transactions[i].category) { %>
+              <div><%= transactions[i].category[0] %></div>
+          <% } else { %>
+              <div class="Unlabeled">Unlabeled</div>
+          <% } %>
+        </div>
+        <div class="TransactionVendor">
+          <% if(transactions[i].name.length > 30) { %>
+              <div> 
+                <% var string = transactions[i].name;
+                var trimmedString = string.substring(0, 30) + "...";%>
+                <%= trimmedString %> 
+              </div>
+          <% } else { %>
+              <div><%= transactions[i].name %></div>
+          <% } %>
+        </div>
+        <div class="TransactionAmount">
+          <%= transactions[i].amount.toFixed(2) %>
+        </div>
+      </div>
+    <% } %>
+  </div>
+<% include ../partials/footer %>
