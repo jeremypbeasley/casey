@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata')
+
+.AppNav {
+	position: fixed;
+	z-index: 99999;
+}
 
 body {
 	background: white;
@@ -7,6 +12,15 @@ body {
 .ContentContainer {
 
 }
+
+// BANKING INFO
+
+.ViewLabel {
+	font-size: .7rem;
+	font-weight: bold;
+	letter-spacing: .08rem;
+	opacity: .5;
+	padding: 1.5rem 1rem;
 
 .ViewHeader {
 
@@ -22,33 +36,59 @@ body {
 }
 
 .ViewSettings {
-	background: url('_img/_icon/dark/gear.svg')
+	background: url('_img/_icon/dark/gear.svg') no-repeat;
 	height: 24px;
 	width: 24px;
 	position: relative;
 	top: -2.7rem;
 	left: 90%;
 	text-indent: -9999px;
-	
 }
 
 .BankInfo {
-
-}
-
-.BankName {
-	
+	font-size: .9rem;
+	margin-top: -2rem;
+	position: relative;
+	padding: 0 1rem;
 }
 	
 .BankAccountName {
-	
+	opacity: .5;
 }
 	
 .BankSearch {
-	
+	background: url('_img/_icon/dark/search.svg') no-repeat; 
+	height: 24px;
+	width: 24px;
+	position: relative;
+	top: -1.5rem;
+	left: 94%;
+	text-indent: -9999px;
 }
+
+// TRANSACTION INFO
 	
 #ViewOutput {
-
+	font-size: .9rem;
 }
 
+.TransactionSingle {
+	border-top: 1px solid #ccc;
+}
+
+.TransactionCategory {
+	opacity: .5;
+	padding: 1rem 0 0 1rem;
+}
+
+.TransactionVendor {
+	padding: 0 0 0 1rem;
+}
+
+.TransactionAmount {
+	font-family: 'Inconsolata', courier;
+	position: relative;
+	top: -1.1rem
+	padding: 0 1rem;
+	text-align: right;
+}
