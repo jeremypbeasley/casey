@@ -8,7 +8,7 @@ module.exports = function(grunt) {
       },
       compile: {
         files: {
-          'dist/master.css': 'src/_styles/master.styl',
+          'public/master.css': 'src/_styles/master.styl',
         }
       }
     },
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
           'bower_components/jquery/dist/jquery.js',
           'src/_scripts/main.js'
         ], 
-        dest: 'dist/master.js',
+        dest: 'public/master.js',
       }
     },
     watch: {
