@@ -1,17 +1,31 @@
 # Midas
 
-It's an app that keep you from being all like...
+<!-- ![](https://media0.giphy.com/media/Vfbloa5iOdix2/200.gif)-->
 
-![](https://media0.giphy.com/media/Vfbloa5iOdix2/200.gif)
+Budgeting is a pain. I'm here to make things a little less miserable. Together, we can do anything.
 
-We're using `Bower` to manage libraries, `npm` to manage `Grunt`, and `Grunt` to compile `Stylus` and concatonate Javascript.
+### Getting started.
 
-How can I use this?
+Midas is an app built on `node.js` and `express`, powered by `mongodb`. Node runs a server locally and remotely that allows us to do appy things like query data, edit it, submit it, sync it, etc. Mongo is our database solution. Until full integration with a fintech API is complete, we'll be serving mock data from `mongodb`.
 
-1. Clone the repo.
-2. Run `npm install` and `bower install`.
-3. Run `grunt`.
-4. Have fun. 
+We're also using `bower` to manage some front end libraries and `grunt` to compile `stylus` and concatonate Javascript.
+
+To run this app locally, you'll need to install `node`, `npm`, and `mongodb` on your machine.
+
+Once that's done, repeat these steps each time you begin working.
+
+1. Open the command line.
+2. Navigate to code/midas (or whever it's at) using `cd`.
+3. Pull `master`
+5. Run `npm install` (this will intall a bunch of dependencies or check if you need any new ones)
+6. Run `bower install` (this will install some other dependencies)
+7. Finally, run `npm run dev` which will spin up your local `node` server at http://localhost:3000/. 
+
+Once it's running, much like `grunt`, you'll see a runtime log of what's going on.
+
+Open a new tab in the command line to being working then run `grunt`.
+
+To run `git` tasks, open another tab in the command line. Expect to have three tabs at all times.
 
 ### Branching
 
