@@ -739,3 +739,42 @@ ul {
   padding: 0 1rem;
   text-align: right;
 }
+.LogInContainer {
+  height: 100vh;
+  width: 100vw;
+}
+.LogInGreetingContainer {
+  background: #808080;
+  height: 20%;
+  position: relative;
+  top: 25vh;
+  text-align: center;
+  padding: 1rem;
+}
+.LogInGreeting {
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  line-height: 125%;
+  font-weight: bold;
+  color: #fff;
+}
+.SignUpCTA {
+  position: relative;
+  top: 32vh;
+  text-align: center;
+  height: 7%;
+  width: 60%;
+  border-bottom: 1px solid #ccc;
+  margin: 0 auto;
+}
+.LogInCTA {
+  background: #008000;
+  position: relative;
+  top: 41vh;
+  text-align: center;
+}
+.LogInAboutCasey {
+  text-align: center;
+}
