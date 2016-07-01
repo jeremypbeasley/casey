@@ -43,6 +43,14 @@ app.get('/account', (req, res) => {
     res.render('pages/account.ejs')
 })
 
+app.get('/login', (req, res) => {
+    res.render('pages/login.ejs')
+})
+
+app.get('/login_form', (req, res) => {
+    res.render('pages/login_form.ejs')
+})
+
 // ADDING NEW ITEMS
 
 app.use(bodyParser.urlencoded({extended: true}))
