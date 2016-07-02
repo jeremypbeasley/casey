@@ -739,12 +739,15 @@ ul {
   padding: 0 1rem;
   text-align: right;
 }
+body {
+  padding: 0;
+}
 .LogInContainer {
+  background: #f00;
   height: 100vh;
   width: 100vw;
 }
 .LogInGreetingContainer {
-  background: #808080;
   height: 20%;
   position: relative;
   top: 25vh;
@@ -762,19 +765,41 @@ ul {
 }
 .SignUpCTA {
   position: relative;
-  top: 32vh;
+  top: 35%;
   text-align: center;
   height: 7%;
   width: 60%;
-  border-bottom: 1px solid #ccc;
+  font-size: 0.7rem;
+  opacity: 0.5;
+  margin: 0 auto;
+}
+.LogInDividerContainer {
+  height: 1px;
+  opacity: 0.1;
+  position: relative;
+  top: 34%;
+}
+.LogInDivider {
+  height: 1px;
+  width: 60%;
+  border-bottom: 1px solid;
   margin: 0 auto;
 }
 .LogInCTA {
-  background: #008000;
   position: relative;
-  top: 41vh;
+  top: 38%;
   text-align: center;
+  height: 7%;
+  font-size: 0.7rem;
+  opacity: 0.5;
 }
 .LogInAboutCasey {
   text-align: center;
+  position: relative;
+  top: 58%;
+  font-size: 0.9rem;
+}
+.LogInAboutCasey a {
+  opacity: 0.5;
+  color: #fff;
 }
