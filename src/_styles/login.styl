@@ -94,6 +94,11 @@ input[type=text], input[type=password] {
 	font-size: .9rem;
 }
 
+input[type=text] {
+	border: 0;
+	border-bottom: 1px solid #ccc;
+}
+
 input:focus {
 	outline: none;
 }
@@ -104,17 +109,32 @@ input:focus {
 
 .PasswordHelp {
 	position: relative;
-	top: 40%;
+	top: 42%;
 	height: 2rem;
 	text-align: center;
 }
 
 .PasswordHelp a {
-	font-size: .9rem;
 	color: white;
+	font-size: .85rem;
 }
 
-
+.ButtonShowPassword {
+	background: url("_img/_icon/dark/eye.svg") no-repeat;
+  background-position: center center
+  background-size: 100%;
+  border: none;
+  display: block;
+  height: 1.3rem;
+  width: 1.3rem;
+  text-indent: -99999px;
+  opacity: .1;
+  position: absolute;
+  top: 64%;
+  right: 10%;
+  z-index: 9;
+  cursor: pointer;
+}
 
 
 
