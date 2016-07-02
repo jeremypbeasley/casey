@@ -803,3 +803,34 @@ body {
   color: #fff;
   opacity: 0.5;
 }
+.LogInFormContainer {
+  position: relative;
+  top: 40%;
+}
+.LogInForm {
+  margin: 0 auto;
+  position: relative;
+  width: 90%;
+}
+input[type=text],
+input[type=password] {
+  height: 2.8rem;
+  width: 100%;
+  font-size: 0.9rem;
+}
+input:focus {
+  outline: none;
+}
+.InputPadding {
+  padding: 1rem;
+}
+.PasswordHelp {
+  position: relative;
+  top: 40%;
+  height: 2rem;
+  text-align: center;
+}
+.PasswordHelp a {
+  font-size: 0.9rem;
+  color: #fff;
+}
