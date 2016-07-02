@@ -808,6 +808,7 @@ body {
   top: 40%;
 }
 .LogInForm {
+  background: #808080;
   margin: 0 auto;
   position: relative;
   width: 90%;
