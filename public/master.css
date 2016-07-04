@@ -763,12 +763,24 @@ body {
   margin: 0;
   text-align: center;
 }
+.ButtonLogIn,
+.ButtonSignUp {
+  display: block;
+}
+.ButtonLogin {
+  position: relative;
+  top: 35%;
+}
+.ButtonSignUp {
+  position: relative;
+  top: 38%;
+}
 .SignUpCTA {
   font-size: 0.7rem;
   height: 7%;
   width: 60%;
   position: relative;
-  top: 35%;
+  top: 33%;
   text-align: center;
   margin: 0 auto;
   opacity: 0.5;
@@ -776,7 +788,7 @@ body {
 .LogInDividerContainer {
   height: 1px;
   position: relative;
-  top: 34%;
+  top: 35%;
   opacity: 0.1;
 }
 .LogInDivider {
@@ -788,8 +800,9 @@ body {
 .LogInCTA {
   font-size: 0.7rem;
   height: 7%;
+  margin: 0 auto;
   position: relative;
-  top: 38%;
+  top: 37%;
   opacity: 0.5;
   text-align: center;
 }
@@ -844,6 +857,7 @@ input:focus {
   background-position: center center;
   background-size: 100%;
   border: none;
+  cursor: pointer;
   display: block;
   height: 1.3rem;
   width: 1.3rem;
@@ -853,5 +867,4 @@ input:focus {
   top: 64%;
   right: 10%;
   z-index: 9;
-  cursor: pointer;
 }
