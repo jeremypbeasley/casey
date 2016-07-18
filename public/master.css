@@ -622,16 +622,16 @@ body {
   background-image: url("_img/_icon/dark/star.svg");
 }
 .AppNav {
-  background-color: #fff;
+  background: #fff;
   border-top: 1px solid #f2f2f2;
   font-size: 0.8rem;
-  height: 10%;
-  width: 100%;
+  height: 8vw;
+  width: 100vw;
   position: fixed;
-  top: 90vh;
+  top: 92vh;
   margin: 0;
-  padding: 0;
-  z-index: 99999;
+  padding: o;
+  z-index: 999999;
 }
 .AppNav a {
   color: #000;
@@ -641,12 +641,12 @@ ul {
   padding: 0;
 }
 .AppNav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   list-style: none;
-  padding: 0.5rem;
-}
-.AppNav ul li {
-  display: inline-block;
-  padding: 1.2rem;
+  padding: 1rem;
 }
 .AppNavHome {
   opacity: 0.5;
@@ -662,14 +662,11 @@ ul {
 }
 .AppNavAccount {
   background: url("_img/_icon/dark/account.svg") no-repeat;
-  background-size: 45%;
+  background-size: 90%;
   background-position: center center;
   height: 16px;
   width: 16px;
-  opacity: 0.52;
-  position: relative;
-  top: 0.5rem;
-  left: 1rem;
+  opacity: 0.5;
   text-indent: -9999px;
 }
 .ActiveTab {
@@ -867,4 +864,99 @@ input:focus {
   top: 64%;
   right: 10%;
   z-index: 9;
+}
+.YourStatus {
+  background: #00f48e;
+  width: 100%;
+  height: 45vh;
+}
+.YourStatusTitle {
+  color: #000;
+  opacity: 0.5;
+  position: relative;
+  top: 11vh;
+  left: 1rem;
+  font-size: 0.7rem;
+}
+.YourStatusAnnouncement {
+  position: relative;
+  top: 16vh;
+  left: 1rem;
+}
+.YourStatusAnnouncement p {
+  color: #fff;
+  font-size: 8vw;
+  line-height: 130%;
+  font-weight: bold;
+  padding-right: 2rem;
+}
+.ContentContainer {
+  height: 92vh;
+}
+.ClearFloat {
+  clear: both;
+}
+.YourMoney {
+  width: 100%;
+}
+.YourMoneySection {
+  height: 18vh;
+  width: 46%;
+  float: left;
+}
+.YourMoneyTitleColA {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  position: relative;
+  top: 4vh;
+}
+.YourMoneyTitleColB {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  position: relative;
+  top: 4vh;
+  left: 7vw;
+}
+.YourMoneyAmtColA {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #00f48e;
+  position: relative;
+  top: 6vh;
+}
+.YourMoneyAmtColB {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #00f48e;
+  position: relative;
+  top: 6vh;
+  left: 6vw;
+}
+.YourMoneyAmtLeft {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #00f48e;
+  position: relative;
+  left: 52vw;
+}
+.Earned {
+  border-right: solid 1px #f2f2f2;
+  border-bottom: solid 1px #f2f2f2;
+  margin-left: 1rem;
+}
+.WillEarn {
+  border-bottom: solid 1px #f2f2f2;
+}
+.Spent {
+  border-bottom: solid 1px #f2f2f2;
+  border-right: solid 1px #f2f2f2;
+  margin-left: 1rem;
+}
+.RemainingBudget {
+  border-bottom: solid 1px #f2f2f2;
+}
+.WhatsLeft {
+  width: 100%;
+  height: 13vh;
+  margin-left: 1rem;
 }
