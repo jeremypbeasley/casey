@@ -868,27 +868,27 @@ input:focus {
 .YourStatus {
   background: #00f48e;
   width: 100%;
-  height: 80%;
+  height: 86%;
 }
 .YourStatusTitle {
   color: #000;
   opacity: 0.5;
   position: relative;
-  top: 5rem;
+  top: 11vh;
   left: 1rem;
   font-size: 0.7rem;
 }
 .YourStatusAnnouncement {
   position: relative;
-  top: 6.5rem;
+  top: 16vh;
   left: 1rem;
 }
 .YourStatusAnnouncement p {
   color: #fff;
-  font-size: 1.7rem;
-  line-height: 140%;
+  font-size: 8vw;
+  line-height: 130%;
   font-weight: bold;
-  padding-right: 1rem;
+  padding-right: 2rem;
 }
 .ContentContainer {
   height: 90vw;
