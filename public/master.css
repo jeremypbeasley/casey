@@ -868,7 +868,7 @@ input:focus {
 .YourStatus {
   background: #00f48e;
   width: 100%;
-  height: 86%;
+  height: 45vh;
 }
 .YourStatusTitle {
   color: #000;
@@ -891,7 +891,7 @@ input:focus {
   padding-right: 2rem;
 }
 .ContentContainer {
-  height: 90vw;
+  height: 92vh;
 }
 .ClearFloat {
   clear: both;
@@ -901,7 +901,7 @@ input:focus {
   width: 100%;
 }
 .YourMoneySection {
-  height: 35%;
+  height: 18vh;
   width: 50%;
   float: left;
 }
@@ -920,5 +920,5 @@ input:focus {
 .WhatsLeft {
   background: #808080;
   width: 100%;
-  height: 20%;
+  height: 13vh;
 }
