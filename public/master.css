@@ -917,6 +917,28 @@ input:focus {
   top: 4vh;
   left: 7vw;
 }
+.YourMoneyAmtColA {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #00f48e;
+  position: relative;
+  top: 6vh;
+}
+.YourMoneyAmtColB {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #00f48e;
+  position: relative;
+  top: 6vh;
+  left: 6vw;
+}
+.YourMoneyAmtLeft {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #00f48e;
+  position: relative;
+  left: 52vw;
+}
 .Earned {
   border-right: solid 1px #f2f2f2;
   border-bottom: solid 1px #f2f2f2;
