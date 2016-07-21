@@ -45,3 +45,12 @@ If you come back to the work later for any reason, do not reuse that same branch
 nameofworkitem_yourinitials_issuenumber
 
 Example: `globalnav_jb_5`
+
+### Viewing on a device
+
+1. Open System Preferences > Network. 
+2. Select the active (green) network. Copy your IP address (000.00.000.00)
+3. Make sure your computer and device are on the same network.
+4. Navigate to http://000.00.000:3000/ on your device
+
+

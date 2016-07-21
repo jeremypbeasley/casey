@@ -16,7 +16,6 @@
        url('_fonts/CircularStdBold.ttf') format('truetype'),
        url('_fonts/CircularStdBold.svg#CircularStdBold') format('svg');
 }
-
 @font-face {
     font-family: 'CircularStdBlack';
     src: url('_fonts/CircularStdBlack.eot');
