@@ -13,6 +13,10 @@ MongoClient.connect('mongodb://admin:almighty@ds035348.mlab.com:35348/caseyappv1
   })
 })
 
+// app.listen(3000, '192.168.1.4', function() {
+//     console.log("listening on 3000")
+//   });
+
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())

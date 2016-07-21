@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata");
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 
 /**
@@ -438,6 +439,16 @@ textarea {
 }
 
 @import url('https://fonts.googleapis.com/css?family=Inconsolata')
+
+@font-face {
+    font-family: 'CircularStdBlack';
+    src: url('_fonts/CircularStdBlack.eot');
+    src: url('_fonts/CircularStdBlack.eot') format('embedded-opentype'),
+         url('_fonts/CircularStdBlack.woff2') format('woff2'),
+         url('_fonts/CircularStdBlack.woff') format('woff'),
+         url('_fonts/CircularStdBlack.ttf') format('truetype'),
+         url('_fonts/CircularStdBlack.svg#CircularStdBlack') format('svg');
+}
 
 html,
 body {

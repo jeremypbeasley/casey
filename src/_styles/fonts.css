@@ -17,8 +17,6 @@
        url('_fonts/CircularStdBold.svg#CircularStdBold') format('svg');
 }
 
-@import url('https://fonts.googleapis.com/css?family=Inconsolata')
-
 @font-face {
     font-family: 'CircularStdBlack';
     src: url('_fonts/CircularStdBlack.eot');
