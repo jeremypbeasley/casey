@@ -1,24 +1,8 @@
 // STATUS SECTION
 
 .YourStatus {
-	background: #00f48e;
-	width: 100%;
+	//background-image: linear-gradient(138deg, #ff6100, #ff000d 47%, #500072);	
 	overflow: auto;
-}
-
-.YourStatusTitle {
-	color: black;
-	font-size: .7rem;
-}
-
-.YourStatusAnnouncement {
-}
-
-.YourStatusAnnouncement p {
-	color: white;
-	font-size: 8vw;
-	line-height: 130%;
-	font-family: typeface-body-black;
 }
 
 // YOUR MONEY OVERVIEW
@@ -26,36 +10,31 @@
 .ClearFloat{
 	clear: both;
 }
-
 .YourMoneySection {
 	width: 50%;
 	float: left;
 }
-
-.YourMoneyAmt {
-	font-size: 1.7rem;
-	font-weight: bold;
-	color: #00f48e;
-}
-
 .Earned {
 	border-right: solid 1px #f2f2f2;
 	border-bottom: solid 1px #f2f2f2;
 }
-
 .WillEarn {
 	border-bottom: solid 1px #f2f2f2;
 }
-
 .Spent {
 	border-bottom: solid 1px #f2f2f2;
 	border-right: solid 1px #f2f2f2;
 }
-
 .RemainingBudget {
 	border-bottom: solid 1px #f2f2f2;
 }
-
 .WhatsLeft {
 	width: 100%;
+}
+.WhatsLeft .Display2 {
+	position: relative;
+	top: -28px;
+	left: 50%;
+	// avoids the horizontal scroll in mobile safari
+	display: inline;
 }

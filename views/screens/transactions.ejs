@@ -1,6 +1,4 @@
- <% include ../partials/header %>
-  <% include ../partials/nav %>
-<div class="ContentContainer">
+<div class="ContentContainer Transactions">
   <div class="ViewHeader">
     <div class="ViewLabel">Spend</div>
     <div class="ViewSettings">Settings</div>
@@ -21,11 +19,11 @@
         </div>
         <div class="TransactionVendor">
           <% if(transactions[i].name.length > 30) { %>
-              <div> 
-                <% var string = transactions[i].name;
-                var trimmedString = string.substring(0, 30) + "...";%>
-                <%= trimmedString %> 
-              </div>
+            <div> 
+              <% var string = transactions[i].name;
+              var trimmedString = string.substring(0, 30) + "...";%>
+              <%= trimmedString %> 
+            </div>
           <% } else { %>
               <div><%= transactions[i].name %></div>
           <% } %>
@@ -37,4 +35,3 @@
     <% } %>
   </div>
 </div>
-<% include ../partials/footer %>
