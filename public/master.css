@@ -438,8 +438,6 @@ textarea {
        url('_fonts/CircularStdBold.svg#CircularStdBold') format('svg');
 }
 
-@import url('https://fonts.googleapis.com/css?family=Inconsolata')
-
 @font-face {
     font-family: 'CircularStdBlack';
     src: url('_fonts/CircularStdBlack.eot');
@@ -639,9 +637,9 @@ body {
   height: 8vh;
   width: 100vw;
   position: fixed;
-  top: 92vh;
+  bottom: 0;
   margin: 0;
-  padding: o;
+  padding: 0;
   z-index: 999999;
 }
 .AppNav a {
