@@ -5,28 +5,26 @@ const MongoClient = require('mongodb').MongoClient
 
 var db
 
+// MONGO
+
 MongoClient.connect('mongodb://admin:almighty@ds035348.mlab.com:35348/caseyappv1', (err, database) => {
   if (err) return console.log(err)
   db = database
-  app.listen(process.env.PORT || 3000, () => {
+  app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
     console.log('View the build at http://localhost:3000/')
   })
 })
-
-// app.listen(3000, '192.168.1.4', function() {
-//     console.log("listening on 3000")
-//   });
 
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(express.static('public'))
 
-// DISPLAYING ITEMS
-
 app.get('/', (req, res) => {
     res.render('pages/index.ejs')
 })
+
+// ROUTING
 
 app.get('/transactions', (req, res) => {
   db.collection('transactions').find().toArray((err, result) => {
