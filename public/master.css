@@ -486,20 +486,16 @@ h6 {
   font-weight: normal;
   line-height: 100%;
   position: relative;
-  z-index: 9999;
   cursor: default;
   font-size: 1rem;
 }
-h1 i,
-h2 i,
-h3 i,
-h4 i,
-h5 i,
-h6 i {
-  font-style: normal;
-}
 .Display2 {
-  font-size: 3rem;
+  font-size: 2rem;
+  font-family: CircularStdBlack, ArialBold, sans-serif;
+  color: #fff;
+}
+.Display2.Black {
+  color: #000;
 }
 .Display1 {
   font-size: 2.26rem;
@@ -515,14 +511,11 @@ h6 i {
   font-size: 1rem;
   font-weight: bold;
 }
-.Caption2 {
-  font-size: 0.73rem;
-  font-family: CircularStdBold;
+.Caption {
+  font-size: 0.6rem;
+  font-family: CircularStdBold, ArialBold, sans-serif;
   letter-spacing: 0.08rem;
   text-transform: uppercase;
-}
-.Caption {
-  font-size: 0.8;
 }
 .CallToAction {
   font-size: 0.75rem;
@@ -532,15 +525,6 @@ h6 i {
 }
 .TextWhite {
   color: #fff;
-}
-.mb1 {
-  margin-bottom: 1rem;
-}
-.mb2 {
-  margin-bottom: 2rem;
-}
-.Opa50 {
-  opacity: 0.5;
 }
 .mb0 {
   margin-bottom: 4px;
@@ -773,7 +757,14 @@ body {
   background-color: #faf9f7;
 }
 .ContentContainer {
-  margin-top: 50px;
+  top: 50px;
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  min-height: 100vh;
+}
+.ContentContainer.Active {
+  z-index: 800;
 }
 .Icon {
   width: 24px;
@@ -846,8 +837,8 @@ body {
   top: 0;
   margin: 0;
   padding: 0;
-  z-index: 999999;
-  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.14), 0px 0px 4px 4px rgba(0,0,0,0.05);
+  z-index: 900;
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.04), 0px 0px 4px 4px rgba(0,0,0,0.02);
 }
 .AppNav a {
   color: #000;
@@ -862,19 +853,7 @@ ul {
   flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
-  padding: 1.1rem 1rem 1rem 1rem;
-}
-.AppNavHome {
-  opacity: 0.5;
-}
-.AppNavSpend {
-  opacity: 0.5;
-}
-.AppNavBudget {
-  opacity: 0.5;
-}
-.AppNavBills {
-  opacity: 0.5;
+  padding: 18px 24px 16px 24px;
 }
 .AppNavAccount {
   background: url("_img/_icon/dark/account.svg") no-repeat;
@@ -882,7 +861,6 @@ ul {
   background-position: center center;
   height: 16px;
   width: 16px;
-  opacity: 0.5;
   text-indent: -9999px;
 }
 .ActiveTab {
@@ -1082,19 +1060,7 @@ input:focus {
   z-index: 9;
 }
 .YourStatus {
-  background: #00f48e;
-  width: 100%;
   overflow: auto;
-}
-.YourStatusTitle {
-  color: #000;
-  font-size: 0.7rem;
-}
-.YourStatusAnnouncement p {
-  color: #fff;
-  font-size: 8vw;
-  line-height: 130%;
-  font-family: CircularStdBlack, ArialBold, sans-serif;
 }
 .ClearFloat {
   clear: both;
@@ -1102,11 +1068,6 @@ input:focus {
 .YourMoneySection {
   width: 50%;
   float: left;
-}
-.YourMoneyAmt {
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: #00f48e;
 }
 .Earned {
   border-right: solid 1px #f2f2f2;
@@ -1124,6 +1085,12 @@ input:focus {
 }
 .WhatsLeft {
   width: 100%;
+}
+.WhatsLeft .Display2 {
+  position: relative;
+  top: -28px;
+  left: 50%;
+  display: inline;
 }
 .BudgetHeader {
   height: 16vh;
