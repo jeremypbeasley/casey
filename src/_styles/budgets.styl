@@ -1,11 +1,14 @@
+// BUDGET HEADER
+
 .BudgetHeader {
-	height: 16vh;
+	height: 18vh;
+  border-bototm: 1px solid #f2f2f2; 
 }
 
 .BudgetHeaderProgBarContainer {
 	background: #f2f2f2;
   height: 6px;
- 	margin: 0 5vw;
+ 	margin: 0 1rem;
  	position: relative;
  	top: -7vh;
 }
@@ -17,7 +20,17 @@
   width: 45%; 
 }
 
-.BudgetSort {
+.ProgBarMarker {
+  height: 24px;
+  width: 1px;
+  background: black;
+  position: absolute;
+  left: 20%;
+  margin-top: -15px;
+  opacity: .5;
+}
+
+.ButtonBudgetSort {
 	background: url("_img/_icon/dark/sort.svg") no-repeat;
 	height: 24px;
 	width: 24px;
@@ -27,7 +40,7 @@
 	text-indent: -9999px;
 }
 
-.BudgetSettings {
+.ButtonBudgetSettings {
   background: url("_img/_icon/dark/gear.svg") no-repeat;
   height: 24px;
   width: 24px;
@@ -37,16 +50,33 @@
   text-indent: -9999px;
  }
  
- .BudgetContainer {
- 	background: red;
- 	border-bottom: 1px solid #f2f2f2;
- 	padding-right: 1rem;
- }
+.BudgetDaysLeft {
+  position: relative;
+  top: -1.5rem;
+  left: 1 rem;
+  opacity: .5;
+}
 
- .ProgBarContainer {
-  background: #f2f2f2;
-  height: 6px;
-  width: 90%;
+.BudgetTotal {
+  font-size: .9rem;
+  position: relative;
+  top: -2.5rem;
+  left: 21rem;
+}
+
+
+// BUDGETS
+
+.BudgetContainer {
+	background: red;
+	border-bottom: 1px solid #f2f2f2;
+	padding-right: 1rem;
+}
+
+.ProgBarContainer {
+background: #f2f2f2;
+height: 6px;
+width: 90%;
 }
 
 .Progress {

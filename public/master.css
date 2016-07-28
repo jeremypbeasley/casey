@@ -1093,12 +1093,13 @@ input:focus {
   display: inline;
 }
 .BudgetHeader {
-  height: 16vh;
+  height: 18vh;
+  border-bototm: 1px solid #f2f2f2;
 }
 .BudgetHeaderProgBarContainer {
   background: #f2f2f2;
   height: 6px;
-  margin: 0 5vw;
+  margin: 0 1rem;
   position: relative;
   top: -7vh;
 }
@@ -1108,7 +1109,16 @@ input:focus {
   height: 100%;
   width: 45%;
 }
-.BudgetSort {
+.ProgBarMarker {
+  height: 24px;
+  width: 1px;
+  background: #000;
+  position: absolute;
+  left: 20%;
+  margin-top: -15px;
+  opacity: 0.5;
+}
+.ButtonBudgetSort {
   background: url("_img/_icon/dark/sort.svg") no-repeat;
   height: 24px;
   width: 24px;
@@ -1117,7 +1127,7 @@ input:focus {
   left: 81vw;
   text-indent: -9999px;
 }
-.BudgetSettings {
+.ButtonBudgetSettings {
   background: url("_img/_icon/dark/gear.svg") no-repeat;
   height: 24px;
   width: 24px;
@@ -1125,6 +1135,18 @@ input:focus {
   top: -9.5vh;
   left: 89vw;
   text-indent: -9999px;
+}
+.BudgetDaysLeft {
+  position: relative;
+  top: -1.5rem;
+  left: 1rem;
+  opacity: 0.5;
+}
+.BudgetTotal {
+  font-size: 0.9rem;
+  position: relative;
+  top: -2.5rem;
+  left: 21rem;
 }
 .BudgetContainer {
   background: #f00;
