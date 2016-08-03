@@ -1145,16 +1145,31 @@ input:focus {
   font-size: 0.9rem;
   margin: -2rem 1rem 0 0;
   float: right;
+  font-weight: bold;
 }
 .BudgetContainer {
-  background: #f00;
+  position: relative;
   border-bottom: 1px solid #f2f2f2;
-  padding-right: 1rem;
+  height: 4.5rem;
+  top: 11rem;
+}
+.BudgetTitle {
+  font-size: 1.3rem;
+  float: left;
+  margin: 1rem 0 0 1rem;
+}
+.BudgetProgressAmt {
+  float: right;
+  margin: 1rem 1rem 0 0;
+  font-weight: bold;
 }
 .ProgBarContainer {
   background: #f2f2f2;
   height: 6px;
-  width: 90%;
+  width: 92%;
+  margin: 0 auto;
+  position: relative;
+  top: 3rem;
 }
 .Progress {
   background-image: linear-gradient(to right, #a7cc74, #00f48e);
