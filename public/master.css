@@ -1178,11 +1178,15 @@ input:focus {
   width: 45%;
 }
 .DangerZone {
+  display: block;
   background-image: linear-gradient(to right, #ea1515, #d48c8a);
+  height: 100%;
   width: 90%;
 }
-.OverBudget {
+.OverBudgetBar {
+  display: block;
   background-image: linear-gradient(to right, #ea1515, #d48c8a);
+  height: 100%;
   width: 100%;
 }
 .OverBudgetContainer {
