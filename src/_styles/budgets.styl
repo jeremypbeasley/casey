@@ -1,11 +1,13 @@
+// BUDGET HEADER
+
 .BudgetHeader {
-	height: 16vh;
+  border-bottom: 1px solid #f2f2f2; 
 }
 
 .BudgetHeaderProgBarContainer {
 	background: #f2f2f2;
   height: 6px;
- 	margin: 0 5vw;
+ 	margin: 0 1rem;
  	position: relative;
  	top: -7vh;
 }
@@ -17,7 +19,17 @@
   width: 45%; 
 }
 
-.BudgetSort {
+.ProgBarMarker {
+  height: 24px;
+  width: 1px;
+  background: black;
+  position: absolute;
+  left: 20%;
+  margin-top: -15px;
+  opacity: .5;
+}
+
+.ButtonBudgetSort {
 	background: url("_img/_icon/dark/sort.svg") no-repeat;
 	height: 24px;
 	width: 24px;
@@ -27,7 +39,7 @@
 	text-indent: -9999px;
 }
 
-.BudgetSettings {
+.ButtonBudgetSettings {
   background: url("_img/_icon/dark/gear.svg") no-repeat;
   height: 24px;
   width: 24px;
@@ -37,16 +49,48 @@
   text-indent: -9999px;
  }
  
- .BudgetContainer {
- 	background: red;
- 	border-bottom: 1px solid #f2f2f2;
- 	padding-right: 1rem;
- }
+.BudgetDaysLeft {
+  margin: -2rem 0 0 1rem;
+  float: left;
+  opacity: .5;
+}
 
- .ProgBarContainer {
+.BudgetTotal {
+  font-size: .9rem;
+  margin: -2rem 1rem 0 0;
+  float: right;
+  font-weight: bold;
+}
+
+
+// BUDGETS
+
+.BudgetContainer {
+  position: relative;
+	border-bottom: 1px solid #f2f2f2;
+  height: 5rem; 
+  top: 11rem;
+}
+
+.BudgetTitle {
+  font-size: 1.3rem;
+  float: left;
+  margin: 1rem 0 0 1rem;
+}
+
+.BudgetProgressAmt {
+  float: right;
+  margin: 1rem 1rem 0 0;
+  font-weight: bold;
+}
+
+.ProgBarContainer {
   background: #f2f2f2;
   height: 6px;
-  width: 90%;
+  width: 92%;
+  margin: 0 auto;
+  position: relative;
+  top: 3rem;
 }
 
 .Progress {
@@ -57,12 +101,16 @@
 }
 
 .DangerZone {
+  display: block;
   background-image: linear-gradient(to right, #ea1515, #d48c8a);
+  height: 100%
   width: 90%
 }
 
-.OverBudget {
+.OverBudgetBar {
+  display: block;
   background-image: linear-gradient(to right, #ea1515, #d48c8a);
+  height: 100%;
   width: 100%;
 }
 
@@ -70,7 +118,20 @@
   background: #ffe2e6;
 }
 
-.BudgetMet {
-  background: #9fdef2;
-  width: 100%;
+.OverBudgetTitle {
+  color: red;
+}
+
+.OverBudgetProgressAmt {
+  float: right;
+  margin: 1rem 1rem 0 0;
+  font-weight: bold;
+  color: red;
+  opacity: .5;
+}
+
+// why won't this work?
+
+.OverBudgetByAmt {
+  opacity: 1;
 }
