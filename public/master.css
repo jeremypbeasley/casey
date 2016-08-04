@@ -1161,8 +1161,6 @@ input:focus {
   font-family: 'Inconsolata', courier;
   float: right;
   margin: 1rem 1rem 0 0;
-  position: relative;
-  top: 0.5rem;
   font-size: 1rem;
 }
 .ProgBarContainer {
@@ -1197,14 +1195,13 @@ input:focus {
 .OverBudgetTitle {
   color: #f00;
 }
-.OverBudgetProgressAmt {
+.OverBudgetAmt {
   float: right;
   margin: 1rem 1rem 0 0;
   font-weight: bold;
   color: #f00;
-  opacity: 0.5;
   font-size: 1rem;
 }
-.OverBudgetByAmt {
-  opacity: 1;
+.OverBudgetProgressAmt {
+  opacity: 0.5;
 }
