@@ -20,11 +20,13 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-    res.render('pages/index.ejs')
-})
-
 // ROUTING
+
+// app.get('/', (req, res) => {
+//   db.collection('transactions').find().toArray((err, result) => {
+//     res.render('pages/index.ejs');
+//   })
+// })
 
 app.get('/transactions', (req, res) => {
   db.collection('transactions').find().toArray((err, result) => {
@@ -33,25 +35,32 @@ app.get('/transactions', (req, res) => {
   })
 })
 
-app.get('/budget', (req, res) => {
-    res.render('pages/budget.ejs')
+app.get('/', (req, res) => {
+  db.collection('transactions').find().toArray((err, result) => {
+    if (err) return console.log(err)
+    res.render('pages/index.ejs', {transactions: result})
+  })
 })
 
-app.get('/bills', (req, res) => {
-    res.render('pages/bills.ejs')
-})
+// app.get('/budget', (req, res) => {
+//     res.render('pages/budget.ejs')
+// })
 
-app.get('/account', (req, res) => {
-    res.render('pages/account.ejs')
-})
+// app.get('/bills', (req, res) => {
+//     res.render('pages/bills.ejs')
+// })
 
-app.get('/login', (req, res) => {
-    res.render('pages/login.ejs')
-})
+// app.get('/account', (req, res) => {
+//     res.render('pages/account.ejs')
+// })
 
-app.get('/login_form', (req, res) => {
-    res.render('pages/login_form.ejs')
-})
+// app.get('/login', (req, res) => {
+//     res.render('pages/login.ejs')
+// })
+
+// app.get('/login_form', (req, res) => {
+//     res.render('pages/login_form.ejs')
+// })
 
 // ADDING NEW ITEMS
 
