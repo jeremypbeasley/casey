@@ -1117,7 +1117,7 @@ input:focus {
   margin-top: -15px;
   opacity: 0.5;
 }
-.ButtonBudgetSort {
+.ButtonSort {
   background: url("_img/_icon/dark/sort.svg") no-repeat;
   height: 24px;
   width: 24px;
@@ -1126,7 +1126,7 @@ input:focus {
   left: 81vw;
   text-indent: -9999px;
 }
-.ButtonBudgetSettings {
+.ButtonSettings {
   background: url("_img/_icon/dark/gear.svg") no-repeat;
   height: 24px;
   width: 24px;
@@ -1141,10 +1141,10 @@ input:focus {
   opacity: 0.5;
 }
 .BudgetTotal {
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin: -2rem 1rem 0 0;
   float: right;
-  font-weight: bold;
+  font-family: 'Inconsolata', courier;
 }
 .BudgetContainer {
   position: relative;
@@ -1152,14 +1152,16 @@ input:focus {
   height: 5rem;
 }
 .BudgetTitle {
-  font-size: 1.3rem;
   float: left;
   margin: 1rem 0 0 1rem;
+  color: #000;
+  font-size: 1.7rem;
 }
 .BudgetProgressAmt {
+  font-family: 'Inconsolata', courier;
   float: right;
   margin: 1rem 1rem 0 0;
-  font-weight: bold;
+  font-size: 1rem;
 }
 .ProgBarContainer {
   background: #f2f2f2;
@@ -1167,7 +1169,7 @@ input:focus {
   width: 92%;
   margin: 0 auto;
   position: relative;
-  top: 3rem;
+  top: 3.5rem;
 }
 .Progress {
   background-image: linear-gradient(to right, #a7cc74, #00f48e);
@@ -1193,13 +1195,13 @@ input:focus {
 .OverBudgetTitle {
   color: #f00;
 }
-.OverBudgetProgressAmt {
+.OverBudgetAmt {
   float: right;
   margin: 1rem 1rem 0 0;
   font-weight: bold;
   color: #f00;
-  opacity: 0.5;
+  font-size: 1rem;
 }
-.OverBudgetByAmt {
-  opacity: 1;
+.OverBudgetProgressAmt {
+  opacity: 0.5;
 }

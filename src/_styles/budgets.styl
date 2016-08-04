@@ -29,7 +29,7 @@
   opacity: .5;
 }
 
-.ButtonBudgetSort {
+.ButtonSort {
 	background: url("_img/_icon/dark/sort.svg") no-repeat;
 	height: 24px;
 	width: 24px;
@@ -39,7 +39,7 @@
 	text-indent: -9999px;
 }
 
-.ButtonBudgetSettings {
+.ButtonSettings {
   background: url("_img/_icon/dark/gear.svg") no-repeat;
   height: 24px;
   width: 24px;
@@ -56,10 +56,11 @@
 }
 
 .BudgetTotal {
-  font-size: .9rem;
+  font-size: 1rem;
   margin: -2rem 1rem 0 0;
   float: right;
-  font-weight: bold;
+  font-family: 'Inconsolata', courier;
+  
 }
 
 
@@ -72,15 +73,17 @@
 }
 
 .BudgetTitle {
-  font-size: 1.3rem;
   float: left;
   margin: 1rem 0 0 1rem;
+  color: black;
+  font-size: 1.7rem;
 }
 
 .BudgetProgressAmt {
+  font-family: 'Inconsolata', courier;
   float: right;
   margin: 1rem 1rem 0 0;
-  font-weight: bold;
+  font-size: 1rem;
 }
 
 .ProgBarContainer {
@@ -89,7 +92,7 @@
   width: 92%;
   margin: 0 auto;
   position: relative;
-  top: 3rem;
+  top: 3.5rem;
 }
 
 .Progress {
@@ -121,16 +124,14 @@
   color: red;
 }
 
-.OverBudgetProgressAmt {
+.OverBudgetAmt {
   float: right;
   margin: 1rem 1rem 0 0;
   font-weight: bold;
   color: red;
-  opacity: .5;
+  font-size: 1rem;
 }
 
-// why won't this work?
-
-.OverBudgetByAmt {
-  opacity: 1;
+.OverBudgetProgressAmt {
+  opacity: .5;
 }
