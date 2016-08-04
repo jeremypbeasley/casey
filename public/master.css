@@ -1093,7 +1093,6 @@ input:focus {
   display: inline;
 }
 .BudgetHeader {
-  height: 8rem;
   border-bottom: 1px solid #f2f2f2;
 }
 .BudgetHeaderProgBarContainer {
@@ -1150,7 +1149,7 @@ input:focus {
 .BudgetContainer {
   position: relative;
   border-bottom: 1px solid #f2f2f2;
-  height: 4.5rem;
+  height: 5rem;
   top: 11rem;
 }
 .BudgetTitle {
@@ -1192,7 +1191,16 @@ input:focus {
 .OverBudgetContainer {
   background: #ffe2e6;
 }
-.BudgetMet {
-  background: #9fdef2;
-  width: 100%;
+.OverBudgetTitle {
+  color: #f00;
+}
+.OverBudgetProgressAmt {
+  float: right;
+  margin: 1rem 1rem 0 0;
+  font-weight: bold;
+  color: #f00;
+  opacity: 0.5;
+}
+.OverBudgetByAmt {
+  opacity: 1;
 }
