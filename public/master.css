@@ -724,6 +724,72 @@ h6 {
 .pt10 {
   padding-top: 80px;
 }
+.pl0 {
+  padding-left: 4px;
+}
+.pl1 {
+  padding-left: 8px;
+}
+.pl2 {
+  padding-left: 16px;
+}
+.pl3 {
+  padding-left: 24px;
+}
+.pl4 {
+  padding-left: 32px;
+}
+.pl5 {
+  padding-left: 40px;
+}
+.pl6 {
+  padding-left: 48px;
+}
+.pl7 {
+  padding-left: 56px;
+}
+.pl8 {
+  padding-left: 64px;
+}
+.pl9 {
+  padding-left: 72px;
+}
+.pl10 {
+  padding-left: 80px;
+}
+.pr0 {
+  padding-right: 4px;
+}
+.pr1 {
+  padding-right: 8px;
+}
+.pr2 {
+  padding-right: 16px;
+}
+.pr3 {
+  padding-right: 24px;
+}
+.pr4 {
+  padding-right: 32px;
+}
+.pr5 {
+  padding-right: 40px;
+}
+.pr6 {
+  padding-right: 48px;
+}
+.pr7 {
+  padding-right: 56px;
+}
+.pr8 {
+  padding-right: 64px;
+}
+.pr9 {
+  padding-right: 72px;
+}
+.pr10 {
+  padding-right: 80px;
+}
 .op50 {
   opacity: 0.5;
 }
@@ -1204,4 +1270,31 @@ input:focus {
 }
 .OverBudgetProgressAmt {
   opacity: 0.5;
+}
+.BillsHeader {
+  height: 3.8rem;
+  border-bottom: 1px solid #f2f2f2;
+}
+.BillsContainer {
+  height: 4.4rem;
+  border-bottom: 1px solid #f2f2f2;
+}
+.BillTitle {
+  color: #000;
+  font-size: 1.7rem;
+}
+.BillAmt {
+  display: inline-block;
+  font-family: 'Inconsolata', courier;
+  width: 30%;
+}
+.BillDueDate {
+  display: inline-block;
+  font-size: 0.9rem;
+  position: relative;
+}
+.BillStatus {
+  display: inline-block;
+  float: right;
+  font-size: 0.9rem;
 }
