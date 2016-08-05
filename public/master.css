@@ -1312,7 +1312,7 @@ input:focus {
 .ButtonChevronRight {
   background: url("_img/_icon/dark/chevron_right.svg") no-repeat;
   background-position: center center;
-  background-size: 60%;
+  background-size: 50%;
   border: none;
   float: right;
   height: 1rem;
