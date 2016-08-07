@@ -1,8 +1,8 @@
 <div class="ContentContainer Transactions">
   <div class="ViewHeader">
-    <div class="ViewLabel op50">Spend</div>
+    <div class="ViewLabel op50 pt3 pl2 pb2">Spend</div>
     <div class="ViewSettings">Settings</div>
-    <div class="BankInfo">
+    <div class="BankInfo pl2">
       <div class="op50">Wells Fargo</div>
       <div class="BankAccountName">Premium Checking Account (#XXXX)</div>
       <div class="BankSearch">Search</div>
@@ -11,7 +11,7 @@
   <div class="TransactionContainer">
   <% for(var i=0; i<100; i++) {%>
   <div class="TransactionSingle">
-    <div class="TransactionCategory">
+    <div class="TransactionCategory pt2 pl2">
     <% if(transactions[i].category) { %>
         <div><%= transactions[i].category[0] %></div>
       <% } else { %>
