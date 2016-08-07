@@ -940,7 +940,6 @@ ul {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08rem;
-  opacity: 0.5;
   padding: 1.5rem 1rem;
   text-transform: uppercase;
 }
@@ -958,9 +957,6 @@ ul {
   margin-top: -2rem;
   position: relative;
   padding: 0 1rem;
-}
-.BankAccountName {
-  opacity: 0.5;
 }
 .BankSearch {
   background: url("_img/_icon/dark/search.svg") no-repeat;
