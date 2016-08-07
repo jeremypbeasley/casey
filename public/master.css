@@ -1140,17 +1140,9 @@ input:focus {
 }
 .Earned {
   border-right: solid 1px #f2f2f2;
-  border-bottom: solid 1px #f2f2f2;
-}
-.WillEarn {
-  border-bottom: solid 1px #f2f2f2;
 }
 .Spent {
-  border-bottom: solid 1px #f2f2f2;
   border-right: solid 1px #f2f2f2;
-}
-.RemainingBudget {
-  border-bottom: solid 1px #f2f2f2;
 }
 .WhatsLeft {
   width: 100%;
@@ -1312,7 +1304,7 @@ input:focus {
 .ButtonChevronRight {
   background: url("_img/_icon/dark/chevron_right.svg") no-repeat;
   background-position: center center;
-  background-size: 50%;
+  background-size: 40%;
   border: none;
   float: right;
   height: 1rem;
