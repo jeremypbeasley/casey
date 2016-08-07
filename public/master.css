@@ -1143,9 +1143,6 @@ input:focus {
   left: 50%;
   display: inline;
 }
-.BudgetHeader {
-  border-bottom: 1px solid #f2f2f2;
-}
 .BudgetHeaderProgBarContainer {
   background: #f2f2f2;
   height: 6px;
@@ -1166,7 +1163,6 @@ input:focus {
   position: absolute;
   left: 20%;
   margin-top: -15px;
-  opacity: 0.5;
 }
 .ButtonSort {
   background: url("_img/_icon/dark/sort.svg") no-repeat;
@@ -1189,7 +1185,6 @@ input:focus {
 .BudgetDaysLeft {
   margin: -2rem 0 0 1rem;
   float: left;
-  opacity: 0.5;
 }
 .BudgetTotal {
   font-size: 1rem;
@@ -1199,19 +1194,16 @@ input:focus {
 }
 .BudgetContainer {
   position: relative;
-  border-bottom: 1px solid #f2f2f2;
   height: 5rem;
 }
 .BudgetTitle {
   float: left;
-  margin: 1rem 0 0 1rem;
   color: #000;
   font-size: 1.7rem;
 }
 .BudgetProgressAmt {
   font-family: 'Inconsolata', courier;
   float: right;
-  margin: 1rem 1rem 0 0;
   font-size: 1rem;
 }
 .ProgBarContainer {
@@ -1248,17 +1240,12 @@ input:focus {
 }
 .OverBudgetAmt {
   float: right;
-  margin: 1rem 1rem 0 0;
   font-weight: bold;
   color: #f00;
   font-size: 1rem;
 }
-.OverBudgetProgressAmt {
-  opacity: 0.5;
-}
 .BillsHeader {
   height: 3.8rem;
-  border-bottom: 1px solid #f2f2f2;
 }
 .BillsContainer {
   height: 4.4rem;
