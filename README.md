@@ -19,7 +19,7 @@ Once that's done, repeat these steps each time you begin working.
 3. Pull `master`
 5. Run `npm install` (this will intall a bunch of dependencies or check if you need any new ones)
 6. Run `bower install` (this will install some other dependencies)
-7. Finally, run `npm run dev` which will spin up your local `node` server at http://localhost:3000/. 
+7. Finally, run `npm run dev` which will spin up your local `node` server at http://localhost:9000/. 
 
 Once it's running, much like `grunt`, you'll see a runtime log of what's going on.
 
@@ -51,6 +51,6 @@ Example: `globalnav_jb_5`
 1. Open System Preferences > Network. 
 2. Select the active (green) network. Copy your IP address (000.00.000.00)
 3. Make sure your computer and device are on the same network.
-4. Navigate to http://000.00.000:3000/ on your device
+4. Navigate to http://000.00.000:9000/ on your device
 
 
