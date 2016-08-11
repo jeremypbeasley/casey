@@ -1326,59 +1326,6 @@ input:focus {
 .ButtonChevronRight {
   background: url("_img/_icon/dark/chevron_right.svg") no-repeat;
   background-position: center center;
-  background-size: 40%;
-  border: none;
-  float: right;
-  height: 1rem;
-  width: 1rem;
-  position: relative;
-  top: 0.3rem;
-  text-indent: -9999px;
-}
-.AccountCurrentSettings {
-  font-size: 0.9rem;
-  float: right;
-  position: relative;
-  top: 0.3rem;
-}
-.BillsHeader {
-  height: 3.8rem;
-  border-bottom: 1px solid #f2f2f2;
-}
-.BillsContainer {
-  height: 4.4rem;
-  border-bottom: 1px solid #f2f2f2;
-}
-.BillTitle {
-  color: #000;
-  font-size: 1.7rem;
-}
-.BillAmt {
-  display: inline-block;
-  font-family: 'Inconsolata', courier;
-  width: 30%;
-}
-.BillDueDate {
-  display: inline-block;
-  font-size: 0.9rem;
-  position: relative;
-}
-.BillStatus {
-  display: inline-block;
-  float: right;
-  font-size: 0.9rem;
-}
-.AccountNavContainer {
-  height: 4rem;
-}
-.AccountNavTitle {
-  font-size: 1.2rem;
-  font-weight: bold;
-  float: left;
-}
-.ButtonChevronRight {
-  background: url("_img/_icon/dark/chevron_right.svg") no-repeat;
-  background-position: center center;
   background-size: 50%;
   border: none;
   float: right;
