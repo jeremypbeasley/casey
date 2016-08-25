@@ -58,8 +58,8 @@ app.get('/budget_edit', (req, res) => {
     res.render('modals/budget_edit.ejs')
 })
 
-app.get('/account_personalinfo', (req, res) => {
-    res.render('modals/account_personalinfo.ejs')
+app.get('/account_personalinfo_details', (req, res) => {
+    res.render('modals/account_personalinfo_details.ejs')
 })
 
 // app.get('/bills', (req, res) => {
