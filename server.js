@@ -42,9 +42,25 @@ app.get('/', (req, res) => {
   })
 })
 
-// app.get('/cards', (req, res) => {
-//     res.render('pages/cards.ejs')
-// })
+app.get('/transaction_detail', (req, res) => {
+    res.render('modals/transaction_detail.ejs')
+})
+
+app.get('/transaction_edit', (req, res) => {
+    res.render('modals/transaction_edit.ejs')
+})
+
+app.get('/budget_detail', (req, res) => {
+    res.render('modals/budget_detail.ejs')
+})
+
+app.get('/budget_edit', (req, res) => {
+    res.render('modals/budget_edit.ejs')
+})
+
+app.get('/account_personalinfo', (req, res) => {
+    res.render('modals/account_personalinfo.ejs')
+})
 
 // app.get('/bills', (req, res) => {
 //     res.render('pages/bills.ejs')

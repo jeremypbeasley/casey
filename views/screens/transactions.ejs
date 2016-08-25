@@ -10,7 +10,7 @@
   </div>
   <div class="TransactionContainer">
   <% for(var i=0; i<100; i++) {%>
-  <div class="TransactionSingle">
+  <div class="TransactionSingle" onclick="location.href='transaction_detail';">
     <div class="TransactionCategory pt2 pl2">
     <% if(transactions[i].category) { %>
         <div><%= transactions[i].category[0] %></div>
