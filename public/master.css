@@ -1321,8 +1321,10 @@ input:focus {
 }
 .AccountNavTitle {
   color: #000;
-  float: left;
   font-size: 1.7rem;
+}
+.AccountNavTitleFloat {
+  float: left;
 }
 .ButtonChevronRight {
   background: url("_img/_icon/dark/chevron_right.svg") no-repeat;
@@ -1341,4 +1343,14 @@ input:focus {
   float: right;
   position: relative;
   top: 0.6rem;
+}
+.ButtonClose {
+  background: url("_img/_icon/dark/close.svg") no-repeat;
+  background-size: 100%;
+  height: 24px;
+  width: 24px;
+  position: relative;
+  left: 90%;
+  text-indent: -9999px;
+  pointer: cursor;
 }
