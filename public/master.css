@@ -492,7 +492,7 @@ h6 {
 .Display2 {
   font-size: 2rem;
   font-family: CircularStdBlack, ArialBold, sans-serif;
-  color: #fff;
+  color: wjite;
 }
 .Display2.Black {
   color: #000;
@@ -1321,8 +1321,10 @@ input:focus {
 }
 .AccountNavTitle {
   color: #000;
-  float: left;
   font-size: 1.7rem;
+}
+.AccountNavTitleFloat {
+  float: left;
 }
 .ButtonChevronRight {
   background: url("_img/_icon/dark/chevron_right.svg") no-repeat;
@@ -1341,4 +1343,50 @@ input:focus {
   float: right;
   position: relative;
   top: 0.6rem;
+}
+.ButtonClose {
+  background: url("_img/_icon/dark/close.svg") no-repeat;
+  background-size: 100%;
+  height: 24px;
+  width: 24px;
+  position: relative;
+  left: 88%;
+  text-indent: -9999px;
+  pointer: cursor;
+  top: -3.4rem;
+}
+.FormPersInfo {
+  position: relative;
+  top: -3rem;
+}
+.FormLabel {
+  margin: 1.5rem 0 1rem 0;
+  position: relative;
+  top: 1rem;
+  display: block;
+}
+.FormInput {
+  display: block;
+  outline: 1px solid #000;
+  position: relative;
+  top: 1rem;
+}
+.frap {
+  height: 50px;
+  width: 140px;
+  outline: none;
+  text-align: center;
+  border-radius: 100px;
+  border: none;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.FrapSave {
+  background: #000;
+  z-index: 99;
+  color: #fff;
+}
+.FormSubmit {
+  position: fixed;
+  top: 80vh;
+  right: 5vw;
 }
