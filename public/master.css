@@ -1417,6 +1417,12 @@ input:focus {
   position: relative;
   top: 1rem;
 }
+.FormDropdown {
+  height: 2.8rem;
+  width: 100%;
+  background: url("_img/_icon/dark/arrow_drop_down.svg") no-repeat right;
+  border: none;
+}
 .frap {
   height: 50px;
   width: 140px;
