@@ -1042,6 +1042,8 @@ body {
   background: #f00;
   height: 100vh;
   width: 100vw;
+  position: relative;
+  top: -5px;
 }
 .LogInGreetingContainer {
   height: 20%;
