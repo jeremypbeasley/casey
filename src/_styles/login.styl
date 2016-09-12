@@ -4,12 +4,20 @@ body {
 
 // LOG IN PAGE
 
+
 .LogInContainer {
 	background: red;
 	height: 100vh;
 	width: 100vw;
 	position: relative;
-	top: -5px; 
+	top: -5px;
+	background-image:
+    linear-gradient(
+      160deg, 
+      #FF6100, 
+      #FF000D, 
+      #500072
+    ); 
 }
 
 .LogInGreetingContainer {
@@ -32,6 +40,10 @@ body {
 
 .ButtonLogIn, .ButtonSignUp {
 	display: block;
+	-webkit-appearance: none;
+	border: none;
+	outline: none;
+	background: transparent;
 }
 
 .ButtonLogin {
@@ -52,18 +64,18 @@ body {
 	top: 33%;
 	text-align: center;
 	margin: 0 auto;
-	opacity: .5;
+	color: white;
 }
 
 .LogInDividerContainer {
 	height: 1px;
 	position: relative;
 	top: 35%;
-	opacity: .1;
+	opacity: .5;
 }
 
 .LogInDivider {
-	border-bottom: 1px solid;
+	border-bottom: 1px solid white;
 	margin: 0 auto;
 	height: 1px;
 	width: 60%
@@ -75,8 +87,8 @@ body {
 	margin: 0 auto;
 	position: relative;
 	top: 37%;
-	opacity: .5;
 	text-align: center;
+	color: white;
 }
 
 .LogInAboutCasey {
