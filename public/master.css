@@ -492,7 +492,7 @@ h6 {
 .Display2 {
   font-size: 2rem;
   font-family: CircularStdBlack, ArialBold, sans-serif;
-  color: white;
+  color: wjite;
 }
 .Display2.Black {
   color: #000;
@@ -971,8 +971,8 @@ ul {
   padding: 18px 24px 16px 24px;
 }
 .AppNavAccount {
-  background: url("_img/_icon/dark/account.svg") no-repeat;
-  background-size: 90%;
+  background: url("_img/_icon/light/person.svg") no-repeat;
+  background-size: 100%;
   background-position: center center;
   height: 16px;
   width: 16px;
@@ -981,6 +981,9 @@ ul {
 .ActiveTab {
   font-weight: bold;
   opacity: 1;
+}
+.NavItem {
+  font-size: 0.9rem;
 }
 .ViewLabel {
   font-size: 0.7rem;
