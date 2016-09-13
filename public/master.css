@@ -1164,14 +1164,14 @@ input:focus {
   right: 10%;
   z-index: 9;
 }
-.YourStatus {
-  overflow: auto;
-}
 .ClearFloat {
   clear: both;
 }
+.YourMoneySectionTitle {
+  font-size: 0.9rem;
+}
 .YourMoneySection {
-  width: 50%;
+  width: 42%;
   float: left;
 }
 .Earned {
@@ -1183,11 +1183,28 @@ input:focus {
 .WhatsLeft {
   width: 100%;
 }
-.WhatsLeft .Display2 {
+.WhatsLeft {
   position: relative;
   top: -28px;
   left: 50%;
   display: inline;
+}
+.WhatsLeftTitle {
+  position: relative;
+  right: 50%;
+  top: 2rem;
+}
+.YourMoneySectionAmt {
+  font-size: 2rem;
+  font-family: 'CircularStdBold', sans-serif;
+}
+.ColorLine {
+  background-color: #f00;
+  background-image: linear-gradient(to right, #ff6100, #ff000d, #500072);
+  height: 5px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
 }
 .BudgetHeaderProgBarContainer {
   background: #f2f2f2;
