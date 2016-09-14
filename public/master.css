@@ -1201,7 +1201,7 @@ input:focus {
 .ColorLine {
   background-color: #f00;
   background-image: linear-gradient(to right, #ff6100, #ff000d, #500072);
-  height: 5px;
+  height: 6px;
   width: 100%;
   position: fixed;
   bottom: 0px;
