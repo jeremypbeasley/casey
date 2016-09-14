@@ -492,7 +492,7 @@ h6 {
 .Display2 {
   font-size: 2rem;
   font-family: CircularStdBlack, ArialBold, sans-serif;
-  color: white;
+  color: wjite;
 }
 .Display2.Black {
   color: #000;
@@ -1189,12 +1189,19 @@ input:focus {
   left: 50%;
   display: inline;
 }
+.BudgetHeader {
+  height: 18rem;
+}
+.BudgetViewLabel {
+  position: relative;
+  top: 2.3rem;
+}
 .BudgetHeaderProgBarContainer {
   background: #f2f2f2;
-  height: 6px;
+  height: 1.3rem;
   margin: 0 1rem;
   position: relative;
-  top: -7vh;
+  top: 0.5rem;
 }
 .BudgetHeaderProgBar {
   background-image: linear-gradient(to right, #a7cc74, #00f48e);
@@ -1203,40 +1210,34 @@ input:focus {
   width: 45%;
 }
 .ProgBarMarker {
-  height: 24px;
+  height: 2rem;
   width: 1px;
   background: #000;
   position: absolute;
   left: 20%;
-  margin-top: -15px;
-}
-.ButtonSort {
-  background: url("_img/_icon/dark/sort.svg") no-repeat;
-  height: 24px;
-  width: 24px;
-  position: relative;
-  top: -6vh;
-  left: 81vw;
-  text-indent: -9999px;
+  top: -0.3rem;
 }
 .ButtonSettings {
   background: url("_img/_icon/dark/gear.svg") no-repeat;
   height: 24px;
   width: 24px;
   position: relative;
-  top: -9.5vh;
+  top: -0.65rem;
   left: 89vw;
   text-indent: -9999px;
 }
 .BudgetDaysLeft {
-  margin: -2rem 0 0 1rem;
-  float: left;
+  text-align: center;
+  position: relative;
+  top: 5rem;
+  font-size: 0.9rem;
 }
 .BudgetTotal {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: -2rem 1rem 0 0;
   float: right;
-  font-family: 'Inconsolata', courier;
+  position: relative;
+  top: 3.5rem;
 }
 .BudgetContainer {
   position: relative;
