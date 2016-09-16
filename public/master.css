@@ -1397,7 +1397,8 @@ input:focus {
   line-height: 100%;
 }
 .FrapEdit {
-  Background: #000;
+  background-color: #f00;
+  background-image: linear-gradient(to right, #ff6100, #ff000d, #500072);
   color: #fff;
   position: fixed;
   top: 80vh;
@@ -1447,7 +1448,8 @@ input:focus {
   cursor: pointer;
 }
 .FrapSave {
-  background: #000;
+  background-color: #f00;
+  background-image: linear-gradient(to right, #ff6100, #ff000d, #500072);
   z-index: 99;
   color: #fff;
 }
