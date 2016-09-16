@@ -1199,14 +1199,6 @@ input:focus {
   left: 50%;
   display: inline;
 }
-<<<<<<< HEAD
-.BudgetHeader {
-  height: 18rem;
-}
-.BudgetViewLabel {
-  position: relative;
-  top: 2.3rem;
-=======
 .WhatsLeftTitle {
   position: relative;
   right: 50%;
@@ -1223,7 +1215,13 @@ input:focus {
   width: 100%;
   position: fixed;
   bottom: 0px;
->>>>>>> master
+}
+.BudgetHeader {
+  height: 18rem;
+}
+.BudgetViewLabel {
+  position: relative;
+  top: 2.3rem;
 }
 .BudgetHeaderProgBarContainer {
   background: #f2f2f2;
