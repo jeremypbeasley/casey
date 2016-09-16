@@ -1199,6 +1199,14 @@ input:focus {
   left: 50%;
   display: inline;
 }
+<<<<<<< HEAD
+.BudgetHeader {
+  height: 18rem;
+}
+.BudgetViewLabel {
+  position: relative;
+  top: 2.3rem;
+=======
 .WhatsLeftTitle {
   position: relative;
   right: 50%;
@@ -1215,55 +1223,50 @@ input:focus {
   width: 100%;
   position: fixed;
   bottom: 0px;
+>>>>>>> master
 }
 .BudgetHeaderProgBarContainer {
   background: #f2f2f2;
-  height: 6px;
+  height: 1.3rem;
   margin: 0 1rem;
   position: relative;
-  top: -7vh;
+  top: 0.5rem;
 }
 .BudgetHeaderProgBar {
-  background-image: linear-gradient(to right, #a7cc74, #00f48e);
+  background-image: linear-gradient(to right, #00f48e, #a7cc74);
   display: block;
   height: 100%;
   width: 45%;
 }
 .ProgBarMarker {
-  height: 24px;
+  height: 2rem;
   width: 1px;
   background: #000;
   position: absolute;
   left: 20%;
-  margin-top: -15px;
-}
-.ButtonSort {
-  background: url("_img/_icon/dark/sort.svg") no-repeat;
-  height: 24px;
-  width: 24px;
-  position: relative;
-  top: -6vh;
-  left: 81vw;
-  text-indent: -9999px;
+  top: -0.3rem;
 }
 .ButtonSettings {
   background: url("_img/_icon/dark/gear.svg") no-repeat;
   height: 24px;
   width: 24px;
   position: relative;
-  top: -9.5vh;
+  top: -0.65rem;
   left: 89vw;
   text-indent: -9999px;
 }
 .BudgetDaysLeft {
-  margin: -2rem 0 0 1rem;
-  float: left;
+  text-align: center;
+  position: relative;
+  top: 5rem;
+  font-size: 0.9rem;
 }
 .BudgetTotal {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: -2rem 1rem 0 0;
   float: right;
-  font-family: 'Inconsolata', courier;
+  position: relative;
+  top: 3.5rem;
 }
 .BudgetContainer {
   position: relative;
@@ -1272,50 +1275,47 @@ input:focus {
 .BudgetTitle {
   float: left;
   color: #000;
-  font-size: 1.7rem;
+  font-size: 0.9rem;
 }
 .BudgetProgressAmt {
-  font-family: 'Inconsolata', courier;
   float: right;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .ProgBarContainer {
   background: #f2f2f2;
-  height: 6px;
+  height: 5px;
   width: 92%;
   margin: 0 auto;
   position: relative;
-  top: 3.5rem;
+  top: 3.3rem;
 }
 .Progress {
-  background-image: linear-gradient(to right, #a7cc74, #00f48e);
+  background-image: linear-gradient(to right, #00f48e, #a7cc74);
   display: block;
   height: 100%;
   width: 45%;
 }
 .DangerZone {
   display: block;
-  background-image: linear-gradient(to right, #ea1515, #d48c8a);
+  background-image: linear-gradient(to right, #fad961, #f76b1c);
   height: 100%;
   width: 90%;
 }
+.OverBudgetBarContainer {
+  width: 100%;
+  height: 5px;
+  position: relative;
+  top: 3.3rem;
+  padding: 0 0 0 1rem;
+}
 .OverBudgetBar {
   display: block;
-  background-image: linear-gradient(to right, #ea1515, #d48c8a);
+  background-image: linear-gradient(to right, #9f041b, #f5515f);
   height: 100%;
   width: 100%;
 }
 .OverBudgetContainer {
   background: #ffe2e6;
-}
-.OverBudgetTitle {
-  color: #f00;
-}
-.OverBudgetAmt {
-  float: right;
-  font-weight: bold;
-  color: #f00;
-  font-size: 1rem;
 }
 .BillsHeader {
   height: 3.8rem;
