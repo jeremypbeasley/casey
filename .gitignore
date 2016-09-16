@@ -2,5 +2,5 @@
 *.DS_Store
 node_modules
 bower_components
-dist/master.css
-dist/master.js
+public/master.css
+public/master.js
