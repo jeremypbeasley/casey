@@ -492,7 +492,7 @@ h6 {
 .Display2 {
   font-size: 2rem;
   font-family: CircularStdBlack, ArialBold, sans-serif;
-  color: wjite;
+  color: #fff;
 }
 .Display2.Black {
   color: #000;
@@ -971,8 +971,8 @@ ul {
   padding: 18px 24px 16px 24px;
 }
 .AppNavAccount {
-  background: url("_img/_icon/dark/account.svg") no-repeat;
-  background-size: 90%;
+  background: url("_img/_icon/light/person.svg") no-repeat;
+  background-size: 100%;
   background-position: center center;
   height: 16px;
   width: 16px;
@@ -981,6 +981,9 @@ ul {
 .ActiveTab {
   font-weight: bold;
   opacity: 1;
+}
+.NavItem {
+  font-size: 0.9rem;
 }
 .ViewLabel {
   font-size: 0.7rem;
@@ -1042,6 +1045,9 @@ body {
   background: #f00;
   height: 100vh;
   width: 100vw;
+  position: relative;
+  top: -5px;
+  background-image: linear-gradient(160deg, #ff6100, #ff000d, #500072);
 }
 .LogInGreetingContainer {
   height: 20%;
@@ -1052,8 +1058,8 @@ body {
 }
 .LogInGreeting {
   color: #fff;
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-size: 2.7rem;
+  font-family: 'CircularStdBlack', san-serif;
   line-height: 125%;
   padding: 0;
   margin: 0;
@@ -1062,6 +1068,10 @@ body {
 .ButtonLogIn,
 .ButtonSignUp {
   display: block;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
 }
 .ButtonLogin {
   position: relative;
@@ -1079,16 +1089,16 @@ body {
   top: 33%;
   text-align: center;
   margin: 0 auto;
-  opacity: 0.5;
+  color: #fff;
 }
 .LogInDividerContainer {
   height: 1px;
   position: relative;
   top: 35%;
-  opacity: 0.1;
+  opacity: 0.5;
 }
 .LogInDivider {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #fff;
   margin: 0 auto;
   height: 1px;
   width: 60%;
@@ -1099,8 +1109,8 @@ body {
   margin: 0 auto;
   position: relative;
   top: 37%;
-  opacity: 0.5;
   text-align: center;
+  color: #fff;
 }
 .LogInAboutCasey {
   font-size: 0.9rem;
@@ -1164,14 +1174,14 @@ input:focus {
   right: 10%;
   z-index: 9;
 }
-.YourStatus {
-  overflow: auto;
-}
 .ClearFloat {
   clear: both;
 }
+.YourMoneySectionTitle {
+  font-size: 0.9rem;
+}
 .YourMoneySection {
-  width: 50%;
+  width: 42%;
   float: left;
 }
 .Earned {
@@ -1183,18 +1193,37 @@ input:focus {
 .WhatsLeft {
   width: 100%;
 }
-.WhatsLeft .Display2 {
+.WhatsLeft {
   position: relative;
   top: -28px;
   left: 50%;
   display: inline;
 }
+<<<<<<< HEAD
 .BudgetHeader {
   height: 18rem;
 }
 .BudgetViewLabel {
   position: relative;
   top: 2.3rem;
+=======
+.WhatsLeftTitle {
+  position: relative;
+  right: 50%;
+  top: 2rem;
+}
+.YourMoneySectionAmt {
+  font-size: 2rem;
+  font-family: 'CircularStdBold', sans-serif;
+}
+.ColorLine {
+  background-color: #f00;
+  background-image: linear-gradient(to right, #ff6100, #ff000d, #500072);
+  height: 6px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+>>>>>>> master
 }
 .BudgetHeaderProgBarContainer {
   background: #f2f2f2;
