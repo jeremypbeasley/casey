@@ -1,16 +1,11 @@
-// STATUS SECTION
-.YourStatus {
-	//background-image: linear-gradient(138deg, #ff6100, #ff000d 47%, #500072);	
-	overflow: auto;
-}
-
-// YOUR MONEY OVERVIEW
-
 .ClearFloat{
 	clear: both;
 }
+.YourMoneySectionTitle {
+	font-size: .9rem
+}
 .YourMoneySection {
-	width: 50%;
+	width: 42%;
 	float: left;
 }
 .Earned {
@@ -22,11 +17,34 @@
 .WhatsLeft {
 	width: 100%;
 }
-.WhatsLeft .Display2 {
+.WhatsLeft {
 	position: relative;
 	top: -28px;
 	left: 50%;
 	// avoids the horizontal scroll in mobile safari
 	display: inline;
+}
+.WhatsLeftTitle {
+	position: relative;
+	right: 50%;
+	top: 2rem;
+}
+.YourMoneySectionAmt {
+	font-size: 2rem;
+	font-family: 'CircularStdBold', sans-serif;
+}
+.ColorLine {
+	background-color: red;
+  background-image:
+    linear-gradient(
+      to right, 
+      #FF6100, 
+      #FF000D, 
+      #500072
+    );
+  height: 6px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
 }
 
