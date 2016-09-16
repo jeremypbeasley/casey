@@ -989,7 +989,6 @@ ul {
   position: relative;
   top: 2.3rem;
   color: #000;
-  background: #f00;
   max-width: 95%;
 }
 .ViewSettings {
@@ -1331,6 +1330,9 @@ input:focus {
   text-indent: -9999px;
   pointer: cursor;
   top: 1rem;
+}
+.EditBudgetsContainer {
+  font-size: 0.9rem;
 }
 .BillsHeader {
   height: 3.8rem;
