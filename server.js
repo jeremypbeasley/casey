@@ -62,6 +62,10 @@ app.get('/account_personalinfo_details', (req, res) => {
     res.render('modals/account_personalinfo_details.ejs')
 })
 
+app.get('/account_personalinfo_edit', (req, res) => {
+  res.render('modals/account_personalinfo_edit.ejs')
+}) 
+
 app.get('/login', (req, res) => {
     res.render('pages/login.ejs')
 })

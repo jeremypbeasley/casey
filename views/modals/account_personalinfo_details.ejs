@@ -3,45 +3,28 @@
 <div class="AccountNavTitle Display2 mt3 ml3">Personal Information</div>
 <div class="ButtonClose mt3">Close</div>
 
-<form class="FormPersInfo mr3 ml3">
-	<div>
-		<label for="firstname" class="CallToAction op50 FormLabel">First Name</label>
-		<input type="text" name="firstname" class="FormInput pl2">
-	</div>
-	<div>
-		<label for="lastname" class="CallToAction op50 FormLabel">Last</label>
-		<input type="text" name="lastname" class="FormInput">
-	</div>
-	<div>
-		<label for="email" class="CallToAction op50 FormLabel">Email</label>
-		<input type="text" name="email" class="FormInput">
-	</div>
-	<div>
-		<label for="phone" class="CallToAction op50 FormLabel">Phone</label>
-		<input type="text" name="phone" class="FormInput">
-	</div>
-	<div>
-		<label for="AddressLine1" class="CallToAction op50 FormLabel">Address (Line 1)</label>
-		<input type="text" name="AddressLine1" class="FormInput">
-	</div>
-	<div>
-		<label for="AddressLine2" class="CallToAction op50 FormLabel">Address (Line 2)</label>
-		<input type="text" name="AddressLine2" class="FormInput">
-	</div>
-	<div>
-		<label for="city" class="CallToAction op50 FormLabel">City</label>
-		<input type="text" name="city" class="FormInput">
-	</div>
-	<div>
-		<label for="zip" class="CallToAction op50 FormLabel">Zip</label>
-		<input type="text" name="zip" class="FormInput">
-	</div>
-	<div class="FormSubmit">
-		<input type="submit" value="Save" class="frap FrapSave">
-	</div>
-</form>
-
-
-
-
+<div class="ml3 PersInfo PersInfoFirstName">
+	<p class="CallToAction op50">First Name</p>
+	<p class="">Jeremy</p>
+</div>
+<div class="ml3 PersInfo PersInfoLastName">
+	<p class="CallToAction op50">Last Name</p>
+	<p class="">Beasley</p>
+</div>
+<div class="ml3 PersInfo PersInfoEmail">
+	<p class="CallToAction op50">Email</p>
+	<p class="">jeremy@bsley.com</p>
+</div>
+<div class="ml3 PersInfo PersInfoPhone">
+	<p class="CallToAction op50">Phone</p>
+	<p class="">(206) 390-90231</p>
+</div>
+<div class="ml3 PersInfo PersInfoAddress">
+	<p class="CallToAction op50">Address</p>
+	<p class="">892 25th Ave S</p>
+	<p class="">Apt 12</p>
+	<p class="">Seattle, WA</p>
+	<p class="">98122</p>
+</div>
+<button class="frap FrapEdit"  onclick="location.href='account_personalinfo_edit';">Edit</button>
 <% include ../partials/footer %>
