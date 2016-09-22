@@ -1216,7 +1216,7 @@ input:focus {
   position: fixed;
   bottom: 0px;
 }
-.BudgetsViewHeader {
+.BudgetDetailViewHeader {
   height: 18rem;
 }
 .BudgetHeaderProgBarContainer {
@@ -1227,7 +1227,7 @@ input:focus {
   top: 0.5rem;
 }
 .BudgetHeaderProgBar {
-  background-image: linear-gradient(to right, #00f48e, #a7cc74);
+  background-image: linear-gradient(to right, #a7cc74, #00f48e);
   display: block;
   height: 100%;
   width: 45%;
@@ -1333,6 +1333,18 @@ input:focus {
 }
 .EditBudgetsContainer {
   font-size: 0.9rem;
+}
+.BtnBackToBudgets {
+  display: flex;
+}
+.BtnBackToBudgets div {
+  padding: 2px 0 0 10px;
+}
+.FontSize13 {
+  font-size: 0.9rem;
+}
+.BudgetDetailSpent {
+  margin-top: 5.5rem;
 }
 .BillsHeader {
   height: 3.8rem;

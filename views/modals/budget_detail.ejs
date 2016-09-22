@@ -1,5 +1,21 @@
 <% include ../partials/header %>
-
-<!-- STUFF GOES HERE -->
+<div class="BudgetDetailViewHeader bbg">
+<button class="BtnBackToBudgets op50 mt2">
+	<img src="_img/_icon/dark/chevron_left.svg" class="BtnBacktoBudhgets">
+	<div>Budgets</div>
+</button>
+<div class="pb3">
+	<div class="ViewLabel Display2 pt3 pl2 pb2">Groceries</div>
+  <div class="ButtonSettings" onclick="location.href='budget_edit';">Settings</div>
+  <div class="BudgetHeaderProgBarContainer">
+  		<span class="BudgetHeaderProgBar"></span>
+  </div>
+  <div class="BudgetTotal">&#36;267 of &#36;900</div>
+  <div class="BudgetDetailSpent FontSize13 ml2 op50">Spent in Budget</div>
+</div>
+<div class="TransactionSingle">
+	<div class="TransactionVendor">Quality Food Centers</div>
+	<div class="TransactionAmount">&#36;213.00</div>
+</div>
 
 <% include ../partials/footer %>
