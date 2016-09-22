@@ -1212,7 +1212,7 @@ input:focus {
   bottom: 0px;
 }
 .BudgetDetailViewHeader {
-  height: 18rem;
+  height: 17rem;
 }
 .BudgetHeaderProgBarContainer {
   background: #f2f2f2;
@@ -1332,6 +1332,9 @@ input:focus {
 .EditBudgetsContainer {
   font-size: 0.9rem;
 }
+.BudgetEditViewHeader {
+  height: 17rem;
+}
 .BtnBackToBudgets {
   display: flex;
 }
@@ -1342,7 +1345,8 @@ input:focus {
   font-size: 0.9rem;
 }
 .BudgetDetailSpent {
-  margin-top: 5.5rem;
+  margin-top: 4.2rem;
+  padding-bottom: 1rem;
 }
 .BillsHeader {
   height: 3.8rem;
