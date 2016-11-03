@@ -1211,7 +1211,7 @@ input:focus {
   position: fixed;
   bottom: 0px;
 }
-.BudgetDetailViewHeader {
+.ViewHeader {
   height: 17rem;
 }
 .BudgetHeaderProgBarContainer {
