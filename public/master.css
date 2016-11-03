@@ -991,28 +991,24 @@ ul {
   color: #000;
   max-width: 95%;
 }
-.ViewSettings {
-  background: url("_img/_icon/dark/gear.svg") no-repeat;
-  height: 24px;
-  width: 24px;
-  position: relative;
-  top: -2.7rem;
-  left: 90%;
-  text-indent: -9999px;
-}
 .BankInfo {
   font-size: 0.86rem;
-  margin-top: -2rem;
+  margin-top: 2rem;
   position: relative;
 }
-.BankSearch {
+.ButtonSearch {
   background: url("_img/_icon/dark/search.svg") no-repeat;
   height: 24px;
   width: 24px;
   position: relative;
-  top: -1.5rem;
-  left: 90%;
+  top: -2.5rem;
+  left: 78%;
   text-indent: -9999px;
+}
+.BankInfoAmt {
+  position: relative;
+  top: -1rem;
+  left: 80%;
 }
 .TransactionContainer {
   font-size: 0.9rem;
@@ -1347,9 +1343,6 @@ input:focus {
 .BudgetDetailSpent {
   margin-top: 4.2rem;
   padding-bottom: 1rem;
-}
-.BillsHeader {
-  height: 3.8rem;
 }
 .BillsContainer {
   height: 4.4rem;
