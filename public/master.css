@@ -1344,17 +1344,27 @@ input:focus {
   margin-top: 4.2rem;
   padding-bottom: 1rem;
 }
+.BillsViewHeader {
+  height: 9rem;
+}
+.ButtonSettingsBills {
+  background: url("_img/_icon/dark/gear.svg") no-repeat;
+  height: 24px;
+  width: 24px;
+  position: relative;
+  top: -0.7rem;
+  left: 90%;
+  text-indent: -9999px;
+}
 .BillsContainer {
   height: 4.4rem;
   border-bottom: 1px solid #f2f2f2;
 }
 .BillTitle {
-  color: #000;
-  font-size: 1.7rem;
+  font-size: 0.9rem;
 }
 .BillAmt {
   display: inline-block;
-  font-family: 'Inconsolata', courier;
   width: 30%;
 }
 .BillDueDate {
@@ -1366,6 +1376,10 @@ input:focus {
   display: inline-block;
   float: right;
   font-size: 0.9rem;
+}
+.NotPaid {
+  position: relative;
+  top: 0.2rem;
 }
 .AccountNavContainer {
   height: 4rem;
