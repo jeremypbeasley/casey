@@ -1018,8 +1018,7 @@ ul {
   font-size: 0.9rem;
 }
 .TransactionSingle {
-  border-top: 1px solid #ccc;
-  font-size: 0.86rem;
+  height: 4rem;
 }
 .TransactionCategory div {
   opacity: 0.5;
@@ -1028,11 +1027,7 @@ ul {
   opacity: 1;
   color: #f00;
 }
-.TransactionVendor {
-  padding: 0 0 0 1rem;
-}
 .TransactionAmount {
-  font-family: 'Inconsolata', courier;
   position: relative;
   top: -1.1rem;
   padding: 0 1rem;
@@ -1216,8 +1211,8 @@ input:focus {
   position: fixed;
   bottom: 0px;
 }
-.BudgetsViewHeader {
-  height: 18rem;
+.BudgetDetailViewHeader {
+  height: 17rem;
 }
 .BudgetHeaderProgBarContainer {
   background: #f2f2f2;
@@ -1227,7 +1222,7 @@ input:focus {
   top: 0.5rem;
 }
 .BudgetHeaderProgBar {
-  background-image: linear-gradient(to right, #00f48e, #a7cc74);
+  background-image: linear-gradient(to right, #a7cc74, #00f48e);
   display: block;
   height: 100%;
   width: 45%;
@@ -1298,6 +1293,9 @@ input:focus {
   height: 100%;
   width: 45%;
 }
+.NoMoreTrans {
+  text-align: center;
+}
 .DangerZone {
   display: block;
   background-image: linear-gradient(to right, #fad961, #f76b1c);
@@ -1333,6 +1331,22 @@ input:focus {
 }
 .EditBudgetsContainer {
   font-size: 0.9rem;
+}
+.BudgetEditViewHeader {
+  height: 17rem;
+}
+.BtnBackToBudgets {
+  display: flex;
+}
+.BtnBackToBudgets div {
+  padding: 2px 0 0 10px;
+}
+.FontSize13 {
+  font-size: 0.9rem;
+}
+.BudgetDetailSpent {
+  margin-top: 4.2rem;
+  padding-bottom: 1rem;
 }
 .BillsHeader {
   height: 3.8rem;
