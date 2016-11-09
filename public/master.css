@@ -1390,7 +1390,7 @@ input:focus {
 }
 .AccountNavTitle {
   color: #000;
-  font-size: 1.7rem;
+  font-size: 0.9rem;
 }
 .AccountNavTitleFloat {
   float: left;
