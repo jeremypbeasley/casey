@@ -1381,6 +1381,10 @@ input:focus {
   position: relative;
   top: 0.2rem;
 }
+.NotPaid.Late {
+  opacity: 1;
+  color: #f00;
+}
 .AccountNavContainer {
   height: 4rem;
 }
