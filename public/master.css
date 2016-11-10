@@ -984,7 +984,7 @@ ul {
 .NavItem {
   font-size: 0.9rem;
 }
-.ViewLabel {
+.FeatureLabel {
   position: relative;
   top: 2.3rem;
   color: #000;
@@ -1206,7 +1206,7 @@ input:focus {
   position: fixed;
   bottom: 0px;
 }
-.ViewHeader {
+.FeatureHeader {
   height: 17rem;
 }
 .BudgetHeaderProgBarContainer {
@@ -1327,7 +1327,7 @@ input:focus {
 .EditBudgetsContainer {
   font-size: 0.9rem;
 }
-.BudgetEditViewHeader {
+.BudgetEditFeatureHeader {
   height: 17rem;
 }
 .BtnBackToBudgets {
@@ -1343,7 +1343,7 @@ input:focus {
   margin-top: 4.2rem;
   padding-bottom: 1rem;
 }
-.BillsViewHeader {
+.BillsFeatureHeader {
   height: 9rem;
 }
 .ButtonSettingsBills {
@@ -1412,7 +1412,7 @@ input:focus {
   position: relative;
   top: 0.6rem;
 }
-.ViewLabel.NoNav {
+.FeatureLabel.NoNav {
   height: 14.3rem;
   top: 4.3rem;
 }
