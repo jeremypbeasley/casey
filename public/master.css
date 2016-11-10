@@ -517,12 +517,6 @@ h6 {
   letter-spacing: 0.08rem;
   text-transform: uppercase;
 }
-.CallToAction {
-  font-size: 0.75rem;
-  font-family: CircularStdBold;
-  letter-spacing: 0.08rem;
-  text-transform: uppercase;
-}
 .TextWhite {
   color: #fff;
 }
