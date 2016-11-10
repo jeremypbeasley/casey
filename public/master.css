@@ -1412,6 +1412,10 @@ input:focus {
   position: relative;
   top: 0.6rem;
 }
+.ViewLabel.NoNav {
+  height: 14.3rem;
+  top: 4.3rem;
+}
 .PersInfo {
   height: 6rem;
   width: 40%;
@@ -1448,6 +1452,7 @@ input:focus {
   position: relative;
   top: 1rem;
   display: block;
+  font-size: 0.9rem;
 }
 .FormInput {
   display: block;
