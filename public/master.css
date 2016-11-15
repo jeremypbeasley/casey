@@ -958,24 +958,8 @@ ul {
   top: -1rem;
   left: 80%;
 }
-.TransactionContainer {
-  font-size: 0.9rem;
-}
-.TransactionSingle {
-  height: 4rem;
-}
-.TransactionCategory div {
-  opacity: 0.5;
-}
-.TransactionCategory .Unlabeled {
-  opacity: 1;
-  color: #f00;
-}
-.TransactionAmount {
-  position: relative;
-  top: -1.1rem;
-  padding: 0 1rem;
-  text-align: right;
+.FontSizeSm {
+  font-size: 0.8rem;
 }
 body {
   padding: 0;
