@@ -1210,16 +1210,16 @@ input:focus {
   position: relative;
   top: 3.5rem;
 }
-.BudgetContainer {
+.ItemRow {
   position: relative;
-  height: 5rem;
+  height: 4.5rem;
 }
-.BudgetTitle {
+.ItemLeft {
   float: left;
   color: #000;
   font-size: 0.9rem;
 }
-.BudgetProgressAmt {
+.ItemRight {
   float: right;
   font-size: 0.9rem;
 }
@@ -1236,9 +1236,6 @@ input:focus {
   display: block;
   height: 100%;
   width: 45%;
-}
-.NoMoreTrans {
-  text-align: center;
 }
 .DangerZone {
   display: block;
