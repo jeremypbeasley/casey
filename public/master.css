@@ -1229,7 +1229,7 @@ input:focus {
   width: 92%;
   margin: 0 auto;
   position: relative;
-  top: 3.3rem;
+  top: 3rem;
 }
 .Progress {
   background-image: linear-gradient(to right, #00f48e, #a7cc74);
@@ -1270,16 +1270,13 @@ input:focus {
   pointer: cursor;
   top: 1rem;
 }
-.EditBudgetsContainer {
-  font-size: 0.9rem;
-}
 .BudgetEditFeatureHeader {
   height: 17rem;
 }
-.BtnBackToBudgets {
+.BtnBack {
   display: flex;
 }
-.BtnBackToBudgets div {
+.BtnBack div {
   padding: 2px 0 0 10px;
 }
 .FontSize13 {
@@ -1288,6 +1285,9 @@ input:focus {
 .BudgetDetailSpent {
   margin-top: 4.2rem;
   padding-bottom: 1rem;
+}
+.CenterText {
+  text-align: center;
 }
 .BillsFeatureHeader {
   height: 9rem;
