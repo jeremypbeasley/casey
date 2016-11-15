@@ -1289,7 +1289,7 @@ input:focus {
 .CenterText {
   text-align: center;
 }
-.BillsFeatureHeader {
+.SmallFeatureHeader {
   height: 9rem;
 }
 .ButtonSettingsBills {
@@ -1321,16 +1321,6 @@ input:focus {
   opacity: 1;
   color: #f00;
 }
-.AccountNavContainer {
-  height: 4rem;
-}
-.AccountNavTitle {
-  color: #000;
-  font-size: 0.9rem;
-}
-.AccountNavTitleFloat {
-  float: left;
-}
 .ButtonChevronRight {
   background: url("_img/_icon/dark/chevron_right.svg") no-repeat;
   background-position: center center;
@@ -1344,8 +1334,6 @@ input:focus {
   text-indent: -9999px;
 }
 .AccountCurrentSettings {
-  font-size: 0.9rem;
-  float: right;
   position: relative;
   top: 0.6rem;
 }
