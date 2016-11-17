@@ -1,5 +1,5 @@
 
-.BillsFeatureHeader {
+.SmallFeatureHeader {
 	height: 9rem;
 }
 
@@ -12,38 +12,34 @@
   left: 90%;
   text-indent: -9999px;
 }
-.BillsContainer {
-	height: 4.4rem;
-	border-bottom: 1px solid #f2f2f2; 
-}
+// .BillsContainer {
+// 	height: 4.4rem;
+// 	border-bottom: 1px solid #f2f2f2; 
+// }
 
-.BillTitle {
+.ItemLeftTop {
 	font-size: .9rem;
 }
 	
-.BillAmt {
+.ItemLeftBtm {
 	display: inline-block;
 	width: 30%;
 }
 	
-.BillDueDate {
+.ItemCenter {
 	display: inline-block;
 	font-size: .9rem;
 	position: relative;
 }
-	
-.BillStatus {
-	display: inline-block;
-	float: right;
-	font-size: .9rem;
-}
 
-.NotPaid {
+// Brings .ItemRight down .2rem when display: inline-block
+
+.InlineBlock {
 	position: relative;
 	top: .2rem;
 }
 
-.NotPaid.Late {
+.RedText {
 	opacity: 1;
 	color: red;
 }

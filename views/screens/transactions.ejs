@@ -11,26 +11,26 @@
   </div>
   <div class="TransactionContainer">
   <% for(var i=0; i<100; i++) {%>
-  <div class="TransactionSingle bbg" onclick="location.href='transaction_detail';">
-    <div class="TransactionCategory pt2 pl2">
+  <div class="ItemRow bbg" onclick="location.href='transaction_detail';">
+    <div class="ItemLeftTop op50 pt2 pl2">
     <% if(transactions[i].category) { %>
         <div><%= transactions[i].category[0] %></div>
       <% } else { %>
          <div class="Unlabeled">Unlabeled</div>
       <% } %>
     </div>
-    <div class="TransactionVendor ml2">
+    <div class="ItemLeftBtm FontSizeSm ml2">
       <% if(transactions[i].name.length > 30) { %>
         <div> 
         <% var string = transactions[i].name;
-        var trimmedString = string.substring(0, 30) + "...";%>
+        var trimmedString = string.substring(0, 10) + "...";%>
         <%= trimmedString %> 
         </div>
       <% } else { %>
         <div><%= transactions[i].name %></div>
       <% } %>
     </div>
-    <div class="TransactionAmount">
+    <div class="ItemRight mr2">
       <%= transactions[i].amount.toFixed(2) %>
     </div>
   </div>
