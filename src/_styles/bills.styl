@@ -17,29 +17,63 @@
 // 	border-bottom: 1px solid #f2f2f2; 
 // }
 
-.ItemLeftTop {
-	font-size: .9rem;
+.LedgerSet {
+  margin: 0 auto;
+  background: white;
+  max-width: 375px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 100px;
 }
+.LedgerItem {
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+}
+.LedgerRow {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  max-width: 375px;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-between;
+  // background: tomato;
+}
+.LedgerCell {
+  // background: pink;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+.LedgerRow:nth-child(1) {
+  margin-bottom: 10px;
+}
+
+
+// .ItemLeftTop {
+// 	font-size: .9rem;
+// }
 	
-.ItemLeftBtm {
-	display: inline-block;
-	width: 30%;
-}
+// .ItemLeftBtm {
+// 	display: inline-block;
+// 	width: 30%;
+// }
 	
-.ItemCenter {
-	display: inline-block;
-	font-size: .9rem;
-	position: relative;
-}
+// .ItemCenter {
+// 	display: inline-block;
+// 	font-size: .9rem;
+// 	position: relative;
+// }
 
 // Brings .ItemRight down .2rem when display: inline-block
 
-.InlineBlock {
-	position: relative;
-	top: .2rem;
-}
+// .InlineBlock {
+// 	position: relative;
+// 	top: .2rem;
+// }
 
-.RedText {
-	opacity: 1;
-	color: red;
-}
+// .RedText {
+// 	opacity: 1;
+// 	color: red;
+// }
