@@ -1285,25 +1285,34 @@ input:focus {
   left: 90%;
   text-indent: -9999px;
 }
-.ItemLeftTop {
-  font-size: 0.9rem;
+.LedgerSet {
+  margin: 0 auto;
+  background: #fff;
+  max-width: 375px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 100px;
 }
-.ItemLeftBtm {
-  display: inline-block;
-  width: 30%;
+.LedgerItem {
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
 }
-.ItemCenter {
-  display: inline-block;
-  font-size: 0.9rem;
-  position: relative;
+.LedgerRow {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  max-width: 375px;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-between;
 }
-.InlineBlock {
-  position: relative;
-  top: 0.2rem;
+.LedgerCell {
+  font-size: 15px;
+  text-align: center;
 }
-.RedText {
-  opacity: 1;
-  color: #f00;
+.LedgerRow:nth-child(1) {
+  margin-bottom: 10px;
 }
 .ButtonChevronRight {
   background: url("_img/_icon/dark/chevron_right.svg") no-repeat;
