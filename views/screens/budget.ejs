@@ -1,83 +1,123 @@
 <div class="ContentContainer Budget">
 	<div class="FeatureHeader bbg">
-		  <div class="FeatureLabel pt3 pl2 pb2 Display2 Black">Budgets</div>
+		<div class="FeatureLabel pt3 pl2 pb2 Display2 Black">Budgets</div>
     <div class="ButtonSettings" onclick="location.href='budget_edit';">Settings</div>
   	<div class="BudgetHeaderProgBarContainer">
   		<span class="BudgetHeaderProgBar"></span>
-      <div class="ProgBarMarker Op50"></div>
+      <div class="ProgBarMarker op50"></div>
   	</div>
     <div class="BudgetTotal">&#36;267 of &#36;900</div>
     <div class="BudgetDaysLeft op50">10 days down, 20 to go.</div>
   </div>
-    <div class="ItemRow bbg" onclick="location.href='budget_detail';">
-    <h2 class="ItemLeft mt2 ml2">Coffee</h2>
-    <p class="CTA ItemRight mt2 mr2">&#36;40 of &#36;150</p> 
-    <div class="ProgBarContainer">
-      <span class="Progress"></span>
-    </div>
-  </div>
-  <div class="ItemRow bbg" onclick="location.href='budget_detail';">
-    <h2 class="ItemLeft mt2 ml2">Groceries</h2>
-    <p class="CTA ItemRight mt2 mr2">&#36;850 of &#36;900</p>
-    <div class="ProgBarContainer">
-      <span class="DangerZone"></span>
-    </div>
-  </div>
-  <div class="ItemRow bbg" onclick="location.href='budget_detail';">
-    <h2 class="ItemLeft mt2 ml2">Movies</h2>
-    <p class="CTA ItemRight mt2 mr2">&#36;45 of &#36;45</p>
-    <div class="ProgBarContainer">
-      <span class="Progress"></span>
-    </div>
-  </div>
-  <div class="ItemRow bbg" onclick="location.href='budget_detail';">
-    <h2 class="ItemLeft mt2 ml2">Restaurants</h2>
-    <p class="CTA ItemRight mt2 mr2">&#36;0 of &#36;300</p>
-    <div class="ProgBarContainer">
-      <span></span>
-    </div>
-  </div>
-  <div class="ItemRow bbg" onclick="location.href='budget_detail';">
-    <h2 class="ItemLeft mt2 ml2 ">Games</h2>
-    <p class="CTA ItemRight mt2 mr2">&#36;180 of &#36;150</p>
-    <div class="OverBudgetBarContainer">
-      <span class="OverBudgetBar"></span>
-    </div>
-  </div>
-  <div class="ItemRow bbg" onclick="location.href='budget_detail';">
-    <h2 class="ItemLeft mt2 ml2 ">Groceries</h2>
-    <p class="CTA ItemRight mt2 mr2">&#36;850 of &#36;900</p>
-    <div class="ProgBarContainer">
-      <span class="DangerZone"></span>
-    </div>
-  </div>
-  <div class="ItemRow bbg" onclick="location.href='budget_detail';">
-    <h2 class="ItemLeft mt2 ml2 ">Movies</h2>
-    <p class="CTA ItemRight mt2 mr2">&#36;45 of &#36;45</p>
-    <div class="ProgBarContainer">
-      <span class="Progress"></span>
-    </div>
-  </div>
-  <div class="ItemRow bbg" onclick="location.href='budget_detail';">
-    <h2 class="ItemLeft mt2 ml2 ">Restaurants</h2>
-    <p class="CTA ItemRight mt2 mr2">&#36;0 of &#36;300</p>
-    <div class="ProgBarContainer">
-      <span class="Progress"></span>
-    </div>
-  </div>
-  <div class="ItemRow bbg" onclick="location.href='budget_detail';">
-    <h2 class="ItemLeft mt2 ml2">Games</h2>
-    <p class="CTA ItemRight mt2 mr2">&#36;180 of &#36;150</p>
-    <div class="OverBudgetBarContainer">
-      <span class="OverBudgetBar"></span>
-    </div>
-  </div>
-
-  <div class="ItemRow bbg" onclick="location.href='budget_detail';">
-    <h2 class="ItemLeft mt2 ml2">Coffee</h2>
-    <p class="CTA ItemRight mt2 mr2">&#36;40 of &#36;150</p>
-    <div class="ProgBarContainer">
-      <span class="Progress"></span>
-    </div>
-  </div>
+  <ul class="LedgerSet">
+    <li class="LedgerItem bbg" onclick="location.href='budget_detail';">
+      <div class="LedgerRow">
+        <div class="LedgerCell">Coffee</div>
+        <div class="LedgerCell">&#36;40 of &#36;150</div>
+      </div>
+      <div class="LedgerRow">
+        <div class="LedgerCell ProgBarContainer">
+        <span class="Progress"></span>
+        </div>
+      </div>
+    </li>
+    <li class="LedgerItem bbg" onclick="location.href='budget_detail';">
+      <div class="LedgerRow">
+        <div class="LedgerCell">Groceries</div>
+        <div class=" LedgerCell">&#36;850 of &#36;900</div>
+      </div>
+      <div class="LedgerRow">
+        <div class="LedgerCell ProgBarContainer">
+          <span class="DangerZone"></span>
+        </div>
+      </div>
+    </li>
+    <li class="LedgerItem bbg" onclick="location.href='budget_detail';">
+      <div class="LedgerRow">
+        <div class="LedgerCell">Movies</div>
+        <div class=" LedgerCell">&#36;45 of &#36;45</div>
+      </div>
+      <div class="LedgerRow">
+        <div class="LedgerCell ProgBarContainer">
+          <span class="Progress"></span>
+        </div>
+      </div>
+    </li>
+    <li class="LedgerItem bbg" onclick="location.href='budget_detail';">
+      <div class="LedgerRow">
+        <div class="LedgerCell">Restaurants</div>
+        <div class=" LedgerCell">&#36;0 of &#36;300</div>
+      </div>
+      <div class="LedgerRow">
+        <div class="LedgerCell ProgBarContainer">
+          <span></span>
+        </div>
+      </div>
+    </li>
+    <li class="LedgerItem bbg" onclick="location.href='budget_detail';">
+      <div class="LedgerRow">
+        <div class="LedgerCell">Games</div>
+        <div class=" LedgerCell">&#36;180 of &#36;150</div>
+      </div>
+      <div class="LedgerRow">
+        <div class="OverBudgetBarContainer">
+          <span class="OverBudgetBar"></span>
+        </div>
+      </div>
+    </li>
+    <li class="LedgerItem bbg" onclick="location.href='budget_detail';">
+      <div class="LedgerRow">
+        <div class="LedgerCell">Groceries</div>
+        <div class=" LedgerCell">&#36;850 of &#36;900</div>
+      </div>
+      <div class="LedgerRow">
+       <div class="LedgerCell ProgBarContainer"></div>
+      </div>
+        <span class="DangerZone"></span>
+      </div>
+    </li>
+    <li class="LedgerItem bbg" onclick="location.href='budget_detail';">
+      <div class="LedgerRow">
+        <div class="LedgerCell">Movies</div>
+        <div class=" LedgerCell">&#36;45 of &#36;45</div>
+      </div>
+      <div class="LedgerRow">
+        <div class="LedgerCell ProgBarContainer">
+          <span class="Progress"></span>
+        </div>
+      </div>
+    </li>
+    <li class="LedgerItem bbg" onclick="location.href='budget_detail';">
+      <div class="LedgerRow">
+        <div class="LedgerCell">Restaurants</div>
+        <div class=" LedgerCell">&#36;0 of &#36;300</div>
+      </div>
+      <div class="LedgerRow">
+        <div class="LedgerCell ProgBarContainer">
+          <span class="Progress"></span>
+        </div>
+      </div>
+    </li>
+    <li class="LedgerItem bbg" onclick="location.href='budget_detail';">
+      <div class="LedgerRow">
+        <div class="LedgerCell">Games</div>
+        <div class=" LedgerCell">&#36;180 of &#36;150</div>
+      </div>
+      <div class="LedgerRow">
+        <div class="OverBudgetBarContainer">
+          <span class="OverBudgetBar"></span>
+        </div>
+      </div>
+    </li>
+    <li class="LedgerItem bbg" onclick="location.href='budget_detail';">
+      <div class="LedgerRow">
+        <div class="LedgerCell">Coffee</div>
+        <div class=" LedgerCell">&#36;40 of &#36;150</div>
+      </div>
+      <div class="LedgerRow">
+        <div class="LedgerCell ProgBarContainer">
+          <span class="Progress"></span>
+        </div>
+    </li>
+  </ul>
 </div>
