@@ -1308,11 +1308,15 @@ input:focus {
   justify-content: space-between;
 }
 .LedgerCell {
-  font-size: 15px;
+  font-size: 0.9rem;
   text-align: center;
 }
 .LedgerRow:nth-child(1) {
   margin-bottom: 10px;
+}
+.RedText {
+  opacity: 1;
+  color: #f00;
 }
 .ButtonChevronRight {
   background: url("_img/_icon/dark/chevron_right.svg") no-repeat;
