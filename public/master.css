@@ -1288,14 +1288,12 @@ input:focus {
 .LedgerSet {
   margin: 0 auto;
   background: #fff;
-  max-width: 375px;
   list-style: none;
   padding: 0;
   margin: 0;
   margin-bottom: 100px;
 }
 .LedgerItem {
-  border-bottom: 1px solid #ccc;
   padding: 15px;
 }
 .LedgerRow {
@@ -1303,7 +1301,6 @@ input:focus {
   margin: 0;
   list-style: none;
   display: flex;
-  max-width: 375px;
   -webkit-flex-flow: row wrap;
   justify-content: space-between;
 }
@@ -1313,10 +1310,18 @@ input:focus {
 }
 .LedgerRow:nth-child(1) {
   margin-bottom: 10px;
+  width: 6rem;
+}
+.LedgerRow:nth-child(2) {
+  margin-right: auto;
 }
 .RedText {
   opacity: 1;
   color: #f00;
+}
+.LedgerCellCenter {
+  position: absolute;
+  left: 30%;
 }
 .ButtonChevronRight {
   background: url("_img/_icon/dark/chevron_right.svg") no-repeat;
