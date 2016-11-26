@@ -1212,7 +1212,7 @@ input:focus {
   display: block;
   background-image: linear-gradient(to right, #9f041b, #f5515f);
   height: 100%;
-  width: 100vw;
+  width: 92vw;
 }
 .OverBudgetContainer {
   background: #ffe2e6;
