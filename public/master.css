@@ -1278,8 +1278,8 @@ input:focus {
 .LedgerCell {
   font-size: 0.9rem;
 }
-.LedgerRow:nth-child(1) {
-  margin-bottom: 10px;
+.LedgerRow .ProgBarContainer {
+  margin-top: 0.9rem;
 }
 .RedText {
   opacity: 1;
