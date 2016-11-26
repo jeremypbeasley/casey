@@ -1281,6 +1281,9 @@ input:focus {
 .LedgerRow .ProgBarContainer {
   margin-top: 0.9rem;
 }
+.LedgerRow .OverBudgetBarContainer {
+  margin-top: 0.9rem;
+}
 .RedText {
   opacity: 1;
   color: #f00;
