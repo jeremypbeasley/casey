@@ -13,15 +13,15 @@
   <% for(var i=0; i<100; i++) {%>
     <li class="LedgerItem bbg" onclick="location.href='transaction_detail';">
     <% if(transactions[i].category) { %>
-      <div><%= transactions[i].category[0] %></div>
+      <div class="LedgerCell op50"><%= transactions[i].category[0] %></div>
       <% } else { %>
-        <div class="Unlabeled">Unlabeled</div>
+        <div class="LedgerCell Unlabeled RedText">Unlabeled</div>
       <% } %>
-      </div>
       
       <div class="LedgerRow FontSizeSm">
         <div class="LedgerCell">
         <% if(transactions[i].name.length > 30) { %>
+        <!-- what's this div -->
         <div>
         <% var string = transactions[i].name;
         var trimmedString = string.substring(0, 10) + "...";%>
@@ -34,9 +34,7 @@
       <div class="LedgerCell">
         <%= transactions[i].amount.toFixed(2) %>
       </div>
-      
-    
+      <% } %>
     </li>
   </ul>
-  <% } %>
 </div>
