@@ -2,7 +2,9 @@
 .SmallFeatureHeader {
 	height: 9rem;
 }
-
+.LgFeatureHeader {
+  height: 19rem;
+}
 .ButtonSettingsBills {
 	background: url("_img/_icon/dark/gear.svg") no-repeat;
   height: 24px;
@@ -12,34 +14,41 @@
   left: 90%;
   text-indent: -9999px;
 }
-// .BillsContainer {
-// 	height: 4.4rem;
-// 	border-bottom: 1px solid #f2f2f2; 
+.LedgerSet {
+  margin: 0 auto;
+  background: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.LedgerItem {
+  padding: 1.5rem 1rem;
+}
+.LedgerRow {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-between;
+}
+.LedgerCell {
+  font-size: .9rem;
+}
+// .LedgerRow:nth-child(1) {
+//   margin-bottom: 10px;
 // }
-
-.ItemLeftTop {
-	font-size: .9rem;
+.LedgerRow .ProgBarContainer {
+  margin-top: .9rem;
 }
-	
-.ItemLeftBtm {
-	display: inline-block;
-	width: 30%;
+.LedgerRow .OverBudgetBarContainer {
+  margin-top: .9rem;
 }
-	
-.ItemCenter {
-	display: inline-block;
-	font-size: .9rem;
-	position: relative;
-}
-
-// Brings .ItemRight down .2rem when display: inline-block
-
-.InlineBlock {
-	position: relative;
-	top: .2rem;
-}
-
 .RedText {
 	opacity: 1;
 	color: red;
+}
+.LedgerCellCenter {
+  position: absolute;
+  left: 30%
 }

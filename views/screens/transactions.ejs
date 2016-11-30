@@ -9,31 +9,30 @@
       <div class="BankInfoAmt">&#36;4,212.28</div>
     </div>
   </div>
-  <div class="TransactionContainer">
+ <ul class="LedgerSet">
   <% for(var i=0; i<100; i++) {%>
-  <div class="ItemRow bbg" onclick="location.href='transaction_detail';">
-    <div class="ItemLeftTop op50 pt2 pl2">
+    <li class="LedgerItem bbg" onclick="location.href='transaction_detail';">
     <% if(transactions[i].category) { %>
-        <div><%= transactions[i].category[0] %></div>
+      <div class="LedgerCell op50"><%= transactions[i].category[0] %></div>
       <% } else { %>
-         <div class="Unlabeled">Unlabeled</div>
+        <div class="LedgerCell Unlabeled RedText">Unlabeled</div>
       <% } %>
-    </div>
-    <div class="ItemLeftBtm FontSizeSm ml2">
-      <% if(transactions[i].name.length > 30) { %>
-        <div> 
-        <% var string = transactions[i].name;
-        var trimmedString = string.substring(0, 10) + "...";%>
-        <%= trimmedString %> 
+      <div class="LedgerRow FontSizeSm">
+        <div class="LedgerCell">
+          <% if(transactions[i].name.length > 30) { %>
+          <div>
+          <% var string = transactions[i].name;
+          var trimmedString = string.substring(0, 10) + "...";%>
+          <%= trimmedString %> 
         </div>
-      <% } else { %>
+        <% } else { %>
         <div><%= transactions[i].name %></div>
+        <% } %>
+      </div>
+      <div class="LedgerCell">
+        <%= transactions[i].amount.toFixed(2) %>
+      </div>
       <% } %>
-    </div>
-    <div class="ItemRight mr2">
-      <%= transactions[i].amount.toFixed(2) %>
-    </div>
-  </div>
-  <% } %>
-</div>
+    </li>
+  </ul>
 </div>
