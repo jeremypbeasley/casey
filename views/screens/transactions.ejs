@@ -17,19 +17,17 @@
       <% } else { %>
         <div class="LedgerCell Unlabeled RedText">Unlabeled</div>
       <% } %>
-      
       <div class="LedgerRow FontSizeSm">
         <div class="LedgerCell">
-        <% if(transactions[i].name.length > 30) { %>
-        <!-- what's this div -->
-        <div>
-        <% var string = transactions[i].name;
-        var trimmedString = string.substring(0, 10) + "...";%>
-        <%= trimmedString %> 
+          <% if(transactions[i].name.length > 30) { %>
+          <div>
+          <% var string = transactions[i].name;
+          var trimmedString = string.substring(0, 10) + "...";%>
+          <%= trimmedString %> 
         </div>
-      <% } else { %>
+        <% } else { %>
         <div><%= transactions[i].name %></div>
-      <% } %>
+        <% } %>
       </div>
       <div class="LedgerCell">
         <%= transactions[i].amount.toFixed(2) %>

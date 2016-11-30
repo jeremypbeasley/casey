@@ -825,6 +825,8 @@ body {
   background: #fff;
   width: 100%;
   height: calc(100vh - 50px);
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .ContentContainer.Active {
   z-index: 800;
