@@ -1241,14 +1241,21 @@ input:focus {
   font-size: 0.9rem;
 }
 .BudgetDetailSpent {
-  margin-top: 4.2rem;
+  margin-top: 6rem;
   padding-bottom: 1rem;
 }
 .CenterText {
   text-align: center;
 }
+.BudgetDetailLedgerSet {
+  position: relative;
+  top: 0.6rem;
+}
 .SmallFeatureHeader {
   height: 9rem;
+}
+.LgFeatureHeader {
+  height: 19rem;
 }
 .ButtonSettingsBills {
   background: url("_img/_icon/dark/gear.svg") no-repeat;
