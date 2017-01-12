@@ -18,7 +18,15 @@ $(".AppNav li").click(function() {
 });
 
 
+function Transaction_DetailView(TransID) {
+ alert("Opening transaction: #" + TransID);
+}
 
+$("#TransactionList .LedgerItem").click(function() {
+  var thetransaction = $(this).data('id');
+  console.log(thetransaction);
+  Transaction_DetailView(thetransaction);
+});
 
 
 
