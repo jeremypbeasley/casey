@@ -974,19 +974,20 @@ input:focus {
   background: #fff;
   position: fixed;
   overflow: hidden;
+  overflow-y: scroll;
   left: 0;
   top: 0;
   z-index: 9999;
   transition: all 200ms ease-out;
   opacity: 0;
-  transform: scale(1.03);
+  transform: translateY(10px);
 }
 .Overlay.Active {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0px);
 }
 .OverlayClose {
-  position: absolute;
+  position: fixed;
   top: 16px;
   left: 16px;
   height: 32px;
