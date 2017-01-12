@@ -4,6 +4,8 @@ const bodyParser = require('body-parser')
 
 var db
 
+
+
 // MONGO
 
 const MongoClient = require('mongodb').MongoClient
@@ -19,6 +21,8 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(express.static('public'))
+app.use('jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
+
 
 // ROUTING
 
@@ -28,27 +32,33 @@ app.use(express.static('public'))
 //   })
 // })
 
-app.get('/transactions', (req, res) => {
-  db.collection('transactions').find().toArray((err, result) => {
-    if (err) return console.log(err)
-    res.render('pages/transactions.ejs', {transactions: result})
-  })
-})
+// app.get('/transactions', (req, res) => {
+//   db.collection('transactions').find().toArray((err, result) => {
+//     if (err) return console.log(err)
+//     res.render('pages/transactions.ejs', {transactions: result})
+//   })
+// })
 
 app.get('/', (req, res) => {
   db.collection('transactions').find().toArray((err, result) => {
     if (err) return console.log(err)
     res.render('pages/index.ejs', {transactions: result})
-  })
-})
+  });
+  var yikes = db.collection('transactions');
+  console.log(yikes);
+});
 
-app.get('/transaction_detail', (req, res) => {
-    res.render('modals/transaction_detail.ejs')
-})
 
-app.get('/transaction_edit', (req, res) => {
-    res.render('modals/transaction_edit.ejs')
-})
+
+
+
+// app.get('/transaction_detail', (req, res) => {
+//     res.render('modals/transaction_detail.ejs')
+// })
+
+// app.get('/transaction_edit', (req, res) => {
+//     res.render('modals/transaction_edit.ejs')
+// })
 
 app.get('/budget_detail', (req, res) => {
     res.render('modals/budget_detail.ejs')
@@ -125,6 +135,10 @@ app.delete('/transactions', (req, res) => {
     res.send('A darth vadar quote got deleted')
   })
 })
+
+// LEDGER
+
+
 
 // app.put('/transactions', (req, res) => {
 //   db.collection('transactions')

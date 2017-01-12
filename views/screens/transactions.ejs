@@ -9,9 +9,9 @@
       <div class="BankInfoAmt">&#36;4,212.28</div>
     </div>
   </div>
- <ul class="LedgerSet">
+ <ul class="LedgerSet" id="TransactionList">
   <% for(var i=0; i<100; i++) {%>
-    <li class="LedgerItem bbg" onclick="location.href='transaction_detail';">
+    <li class="LedgerItem bbg" data-id="<%= transactions[i]._id %>">
     <% if(transactions[i].category) { %>
       <div class="LedgerCell op50"><%= transactions[i].category[0] %></div>
       <% } else { %>
