@@ -1,3 +1,5 @@
+// INITIATE
+
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
@@ -14,14 +16,18 @@ MongoClient.connect('mongodb://admin:almighty@ds035348.mlab.com:35348/caseyappv1
   })
 })
 
-// SETUP
+// INCLUDES
 
-app.set('view engine', 'ejs')
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json())
-app.use(express.static('public'))
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(express.static('public'));
+var _ = require('lodash');
+var uniq = require('lodash.uniq');
+var uniqBy = require('lodash.uniqby');
+var omitBy = require('lodash.omitby');
 
-// ROUTING
+// API — Transactions
 
 app.get('/api/transactions/:id', (req, res) => {
   db.collection('transactions')
@@ -46,47 +52,32 @@ app.get('/api/transactions', (req, res) => {
     });
 });
 
+// API — Budgets
+
+app.get('/api/budgets/applied', (req, res) => {
+  db.collection('transactions')
+    .find()
+    .toArray((err, result) => {
+      if (err) { return console.log(err); }
+      var newresults = _.omitBy(_.uniq(_.map(result, 'category[0]')), _.isNil);
+      res.send(newresults); 
+    });
+});
+
+app.get('/api/budgets/all', (req, res) => {
+  db.collection('budgets')
+    .find()
+    .toArray((err, result) => {
+      if (err) { return console.log(err); }
+      res.send(result); 
+    });
+});
+
+// Render the app
+
 app.get('/*', (req, res) => {
   db.collection('transactions').find().toArray((err, result) => {
     if (err) { return console.log(err); }
     res.render('pages/index.ejs', {transactions: result})
   }); 
 });
-
-// fetch(`/transactions/${transactionId}`)
-//   .then(renderModal)
-
-// function thisisathing(Vendor) {
-//   db.collection('transactions').findOne({ 'name': Vendor }, function (err, person) {
-//     if (err) return handleError(err);
-//     console.log("This purchase total was $" + person.amount + ".");
-//     return person.amount;
-//   })
-// }
-// thisisathing("iTunes");
-
-
-// app.get('/budget_detail', (req, res) => {
-//     res.render('modals/budget_detail.ejs')
-// })
-
-// app.get('/budget_edit', (req, res) => {
-//     res.render('modals/budget_edit.ejs')
-// })
-
-// app.get('/account_personalinfo_details', (req, res) => {
-//     res.render('modals/account_personalinfo_details.ejs')
-// })
-
-// app.get('/account_personalinfo_edit', (req, res) => {
-//   res.render('modals/account_personalinfo_edit.ejs')
-// }) 
-
-// app.get('/login', (req, res) => {
-//     res.render('pages/login.ejs')
-// })
-
-// app.get('/login_form', (req, res) => {
-//     res.render('pages/login_form.ejs')
-// })
-

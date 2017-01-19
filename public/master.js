@@ -10220,31 +10220,26 @@ return jQuery;
 } );
 
 $(document).ready(function() {
-
-	$('.ContentContainer.Home').show();
-	$('.ContentContainer.Home').addClass("Active");
-
-function renderSection(section) {
-	$('.ContentContainer').hide();
-	var newsection = ".ContentContainer." + section;
-	console.log(newsection);
-	$(newsection).show();
-};
-
-$(".AppNav li").click(function() {
-  var thesection = $(this).data('section');
-	renderSection(thesection);
+  $('.ContentContainer.Home').show();
+  $('.ContentContainer.Home').addClass("Active");
+  function renderSection(section) {
+  	$('.ContentContainer').hide();
+  	var newsection = ".ContentContainer." + section;
+  	console.log(newsection);
+  	$(newsection).show();
+  };
+  $(".AppNav li").click(function() {
+    var thesection = $(this).data('section');
+  	renderSection(thesection);
+  });
 });
 
-});
+// OVERLAYS
 
-//OVERLAYS
-// when the app loads, there's no overlay by default
 var OverlayStatus = false;
-// this applies a css "display: none" immediately
+
 $(".Overlay ").hide();
 
-//OPENING OVERLAY
 function OpenOverlay(Contents) {
   if (OverlayStatus == false) {
     $(".OverlayContent").html(Contents);
@@ -10252,8 +10247,8 @@ function OpenOverlay(Contents) {
     $(".Overlay ").addClass("Active");
     OverlayStatus = true;
   }
-}
-// CLOSING OVERLAY 
+};
+
 function CloseOverlay() {
   $(".Overlay ").removeClass("Active");
   setTimeout(waittohide, 200);
@@ -10263,16 +10258,19 @@ function CloseOverlay() {
     OverlayStatus = false;
   }
 };
+
 $(".OverlayClose").click(function() {
   CloseOverlay();
 });
+
 $(document).keyup(function(e) {
   if (e.keyCode == 27) {
     CloseOverlay(); 
   }
 });
 
-// SEE A TRANS DETAILS
+// TRANSACTIONS — Details
+
 function RenderTransactionDetail(Contents) {
   console.log(Contents);
   return [
@@ -10329,4 +10327,6 @@ $("#TransactionList .LedgerItem").click(function() {
     alert("that id was invalid or something");
   })
 });
+
+// BUDGETS — List
 
