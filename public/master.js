@@ -27305,8 +27305,8 @@ return jQuery;
 }.call(this));
 
 $(document).ready(function() {
-  $('.ContentContainer.Budget').show();
-  $('.ContentContainer.Budget').addClass("Active");
+  $('.ContentContainer.Transactions').show();
+  $('.ContentContainer.Transactions').addClass("Active");
   function renderSection(section) {
   	$('.ContentContainer').hide();
   	var newsection = ".ContentContainer." + section;
@@ -27465,48 +27465,10 @@ function getBudgets() {
   return $.get("/api/test/budgets");
 }
 
-var promise1 = new Promise(function(resolve, reject) {
-  getTransactions()
-  if (getTransactions) {
-    resolve(getTransactions());
-  }
-  else {
-    reject(Error("It broke"));
-  }
-});
-
-var promise2 = new Promise(function(resolve, reject) {
-  getBudgets()
-  if (getBudgets) {
-    resolve(getBudgets());
-  }
-  else {
-    reject(Error("It broke"));
-  }
-});
-
-Promise.all([promise1, promise2]).then(values => { 
-  //console.log(values); 
+Promise.all([getTransactions(), getBudgets()]).then(values => { 
   var merged = _.map(values[0], function(item) {
     return _.assign(item, _.find(values[1], ['name', item.name]));
   });
-  //console.log([merged]); 
   RenderBudgetsList(merged);
   RenderBudgetsTracker(merged);
 });
-
-// promise1
-//   .then((result) => {
-//     console.log("Transactions:");
-//     console.log(result);
-//   });
-
-// promise2
-//   .then((result) => {
-//     console.log("Budgets:");
-//     console.log(result);
-//   });
-
-// BUDGETS — Tracker
-
-
