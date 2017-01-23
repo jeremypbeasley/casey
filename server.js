@@ -148,15 +148,15 @@ app.get('/api/transactions/category/total/:category', (req, res) => {
     });
 });
 
-app.get('/api/budgets/:name', (req, res) => {
+app.get('/api/budgets/:_id', (req, res) => {
   db.collection('budgets')
-    .find( { name: req.params.name } )
+    .find( { _id: req.params._id } )
     .toArray((err, result) => {
       if (err) { return console.log(err); }
       if (!result.length) { 
         return console.log(err); 
       } else {
-        //res.send(result);
+        res.send(result);
       }
     });
 });
