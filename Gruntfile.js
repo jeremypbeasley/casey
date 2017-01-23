@@ -15,7 +15,9 @@ module.exports = function(grunt) {
     concat: {   
       dist: {
         src: [
-          'bower_components/jquery/dist/jquery.js',
+          'node_modules/jquery/dist/jquery.js',
+          'node_modules/lodash/lodash.js',
+          // 'node_modules/lodash.sumby/index.js',
           'src/_scripts/main.js'
         ], 
         dest: 'public/master.js',

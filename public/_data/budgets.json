@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "B0mpyzC9LXQmR9",
+    "max": 600,
+    "startdate": "2017-01-01",
+    "enddate": "2017-02-01",
+    "name": "Groceries",
+    "recurring": true 
+  },
+  {
+    "_id": "B0mpyzC9LXQmR9",
+    "max": 600,
+    "startdate": "2017-01-01",
+    "enddate": "2017-02-01",
+    "name": "Movies",
+    "recurring": true
+  },
+  {
+    "_id": "B0mpyzC9LXQmR9",
+    "max": 600,
+    "startdate": "2017-01-01",
+    "enddate": "2017-02-01",
+    "name": "Transportation",
+    "recurring": true 
+  },
+  {
+    "_id": "B0mpyzC9LXQmR9",
+    "max": 600,
+    "startdate": "2017-01-01",
+    "enddate": "2017-02-01",
+    "name": "Shopping",
+    "recurring": true 
+  },
+  {
+    "_id": "B0mpyzC9LXQmR9",
+    "max": 600,
+    "startdate": "2017-01-01",
+    "enddate": "2017-02-01",
+    "name": "Coffee Shops",
+    "recurring": true 
+  },
+  {
+    "_id": "B0mpyzC9LXQmR9",
+    "max": 600,
+    "startdate": "2017-01-01",
+    "enddate": "2017-02-01",
+    "name": "Health",
+    "recurring": true 
+  }
+]

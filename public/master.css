@@ -737,7 +737,8 @@ input:focus {
   background-image: linear-gradient(to right, #a7cc74, #00f48e);
   display: block;
   height: 100%;
-  width: 45%;
+  width: 0%;
+  transition: all 900ms cubic-bezier(1, 0, 0, 1);
 }
 .ProgBarMarker {
   height: 2rem;
@@ -779,13 +780,11 @@ input:focus {
   background-image: linear-gradient(to right, #00f48e, #a7cc74);
   display: block;
   height: 100%;
-  width: 45%;
+  width: 0%;
+  transition: all 600ms cubic-bezier(1, 0, 0, 1);
 }
 .DangerZone {
-  display: block;
-  background-image: linear-gradient(to right, #fad961, #f76b1c);
-  height: 100%;
-  width: 90%;
+  background-image: linear-gradient(to right, #fad961, #f00);
 }
 .OverBudgetBarContainer {
   width: 100%;
@@ -848,41 +847,6 @@ input:focus {
   top: -0.7rem;
   left: 90%;
   text-indent: -9999px;
-}
-.LedgerSet {
-  margin: 0 auto;
-  background: #fff;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.LedgerItem {
-  padding: 1.5rem 1rem;
-}
-.LedgerRow {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  justify-content: space-between;
-}
-.LedgerCell {
-  font-size: 0.9rem;
-}
-.LedgerRow .ProgBarContainer {
-  margin-top: 0.9rem;
-}
-.LedgerRow .OverBudgetBarContainer {
-  margin-top: 0.9rem;
-}
-.RedText {
-  opacity: 1;
-  color: #f00;
-}
-.LedgerCellCenter {
-  position: absolute;
-  left: 30%;
 }
 .ButtonChevronRight {
   background: url("_img/_icon/dark/chevron_right.svg") no-repeat;
@@ -1007,4 +971,39 @@ input:focus {
 }
 .OverlayContent {
   margin-top: 75px;
+}
+.LedgerSet {
+  margin: 0 auto;
+  background: #fff;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.LedgerItem {
+  padding: 1rem 1rem;
+}
+.LedgerRow {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-between;
+}
+.LedgerCell {
+  font-size: 0.9rem;
+}
+.LedgerRow .ProgBarContainer {
+  margin-top: 0.9rem;
+}
+.LedgerRow .OverBudgetBarContainer {
+  margin-top: 0.9rem;
+}
+.RedText {
+  opacity: 1;
+  color: #f00;
+}
+.LedgerCellCenter {
+  position: absolute;
+  left: 30%;
 }
