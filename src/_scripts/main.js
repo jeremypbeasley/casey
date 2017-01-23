@@ -1,7 +1,9 @@
 // GLOBAL TAB FUNCTIONALITY
 
-$(".ContentContainer.Transactions").show();
-$(".ContentContainer.Transactions").addClass("Active");
+var initialTab = "Home";
+
+$(".ContentContainer." + initialTab).show();
+$(".ContentContainer." + initialTab).addClass("Active");
 function renderSection(section) {
   $(".ContentContainer").hide();
   var newsection = ".ContentContainer." + section;
@@ -40,6 +42,9 @@ function CloseOverlay() {
 }
 
 $(".OverlayClose").click(function() {
+  CloseOverlay();
+});
+$(".Overlay").on("swipe",function(){
   CloseOverlay();
 });
 
@@ -143,6 +148,7 @@ $(document).on("click","#TransactionsList .LedgerItem",function(e){
 function RenderBudgetsTracker(Contents) {
   var TotalBudget = _.sumBy(Contents, "max").toFixed(0);
   var TotalSpent = _.sumBy(Contents, "totalspent").toFixed(0);
+  $('#YouveSpent').html("$" + TotalSpent);
   $("#BudgetTrackerText").html("$" + TotalSpent + " of $" + TotalBudget);
   var TrackerPercentage = (TotalSpent / TotalBudget * 100).toFixed(2) + "%";
   $("#BudgetHeaderProgBar").css({ width : TrackerPercentage}); 
@@ -150,7 +156,7 @@ function RenderBudgetsTracker(Contents) {
 
 function BudgetListTemplate(Contents) {
   return [
-    '<li class="LedgerItem bbg" id="Transaction_' + Contents._id + '">',
+    '<li class="LedgerItem bbg" data-id="' + Contents._id + '" id="Budgets_' + Contents._id + '">',
       '<div class="LedgerRow">',
         '<div class="LedgerCell">',
           Contents.name,
@@ -172,15 +178,15 @@ function BudgetListTemplate(Contents) {
 function RenderBudgetsList(BudgetObject) {
   for (i = 0; i < BudgetObject.length; i++) {
     var y = BudgetListTemplate(BudgetObject[i]);
-    $("#BudgetList").append(y);
+    $("#BudgetsList").append(y);
     var TotalBudget = (BudgetObject[i].max).toFixed(0);
     var TotalSpent = (BudgetObject[i].totalspent).toFixed(0);
     var TrackerPercentage = (TotalSpent / TotalBudget * 100);
       if (TrackerPercentage > 100) {
-        $("#Transaction_" + BudgetObject[i]._id + " .Progress").addClass("DangerZone");
+        $("#Budgets_" + BudgetObject[i]._id + " .Progress").addClass("DangerZone");
         TrackerPercentage = 100;
       }
-    $("#Transaction_" + BudgetObject[i]._id + " .Progress").css({ width : TrackerPercentage.toFixed(2) + "%"}); 
+    $("#Budgets_" + BudgetObject[i]._id + " .Progress").css({ width : TrackerPercentage.toFixed(2) + "%"}); 
   }
 }
 
@@ -209,4 +215,37 @@ Promise.all([getTransactions(), getBudgets()]).then(values => {
   RenderBudgetsTracker(merged);
 });
 
+// BUDGETS - Detail
+
+function BudgetsDetailTemplate(Contents) {
+  return [
+    '<div class="pb3">',
+      '<div class="FeatureLabel Display2 mt8 pl2">' + Contents.name + '</div>',
+    '</div>',
+    '<ul class="LedgerSet">',
+      '<li class="LedgerItem bbg btg mt6">',
+        '<div class="op50 LedgerRow">',
+          '<div class="LedgerCell">Limit</div>',
+        '</div>',
+        '<div class="LedgerRow">',
+          '<div class="LedgerCell">$' + Contents.max + '</div>',
+          '<div class="LedgerCell">Edit</div>',
+        '</div>',
+      '</li>',
+    '</ul>'
+  ].join('\n');
+}
+
+$(document).on("click","#BudgetsList .LedgerItem",function(e){
+  var budgetsId = $(this).data('id');
+  console.log(budgetsId);
+  $.get('/api/budgets/' + budgetsId, function (result) {
+    console.log(result);
+    var OverlayContent = BudgetsDetailTemplate(result[0]);
+    OpenOverlay(OverlayContent);
+  })
+  .fail(function (error) {
+    //alert("that id was invalid or something");
+  });
+});
 
