@@ -1,7 +1,7 @@
 // GLOBAL TAB FUNCTIONALITY
 
-$(".ContentContainer.Home").show();
-$(".ContentContainer.Home").addClass("Active");
+$(".ContentContainer.Transactions").show();
+$(".ContentContainer.Transactions").addClass("Active");
 function renderSection(section) {
   $(".ContentContainer").hide();
   var newsection = ".ContentContainer." + section;
@@ -32,7 +32,8 @@ function CloseOverlay() {
   $(".Overlay ").removeClass("Active");
   setTimeout(waittohide, 200);
   function waittohide() {
-    $(".Overlay ").hide();
+    $(".LedgerItem").removeClass("Tapped");
+    $(".Overlay").hide();
     OpenOverlay("");
     OverlayStatus = false;
   }
@@ -49,18 +50,6 @@ $(document).keyup(function(e) {
 });
 
 // TRANSACTIONS 
-
-$(document).on("click","#TransactionsList .LedgerItem",function(e){
-  var transactionsId = $(this).data('id');
-  console.log(transactionsId);
-  $.get('/api/transactions/id/' + transactionsId, function (result) {
-    var OverlayContent = TransactionsDetailTemplate(result);
-    OpenOverlay(OverlayContent);
-  })
-  .fail(function (error) {
-    alert("that id was invalid or something");
-  });
-});
 
 function TransactionsListTemplate(Contents) {
   return [
@@ -127,6 +116,27 @@ function TransactionsDetailTemplate(Contents) {
     '</ul>'
   ].join('\n');
 }
+
+$(document).on("click","#TransactionsList .LedgerItem",function(e){
+  var transactionsId = $(this).data('id');
+  // $(this).removeClass("Tapped");
+  // console.log("removed on tap");
+  $(this).addClass("Tapped");
+  // console.log("added");
+  // function removeTapped() {
+  //   $(this).removeClass("Tapped");
+  //   console.log("removed auto");
+  // }
+  // setTimeout(removeTapped, 300);
+  console.log(transactionsId);
+  $.get('/api/transactions/id/' + transactionsId, function (result) {
+    var OverlayContent = TransactionsDetailTemplate(result);
+    OpenOverlay(OverlayContent);
+  })
+  .fail(function (error) {
+    alert("that id was invalid or something");
+  });
+});
 
 // BUDGETS 
 

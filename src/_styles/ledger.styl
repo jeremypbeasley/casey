@@ -7,6 +7,15 @@
 }
 .LedgerItem {
   padding: 1rem 1rem;
+  cursor: pointer;
+}
+.LedgerItem.Tapped {
+  animation: tapBlink 300ms 1;
+  -webkit-animation: tapBlink 300ms 1;
+}
+@keyframes tapBlink {
+  0%   { background-color: hsla(0, 0%, 0%, 0.2) }
+  100% { background-color: #fff }
 }
 .LedgerRow {
   padding: 0;

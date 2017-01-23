@@ -393,6 +393,13 @@ body {
   padding-bottom: 10vw;
   font-family: CircularStdBook, Arial, sans-serif;
 }
+.Unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .hidden {
   display: none;
   opacity: 0;
@@ -981,6 +988,11 @@ input:focus {
 }
 .LedgerItem {
   padding: 1rem 1rem;
+  cursor: pointer;
+}
+.LedgerItem.Tapped {
+  animation: tapBlink 300ms 1;
+  -webkit-animation: tapBlink 300ms 1;
 }
 .LedgerRow {
   padding: 0;
@@ -1006,4 +1018,36 @@ input:focus {
 .LedgerCellCenter {
   position: absolute;
   left: 30%;
+}
+@-moz-keyframes tapBlink {
+  0% {
+    background-color: rgba(0,0,0,0.2);
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+@-webkit-keyframes tapBlink {
+  0% {
+    background-color: rgba(0,0,0,0.2);
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+@-o-keyframes tapBlink {
+  0% {
+    background-color: rgba(0,0,0,0.2);
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+@keyframes tapBlink {
+  0% {
+    background-color: rgba(0,0,0,0.2);
+  }
+  100% {
+    background-color: #fff;
+  }
 }
