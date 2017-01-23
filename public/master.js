@@ -27306,8 +27306,8 @@ return jQuery;
 
 // GLOBAL TAB FUNCTIONALITY
 
-$(".ContentContainer.Transactions").show();
-$(".ContentContainer.Transactions").addClass("Active");
+$(".ContentContainer.Home").show();
+$(".ContentContainer.Home").addClass("Active");
 function renderSection(section) {
   $(".ContentContainer").hide();
   var newsection = ".ContentContainer." + section;
