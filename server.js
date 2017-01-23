@@ -3,6 +3,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+var router = express.Router()
 var db
 
 // INCLUDES
@@ -161,11 +162,53 @@ app.get('/api/budgets/:_id', (req, res) => {
     });
 });
 
+// BUDGETS - Edit
+
+// router.post("/api/budgets/edit", (req, res) => {
+//   budgetId = req.body._id;
+//   newname = req.body.name;
+//   console.log(newname);
+//   console.log(budgetId);
+//   db.collection('budgets').insert({
+//     "_id": budgetId + "appended",
+//     "name": newname,
+//   }, function (err, doc) {
+//       if (err) {
+//           // If it failed, return error
+//           res.send("There was a problem adding the information to the database.");
+//       }
+//       else {
+//           // And forward to success page
+//           res.redirect("/userlist");
+//           console.log("poop")
+//       }
+//   });
+// });
+
+app.put('/api/budgets/edit', (req, res) => {
+  budgetId = req.body._id;
+  newname = req.body.name;
+  db.collection('budgets')
+  .findOneAndUpdate({_id: budgetId}, {
+    $set: {
+      name: req.body.name,
+    }
+  }, {
+    upsert: true
+  }, (err, result) => {
+    if (err) return res.send(err)
+    res.send(result)
+  })
+})
+
+
+
+
 // Render the app
 
 app.get('/*', (req, res) => {
   db.collection('transactions').find().toArray((err, result) => {
     if (err) { return console.log(err); }
-    res.render('pages/index.ejs', {transactions: result})
+    res.render('pages/index.ejs');
   }); 
 });

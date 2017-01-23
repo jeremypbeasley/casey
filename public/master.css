@@ -71,7 +71,6 @@ h6 {
 .Display2 {
   font-size: 2rem;
   font-family: CircularStdBlack, ArialBold, sans-serif;
-  color: #fff;
 }
 .Display2.Black {
   color: #000;
@@ -98,6 +97,15 @@ h6 {
 }
 .TextWhite {
   color: #fff;
+}
+.FeatureLabel {
+  position: relative;
+  top: 2.3rem;
+  color: #000;
+  max-width: 95%;
+}
+.Error {
+  color: #f00;
 }
 .mb0 {
   margin-bottom: 4px;
@@ -132,6 +140,12 @@ h6 {
 .mb10 {
   margin-bottom: 80px;
 }
+.mb11 {
+  margin-bottom: 88px;
+}
+.mb12 {
+  margin-bottom: 96px;
+}
 .mt0 {
   margin-top: 4px;
 }
@@ -164,6 +178,12 @@ h6 {
 }
 .mt10 {
   margin-top: 80px;
+}
+.mt11 {
+  margin-top: 88px;
+}
+.mt12 {
+  margin-top: 96px;
 }
 .ml0 {
   margin-left: 4px;
@@ -507,7 +527,7 @@ ul {
   flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
-  padding: 18px 24px 16px 24px;
+  padding: 18px 16px 16px 16px;
 }
 .AppNavAccount {
   background: url("_img/_icon/light/person.svg") no-repeat;
@@ -523,12 +543,6 @@ ul {
 }
 .NavItem {
   font-size: 0.9rem;
-}
-.FeatureLabel {
-  position: relative;
-  top: 2.3rem;
-  color: #000;
-  max-width: 95%;
 }
 .BankInfo {
   font-size: 0.86rem;
@@ -645,19 +659,6 @@ body {
   margin: 0 auto;
   position: relative;
   width: 90%;
-}
-input[type=text],
-input[type=password] {
-  height: 2.8rem;
-  width: 100%;
-  font-size: 0.9rem;
-}
-input[type=text] {
-  border: 0;
-  border-bottom: 1px solid #ccc;
-}
-input:focus {
-  outline: none;
 }
 .InputPadding {
   padding: 1rem;
@@ -964,8 +965,8 @@ input:focus {
 }
 .OverlayClose {
   position: fixed;
-  top: 16px;
-  left: 16px;
+  top: 8px;
+  left: 8px;
   height: 32px;
   width: 32px;
   background: url("_img/_icon/dark/close.svg") no-repeat;
@@ -1050,4 +1051,15 @@ input:focus {
   100% {
     background-color: #fff;
   }
+}
+input[type=text] {
+  border: none;
+  margin-left: -3px;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  transition: all 200ms ease-out;
+}
+input[type=text]:focus {
+  border-color: #62d78c;
+  outline: none;
+  padding-bottom: 10px;
 }
