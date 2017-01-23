@@ -89,41 +89,6 @@ app.get('/api/transactions/totals', (req, res) => {
     });
 });
 
-app.get('/api/test/transactions/bycategory', (req, res) => {
-  x = [
-    {
-      "totalspent": 276.23,
-      "name": "Coffee Shops"
-    }, {
-      "totalspent": 12.32,
-      "name": "Movies"
-    }, {
-      "totalspent": 407.11,
-      "name": "Groceries"
-    }
-  ]
-  res.send(x); 
-});
-
-app.get('/api/test/budgets', (req, res) => {
-  x = [
-    {
-      "_id": 54774567356746556,
-      "max": 100,
-      "name": "Coffee Shops"
-    }, {
-      "_id": 56898796788743650,
-      "max": 50,
-      "name": "Movies"
-    }, {
-      "_id": 2483750938450897,
-      "max": 900,
-      "name": "Groceries"
-    }
-  ]
-  res.send(x); 
-});
-
 // API — Budgets
 
 app.get('/api/budgets/applied', (req, res) => {
@@ -136,14 +101,14 @@ app.get('/api/budgets/applied', (req, res) => {
     });
 });
 
-// app.get('/api/budgets', (req, res) => {
-//   db.collection('budgets')
-//     .find()
-//     .toArray((err, result) => {
-//       if (err) { return console.log(err); }
-//       res.send(result); 
-//     });
-// });
+app.get('/api/budgets', (req, res) => {
+  db.collection('budgets')
+    .find()
+    .toArray((err, result) => {
+      if (err) { return console.log(err); }
+      res.send(result); 
+    });
+});
 
 // app.get('/api/transactions/:category/total', (req, res) => {
 //   db.collection('transactions')
@@ -163,29 +128,6 @@ app.get('/api/budgets/applied', (req, res) => {
 //       }
 //     });
 // });
-
-
-// app.get('/api/budgets/totals', (req, res) => {
-//   db.collection('transactions')
-//     .find()
-//     .toArray((err, result) => {
-//       if (err) { return console.log(err); }
-//       if (!result.length) { 
-//         return console.log(err); 
-//       } else {
-//         result(result);
-//         // var newstuff = String(_.sumBy(_.map(result, 'amount')));
-//         // res.send([
-//         //   {
-//         //     "name2": req.params.category,
-//         //     "budgetstatus": newstuff
-//         //   }
-//         // ]);
-//       }
-//     });
-// });
-
-// 1. get transaction total by category
 
 app.get('/api/transactions/category/total/:category', (req, res) => {
   db.collection('transactions')
@@ -207,15 +149,6 @@ app.get('/api/transactions/category/total/:category', (req, res) => {
     });
 });
 
-// returns this:
-// [
-//   {
-//     "budgetstatus":"161.38"
-//   }
-// ]
-
-// 2. get budget meta
-
 app.get('/api/budgets/:name', (req, res) => {
   db.collection('budgets')
     .find( { name: req.params.name } )
@@ -228,25 +161,6 @@ app.get('/api/budgets/:name', (req, res) => {
       }
     });
 });
-
-// returns this:
-
-// [
-//   {
-//     "_id": "B0mpyzC9LXQmR923232",
-//     "max": 250,
-//     "startdate": "2017-01-01",
-//     "enddate": "2017-02-01",
-//     "name": "Shopping",
-//     "recurring": true
-//   }
-// ]
-
-// 3. merge both objects into new object retrieved from a new endpoint?
-
-// ( ¯\_(ツ)_/¯)?
-
-
 
 // Render the app
 

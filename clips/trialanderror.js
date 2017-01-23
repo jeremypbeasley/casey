@@ -26,17 +26,52 @@ var transactionsList = [
   }
 ]
 
+// function getTotals() {
+//   _.reduce(transactionsList, function(acc, val, key) {
+//   acc[val.category] = {
+//      // name: 'category',
+//      amount: _.sum(i, 'amount')
+//    };
+//   return acc;
+//   }, {});
+// }
+
+// getTotals();
+
 function getTotals() {
   _.reduce(transactionsList, function(acc, val, key) {
-  acc[val.category] = {
-     // name: 'category',
-     amount: _.sum(i, 'amount')
-   };
-  return acc;
+    // If the category already exists, add the new value to the current value
+    if (acc[val.category]) {
+      acc[val.category].totalspent = acc[val.category].totalspent + val.amount
+    }
+    // If the category does not yet exist, create a new object where it's totalspent = val.amount
+    acc[val.category] = {
+       name: val.category,
+       amount: val.amount
+    };
+    return acc;
   }, {});
 }
 
-getTotals();
+function getTransactionsTotals() {
+  return $.get("/api/transactions");
+}
+
+getTransactionsTotals().then(values => { 
+   console.log(values);
+   _.reduce(values, function(acc, val, key) {
+    // If the category already exists, add the new value to the current value
+    if (acc[val.category]) {
+      acc[val.category].totalspent = acc[val.category].totalspent + val.amount
+    }
+    // If the category does not yet exist, create a new object where it's totalspent = val.amount
+    acc[val.category] = {
+       name: val.category,
+       amount: val.amount
+    };
+    return acc;
+  }, {});
+});
 
 // looking for this:
 

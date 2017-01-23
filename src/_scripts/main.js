@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  $('.ContentContainer.Transactions').show();
-  $('.ContentContainer.Transactions').addClass("Active");
+  $('.ContentContainer.Budget').show();
+  $('.ContentContainer.Budget').addClass("Active");
   function renderSection(section) {
   	$('.ContentContainer').hide();
   	var newsection = ".ContentContainer." + section;
@@ -106,7 +106,7 @@ $("#TransactionList .LedgerItem").click(function() {
   })
 });
 
-// BUDGETS — List
+// BUDGETS 
 
 function RenderBudgetsTracker(Contents) {
   var TotalBudget = _.sumBy(Contents, "max").toFixed(0);
@@ -152,17 +152,56 @@ function RenderBudgetsList(BudgetObject) {
   };
 }
 
-function getTransactions() {
-  return $.get("/api/test/transactions/bycategory");
-}
-function getBudgets() {
-  return $.get("/api/test/budgets");
+// function getTransactions() {
+//   return $.get("/api/test/transactions/bycategory");
+// }
+
+function getTransactionsTotals() {
+  return $.get("/api/transactions");
 }
 
-Promise.all([getTransactions(), getBudgets()]).then(values => { 
-  var merged = _.map(values[0], function(item) {
+getTransactionsTotals().then(values => { 
+   //console.log(values);
+   _.reduce(values, function(acc, val, key) {
+    // If the category already exists, add the new value to the current value
+    if (acc[val.category]) {
+      acc[val.category].totalspent = acc[val.category].totalspent + val.amount
+    }
+    // If the category does not yet exist, create a new object where it's totalspent = val.amount
+    acc[val.category] = {
+       name: val.category,
+       totalspent: val.amount
+    };
+    return acc;
+  }, {});
+});
+
+function getBudgets() {
+  return $.get("/api/budgets");
+}
+
+function reduceTransactions(data) {
+  return  _.reduce(data, function(acc, val, key) {
+    // If the category already exists, add the new value to the current value
+    if (acc[val.category]) {
+      acc[val.category].totalspent = acc[val.category].totalspent + val.amount
+    }
+    // If the category does not yet exist, create a new object where it's totalspent = val.amount
+    acc[val.category] = {
+       name: val.category,
+       totalspent: val.amount
+    };
+    return acc;
+  }, {});
+}
+
+Promise.all([getTransactionsTotals(), getBudgets()]).then(values => {
+  var merged = _.map(reduceTransactions(values[0]), function(item) {
     return _.assign(item, _.find(values[1], ['name', item.name]));
   });
   RenderBudgetsList(merged);
   RenderBudgetsTracker(merged);
+  
 });
+
+
