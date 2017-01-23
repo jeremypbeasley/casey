@@ -27451,6 +27451,8 @@ $(document).on("click","#TransactionsList .LedgerItem",function(e){
 
 // BUDGETS 
 
+
+
 function RenderBudgetsTracker(Contents) {
   var TotalBudget = _.sumBy(Contents, "max").toFixed(0);
   var TotalSpent = _.sumBy(Contents, "totalspent").toFixed(0);
@@ -27461,6 +27463,7 @@ function RenderBudgetsTracker(Contents) {
 }
 
 function BudgetListTemplate(Contents) {
+  //console.log(Contents);
   return [
     '<li class="LedgerItem bbg" data-id="' + Contents._id + '" id="Budgets_' + Contents._id + '">',
       '<div class="LedgerRow">',
@@ -27514,9 +27517,11 @@ function reduceTransactions(data) {
 }
 
 Promise.all([getTransactions(), getBudgets()]).then(values => {
+  console.log(values);
   var merged = _.map(reduceTransactions(values[0]), function(item) {
     return _.assign(item, _.find(values[1], ['name', item.name]));
   });
+  console.log(merged);
   RenderBudgetsList(merged);
   RenderBudgetsTracker(merged);
 });
@@ -27525,17 +27530,39 @@ Promise.all([getTransactions(), getBudgets()]).then(values => {
 
 function BudgetsDetailTemplate(Contents) {
   return [
-    '<div class="pb3">',
-      '<div class="FeatureLabel Display2 mt8 pl2">' + Contents.name + '</div>',
-    '</div>',
-    '<ul class="LedgerSet">',
-      '<li class="LedgerItem bbg btg mt6">',
+    '<ul class="LedgerSet mt6">',
+      // '<form action="/api/budgets/edit" method="POST" id="">',
+      '<li class="LedgerItem mt6">',
+        '<div class="op50 LedgerRow">',
+          '<div class="LedgerCell">Name</div>',
+        '</div>',
+        '<div class="LedgerRow">',
+          '<div class="LedgerCell">',
+          '<input type="hidden" name="_id" value="' + Contents._id + '"/>',
+          '<input type="text" name="name" class="Display2 mt1" value="' + Contents.name + '"/>',
+          '</div>',
+        '</div>',
+      '</li>',
+      '<li class="LedgerItem">',
         '<div class="op50 LedgerRow">',
           '<div class="LedgerCell">Limit</div>',
         '</div>',
         '<div class="LedgerRow">',
-          '<div class="LedgerCell">$' + Contents.max + '</div>',
-          '<div class="LedgerCell">Edit</div>',
+          '<div class="LedgerCell">',
+          '<input type="text" name="max" class="Display2 mt1" value="$' + Contents.max + '"/>',
+          '</div>',
+        '</div>',
+      '</li>',
+      // '<input type="submit"/>',
+      // '</form>',
+      '<li class="LedgerItem">',
+        '<div class="op50 LedgerRow">',
+          '<div class="LedgerCell" id="UpdateBudget">Update</div>',
+        '</div>',
+      '</li>',
+      '<li class="LedgerItem mt5">',
+        '<div class="op50 LedgerRow">',
+          '<div class="LedgerCell Error">Delete this budget.</div>',
         '</div>',
       '</li>',
     '</ul>'
@@ -27555,3 +27582,43 @@ $(document).on("click","#BudgetsList .LedgerItem",function(e){
   });
 });
 
+$(document).on("click","#UpdateBudget",function(e){
+  newname = $('[name="name"]').val();
+  budgetsId = $('[name="_id"]').val();
+  console.log(newname);
+  fetch('api/budgets/edit', {
+      method: 'put',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        '_id': budgetsId,
+        'name': newname,
+      })
+    })
+  .then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+  })
+  .then(data => {
+    console.log("document updated!");
+    CloseOverlay();
+    getBudgets();
+    getTransactions();
+  })
+});
+
+// fetch({ /* request */ })
+//   .then(res => {
+//     if (res.ok) {
+//       return res.json();
+//       console.log("a thing was done");
+//     }
+//   })
+//   .then(data => {
+//     console.log("thing was done");
+//     //console.log(data)
+//     CloseOverlay();
+//     getBudgets();
+//     getTransactions();
+//     alert("Name has been updated");
+//   })
