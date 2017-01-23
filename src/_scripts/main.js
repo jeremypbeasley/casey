@@ -1,10 +1,10 @@
 $(document).ready(function() {
-  $('.ContentContainer.Home').show();
-  $('.ContentContainer.Home').addClass("Active");
+  $('.ContentContainer.Budget').show();
+  $('.ContentContainer.Budget').addClass("Active");
   function renderSection(section) {
   	$('.ContentContainer').hide();
   	var newsection = ".ContentContainer." + section;
-  	console.log(newsection);
+  	console.log("Section opened: " + newsection);
   	$(newsection).show();
   };
   $(".AppNav li").click(function() {
@@ -50,8 +50,7 @@ $(document).keyup(function(e) {
 
 // TRANSACTIONS — Details
 
-function RenderTransactionDetail(Contents) {
-  console.log(Contents);
+function TransactionDetailTemplate(Contents) {
   return [
     '<div class="pb3">',
       '<div class="FeatureLabel Display2 mt8 pl2">',
@@ -83,7 +82,7 @@ function RenderTransactionDetail(Contents) {
         '</div>',
         '<div class="LedgerRow">',
           '<div class="LedgerCell">',
-          Contents.category[0],
+          // Contents.category[0],
           '</div>',
         '</div>',
       '</li>',
@@ -98,8 +97,8 @@ function RenderTransactionDetail(Contents) {
 
 $("#TransactionList .LedgerItem").click(function() {
   var transactionID = $(this).data('id');
-  $.get('/api/transactions/' + transactionID, function (result) {
-    var OverlayContent = RenderTransactionDetail(result);
+  $.get('/api/transactions/id/' + transactionID, function (result) {
+    var OverlayContent = TransactionDetailTemplate(result);
     OpenOverlay(OverlayContent);
   })
   .fail(function (error) {
@@ -108,4 +107,103 @@ $("#TransactionList .LedgerItem").click(function() {
 });
 
 // BUDGETS — List
+
+function BudgetTemplate(Contents) {
+  //console.log(Prog);
+  return [
+    '<li class="LedgerItem bbg" >',
+      '<div class="LedgerRow">',
+        '<div class="LedgerCell">',
+          Contents.name,
+        '</div>',
+        '<div class="LedgerCell">',
+          '&#36;',
+          Contents.totalspent,
+          ' of &#36;',
+          Contents.max,
+        '</div>',
+      '</div>',
+      '<div class="LedgerRow">',
+        '<div class="LedgerCell ProgBarContainer">',
+        '<span class="Progress"></span>',
+        '</div>',
+      '</div>',
+    '</li>'
+  ].join('\n');
+};
+
+// function GetBudgetStatus(Category) {
+//   $.get('/api/budgets/status/' + Category, function (result) {
+//     Thing = String(result.budgetstatus);
+//     console.log(Thing);
+//     return Thing;
+//   });
+// };
+
+// function getBudgetMeta(budgetName) {
+//   $.get('/api/budgets/' + budgetName, function (result) {
+//     console.log(result);
+//     return result;
+//   });
+// }
+
+function RenderBudgetsList(BudgetObject) {
+  // console.log("beg of RenderBudgetsList");
+  console.log(BudgetObject);
+  for (i = 0; i < BudgetObject.length; i++) {
+    var y = BudgetTemplate(BudgetObject[i]);
+    $("#BudgetList").append(y);
+    //console.log(BudgetObject[i].name + ": " + BudgetObject[i].totalspent + " of " + BudgetObject[i].max + "spent");
+  };
+}
+
+function getTransactions() {
+  return $.get("/api/test/transactions");
+}
+function getBudgets() {
+  return $.get("/api/test/budgets");
+}
+
+var promise1 = new Promise(function(resolve, reject) {
+  getTransactions()
+  if (getTransactions) {
+    resolve(getTransactions());
+  }
+  else {
+    reject(Error("It broke"));
+  }
+});
+
+var promise2 = new Promise(function(resolve, reject) {
+  getBudgets()
+  if (getBudgets) {
+    resolve(getBudgets());
+  }
+  else {
+    reject(Error("It broke"));
+  }
+});
+
+Promise.all([promise1, promise2]).then(values => { 
+  //console.log(values); 
+  var merged = _.map(values[0], function(item) {
+    return _.assign(item, _.find(values[1], ['name', item.name]));
+  });
+  //console.log([merged]); 
+  RenderBudgetsList(merged);
+});
+
+
+
+// promise1
+//   .then((result) => {
+//     console.log("Transactions:");
+//     console.log(result);
+//   });
+
+// promise2
+//   .then((result) => {
+//     console.log("Budgets:");
+//     console.log(result);
+//   });
 

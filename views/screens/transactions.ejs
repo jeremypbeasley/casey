@@ -10,29 +10,6 @@
     </div>
   </div>
  <ul class="LedgerSet" id="TransactionList">
-  <% for(var i=0; i<100; i++) {%>
-    <li class="LedgerItem bbg" data-id="<%= transactions[i]._id %>">
-    <% if(transactions[i].category) { %>
-      <div class="LedgerCell op50"><%= transactions[i].category[0] %></div>
-      <% } else { %>
-        <div class="LedgerCell Unlabeled RedText">Unlabeled</div>
-      <% } %>
-      <div class="LedgerRow FontSizeSm">
-        <div class="LedgerCell">
-          <% if(transactions[i].name.length > 30) { %>
-          <div>
-          <% var string = transactions[i].name;
-          var trimmedString = string.substring(0, 10) + "...";%>
-          <%= trimmedString %> 
-        </div>
-        <% } else { %>
-        <div><%= transactions[i].name %></div>
-        <% } %>
-      </div>
-      <div class="LedgerCell">
-        <%= transactions[i].amount.toFixed(2) %>
-      </div>
-      <% } %>
-    </li>
+  <!-- build list in main.js -->
   </ul>
 </div>
