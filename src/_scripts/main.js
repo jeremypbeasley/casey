@@ -108,19 +108,24 @@ $("#TransactionList .LedgerItem").click(function() {
 
 // BUDGETS — List
 
+function RenderBudgetsTracker(Contents) {
+  var TotalBudget = _.sumBy(Contents, "max").toFixed(0);
+  var TotalSpent = _.sumBy(Contents, "totalspent").toFixed(0);
+  $("#BudgetTrackerText").html("$" + TotalSpent + " of $" + TotalBudget);
+  var TrackerPercentage = (TotalSpent / TotalBudget * 100).toFixed(2) + "%";
+  $("#BudgetHeaderProgBar").css({ width : TrackerPercentage}); 
+}
+
 function BudgetTemplate(Contents) {
-  //console.log(Prog);
   return [
-    '<li class="LedgerItem bbg" >',
+    '<li class="LedgerItem bbg" id="Transaction_' + Contents._id + '">',
       '<div class="LedgerRow">',
         '<div class="LedgerCell">',
           Contents.name,
         '</div>',
         '<div class="LedgerCell">',
-          '&#36;',
-          Contents.totalspent,
-          ' of &#36;',
-          Contents.max,
+          '$' + Contents.totalspent.toFixed(0),
+          ' of &#36;' + Contents.max.toFixed(0),
         '</div>',
       '</div>',
       '<div class="LedgerRow">',
@@ -132,33 +137,23 @@ function BudgetTemplate(Contents) {
   ].join('\n');
 };
 
-// function GetBudgetStatus(Category) {
-//   $.get('/api/budgets/status/' + Category, function (result) {
-//     Thing = String(result.budgetstatus);
-//     console.log(Thing);
-//     return Thing;
-//   });
-// };
-
-// function getBudgetMeta(budgetName) {
-//   $.get('/api/budgets/' + budgetName, function (result) {
-//     console.log(result);
-//     return result;
-//   });
-// }
-
 function RenderBudgetsList(BudgetObject) {
-  // console.log("beg of RenderBudgetsList");
-  console.log(BudgetObject);
   for (i = 0; i < BudgetObject.length; i++) {
     var y = BudgetTemplate(BudgetObject[i]);
     $("#BudgetList").append(y);
-    //console.log(BudgetObject[i].name + ": " + BudgetObject[i].totalspent + " of " + BudgetObject[i].max + "spent");
+    var TotalBudget = (BudgetObject[i].max).toFixed(0);
+    var TotalSpent = (BudgetObject[i].totalspent).toFixed(0);
+    var TrackerPercentage = (TotalSpent / TotalBudget * 100);
+      if (TrackerPercentage > 100) {
+        $("#Transaction_" + BudgetObject[i]._id + " .Progress").addClass("DangerZone");
+        TrackerPercentage = 100;
+      }
+    $("#Transaction_" + BudgetObject[i]._id + " .Progress").css({ width : TrackerPercentage.toFixed(2) + "%"}); 
   };
 }
 
 function getTransactions() {
-  return $.get("/api/test/transactions");
+  return $.get("/api/test/transactions/bycategory");
 }
 function getBudgets() {
   return $.get("/api/test/budgets");
@@ -191,9 +186,8 @@ Promise.all([promise1, promise2]).then(values => {
   });
   //console.log([merged]); 
   RenderBudgetsList(merged);
+  RenderBudgetsTracker(merged);
 });
-
-
 
 // promise1
 //   .then((result) => {
@@ -206,4 +200,7 @@ Promise.all([promise1, promise2]).then(values => {
 //     console.log("Budgets:");
 //     console.log(result);
 //   });
+
+// BUDGETS — Tracker
+
 

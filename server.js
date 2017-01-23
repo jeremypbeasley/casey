@@ -89,10 +89,10 @@ app.get('/api/transactions/totals', (req, res) => {
     });
 });
 
-app.get('/api/test/transactions', (req, res) => {
+app.get('/api/test/transactions/bycategory', (req, res) => {
   x = [
     {
-      "totalspent": 76.23,
+      "totalspent": 276.23,
       "name": "Coffee Shops"
     }, {
       "totalspent": 12.32,
@@ -108,12 +108,15 @@ app.get('/api/test/transactions', (req, res) => {
 app.get('/api/test/budgets', (req, res) => {
   x = [
     {
+      "_id": 54774567356746556,
       "max": 100,
       "name": "Coffee Shops"
     }, {
+      "_id": 56898796788743650,
       "max": 50,
       "name": "Movies"
     }, {
+      "_id": 2483750938450897,
       "max": 900,
       "name": "Groceries"
     }
