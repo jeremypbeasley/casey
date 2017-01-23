@@ -37,11 +37,10 @@ app.get('/api/transactions/id/:id', (req, res) => {
     .find({ _id: req.params.id })
     .toArray((err, result) => {
       if (err) { return console.log(err); }
-
       if (!result.length) { 
         return console.log(err); 
       } else {
-        //res.send(result[0]);
+        res.send(result[0]);
       }
     });
 });

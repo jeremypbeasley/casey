@@ -1,16 +1,16 @@
-$(document).ready(function() {
-  $('.ContentContainer.Budget').show();
-  $('.ContentContainer.Budget').addClass("Active");
-  function renderSection(section) {
-  	$('.ContentContainer').hide();
-  	var newsection = ".ContentContainer." + section;
-  	console.log("Section opened: " + newsection);
-  	$(newsection).show();
-  };
-  $(".AppNav li").click(function() {
-    var thesection = $(this).data('section');
-  	renderSection(thesection);
-  });
+// GLOBAL TAB FUNCTIONALITY
+
+$(".ContentContainer.Transactions").show();
+$(".ContentContainer.Transactions").addClass("Active");
+function renderSection(section) {
+  $(".ContentContainer").hide();
+  var newsection = ".ContentContainer." + section;
+  console.log("Section opened: " + newsection);
+  $(newsection).show();
+}
+$(".AppNav li").click(function() {
+  var thesection = $(this).data("section");
+  renderSection(thesection);
 });
 
 // OVERLAYS
@@ -20,13 +20,13 @@ var OverlayStatus = false;
 $(".Overlay ").hide();
 
 function OpenOverlay(Contents) {
-  if (OverlayStatus == false) {
+  if (OverlayStatus === false) {
     $(".OverlayContent").html(Contents);
     $(".Overlay ").show();
     $(".Overlay ").addClass("Active");
     OverlayStatus = true;
   }
-};
+}
 
 function CloseOverlay() {
   $(".Overlay ").removeClass("Active");
@@ -36,7 +36,7 @@ function CloseOverlay() {
     OpenOverlay("");
     OverlayStatus = false;
   }
-};
+}
 
 $(".OverlayClose").click(function() {
   CloseOverlay();
@@ -48,9 +48,48 @@ $(document).keyup(function(e) {
   }
 });
 
-// TRANSACTIONS — Details
+// TRANSACTIONS 
 
-function TransactionDetailTemplate(Contents) {
+$(document).on("click","#TransactionsList .LedgerItem",function(e){
+  var transactionsId = $(this).data('id');
+  console.log(transactionsId);
+  $.get('/api/transactions/id/' + transactionsId, function (result) {
+    var OverlayContent = TransactionsDetailTemplate(result);
+    OpenOverlay(OverlayContent);
+  })
+  .fail(function (error) {
+    alert("that id was invalid or something");
+  });
+});
+
+function TransactionsListTemplate(Contents) {
+  return [
+    '<li class="LedgerItem bbg" data-id="' + Contents._id + '">',
+      '<div class="LedgerCell op50">' + Contents.category + '</div>',
+      '<div class="LedgerRow FontSizeSm">',
+        '<div class="LedgerCell">' + Contents.name + '</div>',
+        '<div class="LedgerCell">$' + Contents.amount + '</div>',
+      '</div>',
+    '</li>',
+  ].join('\n');
+}
+
+function RenderTransactionsList(Contents) {
+  for (i = 0; i < Contents.length; i++) {
+    var y = TransactionsListTemplate(Contents[i]);
+    $("#TransactionsList").append(y);
+  }
+}
+
+function getTransactions() {
+  return $.get("/api/transactions");
+}
+
+getTransactions().then(values => {
+  RenderTransactionsList(values);
+});
+
+function TransactionsDetailTemplate(Contents) {
   return [
     '<div class="pb3">',
       '<div class="FeatureLabel Display2 mt8 pl2">',
@@ -60,13 +99,9 @@ function TransactionDetailTemplate(Contents) {
     '<ul class="LedgerSet">',
       '<li class="LedgerItem">',
         '<div class="LedgerRow">',
+          '<div class="LedgerCell">' + Contents.date + ' — ' + Contents.time + '</div>',
           '<div class="LedgerCell">',
-          'January 12, 2017 — 10:23AM',
-          '</div>',
-          '<div class="LedgerCell">',
-          '$',
-          Contents.amount,
-          '</div>',
+          '$' + Contents.amount + '</div>',
         '</div>',
       '</li>',
       '<li class="LedgerItem bbg btg mt6">',
@@ -81,9 +116,7 @@ function TransactionDetailTemplate(Contents) {
           '<div class="LedgerCell">Budget</div>',
         '</div>',
         '<div class="LedgerRow">',
-          '<div class="LedgerCell">',
-          // Contents.category[0],
-          '</div>',
+          '<div class="LedgerCell">' + Contents.category + '</div>',
         '</div>',
       '</li>',
       '<li class="LedgerItem">',
@@ -95,17 +128,6 @@ function TransactionDetailTemplate(Contents) {
   ].join('\n');
 }
 
-$("#TransactionList .LedgerItem").click(function() {
-  var transactionID = $(this).data('id');
-  $.get('/api/transactions/id/' + transactionID, function (result) {
-    var OverlayContent = TransactionDetailTemplate(result);
-    OpenOverlay(OverlayContent);
-  })
-  .fail(function (error) {
-    alert("that id was invalid or something");
-  })
-});
-
 // BUDGETS 
 
 function RenderBudgetsTracker(Contents) {
@@ -116,7 +138,7 @@ function RenderBudgetsTracker(Contents) {
   $("#BudgetHeaderProgBar").css({ width : TrackerPercentage}); 
 }
 
-function BudgetTemplate(Contents) {
+function BudgetListTemplate(Contents) {
   return [
     '<li class="LedgerItem bbg" id="Transaction_' + Contents._id + '">',
       '<div class="LedgerRow">',
@@ -135,11 +157,11 @@ function BudgetTemplate(Contents) {
       '</div>',
     '</li>'
   ].join('\n');
-};
+}
 
 function RenderBudgetsList(BudgetObject) {
   for (i = 0; i < BudgetObject.length; i++) {
-    var y = BudgetTemplate(BudgetObject[i]);
+    var y = BudgetListTemplate(BudgetObject[i]);
     $("#BudgetList").append(y);
     var TotalBudget = (BudgetObject[i].max).toFixed(0);
     var TotalSpent = (BudgetObject[i].totalspent).toFixed(0);
@@ -149,32 +171,8 @@ function RenderBudgetsList(BudgetObject) {
         TrackerPercentage = 100;
       }
     $("#Transaction_" + BudgetObject[i]._id + " .Progress").css({ width : TrackerPercentage.toFixed(2) + "%"}); 
-  };
+  }
 }
-
-// function getTransactions() {
-//   return $.get("/api/test/transactions/bycategory");
-// }
-
-function getTransactionsTotals() {
-  return $.get("/api/transactions");
-}
-
-getTransactionsTotals().then(values => { 
-   //console.log(values);
-   _.reduce(values, function(acc, val, key) {
-    // If the category already exists, add the new value to the current value
-    if (acc[val.category]) {
-      acc[val.category].totalspent = acc[val.category].totalspent + val.amount
-    }
-    // If the category does not yet exist, create a new object where it's totalspent = val.amount
-    acc[val.category] = {
-       name: val.category,
-       totalspent: val.amount
-    };
-    return acc;
-  }, {});
-});
 
 function getBudgets() {
   return $.get("/api/budgets");
@@ -182,11 +180,9 @@ function getBudgets() {
 
 function reduceTransactions(data) {
   return  _.reduce(data, function(acc, val, key) {
-    // If the category already exists, add the new value to the current value
     if (acc[val.category]) {
-      acc[val.category].totalspent = acc[val.category].totalspent + val.amount
+      acc[val.category].totalspent = acc[val.category].totalspent + val.amount;
     }
-    // If the category does not yet exist, create a new object where it's totalspent = val.amount
     acc[val.category] = {
        name: val.category,
        totalspent: val.amount
@@ -195,13 +191,12 @@ function reduceTransactions(data) {
   }, {});
 }
 
-Promise.all([getTransactionsTotals(), getBudgets()]).then(values => {
+Promise.all([getTransactions(), getBudgets()]).then(values => {
   var merged = _.map(reduceTransactions(values[0]), function(item) {
     return _.assign(item, _.find(values[1], ['name', item.name]));
   });
   RenderBudgetsList(merged);
   RenderBudgetsTracker(merged);
-  
 });
 
 

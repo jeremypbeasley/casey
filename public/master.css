@@ -848,41 +848,6 @@ input:focus {
   left: 90%;
   text-indent: -9999px;
 }
-.LedgerSet {
-  margin: 0 auto;
-  background: #fff;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.LedgerItem {
-  padding: 1.5rem 1rem;
-}
-.LedgerRow {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  justify-content: space-between;
-}
-.LedgerCell {
-  font-size: 0.9rem;
-}
-.LedgerRow .ProgBarContainer {
-  margin-top: 0.9rem;
-}
-.LedgerRow .OverBudgetBarContainer {
-  margin-top: 0.9rem;
-}
-.RedText {
-  opacity: 1;
-  color: #f00;
-}
-.LedgerCellCenter {
-  position: absolute;
-  left: 30%;
-}
 .ButtonChevronRight {
   background: url("_img/_icon/dark/chevron_right.svg") no-repeat;
   background-position: center center;
@@ -1006,4 +971,39 @@ input:focus {
 }
 .OverlayContent {
   margin-top: 75px;
+}
+.LedgerSet {
+  margin: 0 auto;
+  background: #fff;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.LedgerItem {
+  padding: 1rem 1rem;
+}
+.LedgerRow {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-between;
+}
+.LedgerCell {
+  font-size: 0.9rem;
+}
+.LedgerRow .ProgBarContainer {
+  margin-top: 0.9rem;
+}
+.LedgerRow .OverBudgetBarContainer {
+  margin-top: 0.9rem;
+}
+.RedText {
+  opacity: 1;
+  color: #f00;
+}
+.LedgerCellCenter {
+  position: absolute;
+  left: 30%;
 }
