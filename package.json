@@ -32,11 +32,11 @@
     "grunt-remove": "^0.1.0",
     "jquery": "latest",
     "lodash": "^4.17.4",
+    "lodash.groupby": "^4.6.0",
     "lodash.omitby": "^4.6.0",
     "lodash.sumby": "^4.6.0",
     "lodash.uniq": "^4.5.0",
     "lodash.uniqby": "^4.7.0",
-    "lodash.groupby": "^4.6.0",
     "method-override": "^2.2.0",
     "mongo-querystring": "^4.1.0",
     "mongodb": "^2.2.21",
@@ -49,6 +49,7 @@
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.2",
     "plaid": "latest",
-    "q": "^1.0.1"
+    "q": "^1.0.1",
+    "whatwg-fetch": "^2.0.2"
   }
 }

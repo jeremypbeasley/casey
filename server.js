@@ -26,8 +26,8 @@ const MongoClient = require('mongodb').MongoClient
 MongoClient.connect('mongodb://admin:almighty@ds035348.mlab.com:35348/caseyappv1', (err, database) => {
   if (err) return console.log(err)
   db = database
-  app.listen(process.env.PORT || 9000, '0.0.0.0', () => {
-    console.log('View the build at http://localhost:9000/')
+  app.listen(process.env.PORT || 6000, '0.0.0.0', () => {
+    console.log('View the build at http://localhost:6000/')
   })
 });
 

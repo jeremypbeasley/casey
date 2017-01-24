@@ -27306,7 +27306,7 @@ return jQuery;
 
 // GLOBAL TAB FUNCTIONALITY
 
-var initialTab = "Home";
+var initialTab = "Budget";
 
 $(".ContentContainer." + initialTab).show();
 $(".ContentContainer." + initialTab).addClass("Active");
@@ -27452,86 +27452,95 @@ $(document).on("click","#TransactionsList .LedgerItem",function(e){
 // BUDGETS 
 
 
-
-function RenderBudgetsTracker(Contents) {
-  var TotalBudget = _.sumBy(Contents, "max").toFixed(0);
-  var TotalSpent = _.sumBy(Contents, "totalspent").toFixed(0);
-  $('#YouveSpent').html("$" + TotalSpent);
-  $("#BudgetTrackerText").html("$" + TotalSpent + " of $" + TotalBudget);
-  var TrackerPercentage = (TotalSpent / TotalBudget * 100).toFixed(2) + "%";
-  $("#BudgetHeaderProgBar").css({ width : TrackerPercentage}); 
-}
-
-function BudgetListTemplate(Contents) {
-  //console.log(Contents);
-  return [
-    '<li class="LedgerItem bbg" data-id="' + Contents._id + '" id="Budgets_' + Contents._id + '">',
-      '<div class="LedgerRow">',
-        '<div class="LedgerCell">',
-          Contents.name,
-        '</div>',
-        '<div class="LedgerCell">',
-          '$' + Contents.totalspent.toFixed(0),
-          ' of &#36;' + Contents.max.toFixed(0),
-        '</div>',
-      '</div>',
-      '<div class="LedgerRow">',
-        '<div class="LedgerCell ProgBarContainer">',
-        '<span class="Progress"></span>',
-        '</div>',
-      '</div>',
-    '</li>'
-  ].join('\n');
-}
-
-function RenderBudgetsList(BudgetObject) {
-  for (i = 0; i < BudgetObject.length; i++) {
-    var y = BudgetListTemplate(BudgetObject[i]);
-    $("#BudgetsList").append(y);
-    var TotalBudget = (BudgetObject[i].max).toFixed(0);
-    var TotalSpent = (BudgetObject[i].totalspent).toFixed(0);
-    var TrackerPercentage = (TotalSpent / TotalBudget * 100);
-      if (TrackerPercentage > 100) {
-        $("#Budgets_" + BudgetObject[i]._id + " .Progress").addClass("DangerZone");
-        TrackerPercentage = 100;
-      }
-    $("#Budgets_" + BudgetObject[i]._id + " .Progress").css({ width : TrackerPercentage.toFixed(2) + "%"}); 
+  function RenderBudgetsTracker(Contents) {
+    var TotalBudget = _.sumBy(Contents, "max").toFixed(0);
+    var TotalSpent = _.sumBy(Contents, "totalspent").toFixed(0);
+    $('#YouveSpent').html("$" + TotalSpent);
+    $("#BudgetTrackerText").html("$" + TotalSpent + " of $" + TotalBudget);
+    var TrackerPercentage = (TotalSpent / TotalBudget * 100).toFixed(2) + "%";
+    $("#BudgetHeaderProgBar").css({ width : TrackerPercentage}); 
   }
-}
 
-function getBudgets() {
-  return $.get("/api/budgets");
-}
+  function BudgetListTemplate(Contents) {
+    //console.log(Contents);
+    return [
+      '<li class="LedgerItem bbg" data-id="' + Contents._id + '" id="Budgets_' + Contents._id + '">',
+        '<div class="LedgerRow">',
+          '<div class="LedgerCell">',
+            Contents.name,
+          '</div>',
+          '<div class="LedgerCell">',
+            '$' + Contents.totalspent.toFixed(0),
+            ' of &#36;' + Contents.max.toFixed(0),
+          '</div>',
+        '</div>',
+        '<div class="LedgerRow">',
+          '<div class="LedgerCell ProgBarContainer">',
+          '<span class="Progress"></span>',
+          '</div>',
+        '</div>',
+      '</li>'
+    ].join('\n');
+  }
 
-function reduceTransactions(data) {
-  return  _.reduce(data, function(acc, val, key) {
-    if (acc[val.category_id]) {
-      acc[val.category_id].totalspent = acc[val.category_id].totalspent + val.amount;
+  function RenderBudgetsList(BudgetObject) {
+    for (i = 0; i < BudgetObject.length; i++) {
+      var y = BudgetListTemplate(BudgetObject[i]);
+      $("#BudgetsList").append(y);
+      var TotalBudget = (BudgetObject[i].max).toFixed(0);
+      var TotalSpent = (BudgetObject[i].totalspent).toFixed(0);
+      var TrackerPercentage = (TotalSpent / TotalBudget * 100);
+        if (TrackerPercentage > 100) {
+          $("#Budgets_" + BudgetObject[i]._id + " .Progress").addClass("DangerZone");
+          TrackerPercentage = 100;
+        }
+      $("#Budgets_" + BudgetObject[i]._id + " .Progress").css({ width : TrackerPercentage.toFixed(2) + "%"}); 
     }
-    acc[val.category_id] = {
-       name: val.category_id,
-       totalspent: val.amount
-    };
-    return acc;
-  }, {});
-}
+  }
 
-Promise.all([getTransactions(), getBudgets()]).then(values => {
-  //console.log(values);
-  var merged = _.map(reduceTransactions(values[0]), function(item) {
-    return _.assign(item, _.find(values[1], ['_id', item.name]));
+  function getBudgets() {
+    return $.get("/api/budgets");
+  }
+
+  function reduceTransactions(data) {
+    return  _.reduce(data, function(acc, val, key) {
+      if (acc[val.category_id]) {
+        acc[val.category_id].totalspent = acc[val.category_id].totalspent + val.amount;
+      }
+      acc[val.category_id] = {
+         name: val.category_id,
+         totalspent: val.amount
+      };
+      return acc;
+    }, {});
+  }
+
+
+function renderViewBudgets() {
+
+  console.log("gonna render some budgets");
+  $("#BudgetsList").html("");
+
+  Promise.all([getTransactions(), getBudgets()]).then(values => {
+    //console.log(values);
+    var merged = _.map(reduceTransactions(values[0]), function(item) {
+      return _.assign(item, _.find(values[1], ['_id', item.name]));
+    });
+    //console.log(merged);
+    RenderBudgetsList(merged);
+    RenderBudgetsTracker(merged);
   });
-  //console.log(merged);
-  RenderBudgetsList(merged);
-  RenderBudgetsTracker(merged);
-});
+
+};
+
+renderViewBudgets();
 
 // BUDGETS - Detail
 
 function BudgetsDetailTemplate(Contents) {
   return [
-    '<ul class="LedgerSet mt6">',
-      // '<form action="/api/budgets/edit" method="POST" id="">',
+    // '<form action="#" onsubmit="return false;" method="">',
+    '<ul class="LedgerSet mt6" id="BudgetsDetailContents">',
       '<li class="LedgerItem mt6">',
         '<div class="op50 LedgerRow">',
           '<div class="LedgerCell">Name</div>',
@@ -27539,33 +27548,28 @@ function BudgetsDetailTemplate(Contents) {
         '<div class="LedgerRow">',
           '<div class="LedgerCell">',
           '<input type="hidden" name="_id" value="' + Contents._id + '"/>',
-          '<input type="text" name="name" class="Display2 mt1" value="' + Contents.name + '"/>',
+          '<input type="text" name="name" class="Display2 mt1" id="" value="' + Contents.name + '"/>',
           '</div>',
         '</div>',
       '</li>',
-      '<li class="LedgerItem">',
-        '<div class="op50 LedgerRow">',
-          '<div class="LedgerCell">Limit</div>',
-        '</div>',
+      // '<li class="LedgerItem">',
+      //   '<div class="op50 LedgerRow">',
+      //     '<div class="LedgerCell">Limit</div>',
+      //   '</div>',
+      //   '<div class="LedgerRow">',
+      //     '<div class="LedgerCell">',
+      //     '<input type="text" name="max" class="Display2 mt1" value="$' + Contents.max + '"/>',
+      //     '</div>',
+      //   '</div>',
+      // '</li>',
+      '<li class="LedgerItem mt4">',
         '<div class="LedgerRow">',
-          '<div class="LedgerCell">',
-          '<input type="text" name="max" class="Display2 mt1" value="$' + Contents.max + '"/>',
-          '</div>',
-        '</div>',
-      '</li>',
-      // '<input type="submit"/>',
-      // '</form>',
-      '<li class="LedgerItem">',
-        '<div class="op50 LedgerRow">',
-          '<div class="LedgerCell" id="UpdateBudget">Update</div>',
-        '</div>',
-      '</li>',
-      '<li class="LedgerItem mt5">',
-        '<div class="op50 LedgerRow">',
           '<div class="LedgerCell Error">Delete this budget.</div>',
         '</div>',
       '</li>',
-    '</ul>'
+    '</ul>',
+    '<button class="Frap Inactive" id="BudgetsDetailFrap">Save ›</button>',
+    // '</form'
   ].join('\n');
 }
 
@@ -27582,7 +27586,11 @@ $(document).on("click","#BudgetsList .LedgerItem",function(e){
   });
 });
 
-$(document).on("click","#UpdateBudget",function(e){
+$(document).on("focus","#BudgetsDetailContents input[type=text]",function(){
+  $("#BudgetsDetailFrap").removeClass("Inactive");
+});
+
+function updateBudgetsName() {
   newname = $('[name="name"]').val();
   budgetsId = $('[name="_id"]').val();
   console.log(newname);
@@ -27602,10 +27610,22 @@ $(document).on("click","#UpdateBudget",function(e){
   .then(data => {
     console.log("document updated!");
     CloseOverlay();
-    getBudgets();
-    getTransactions();
-  })
+    renderViewBudgets();
+  }) 
+}
+
+$(document).on("click touchstart","#BudgetsDetailFrap",function(){
+  console.log("save pressed");
+  updateBudgetsName();
 });
+
+$(document).on("keypress","#BudgetsDetailContents input[type=text]",function(event) {
+  if (event.keyCode == 13) {
+    updateBudgetsName();
+    return false;
+  }
+})
+
 
 // fetch({ /* request */ })
 //   .then(res => {
