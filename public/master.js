@@ -27515,12 +27515,8 @@ $(document).on("click","#TransactionsList .LedgerItem",function(e){
     }, {});
   }
 
-
 function renderViewBudgets() {
-
-  console.log("gonna render some budgets");
   $("#BudgetsList").html("");
-
   Promise.all([getTransactions(), getBudgets()]).then(values => {
     //console.log(values);
     var merged = _.map(reduceTransactions(values[0]), function(item) {
