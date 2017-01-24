@@ -59,7 +59,7 @@ $(document).keyup(function(e) {
 function TransactionsListTemplate(Contents) {
   return [
     '<li class="LedgerItem bbg" data-id="' + Contents._id + '">',
-      '<div class="LedgerCell op50">' + Contents.category + '</div>',
+      '<div class="LedgerCell op50">' + Contents.category_id + '</div>',
       '<div class="LedgerRow FontSizeSm">',
         '<div class="LedgerCell">' + Contents.name + '</div>',
         '<div class="LedgerCell">$' + Contents.amount + '</div>',
@@ -110,7 +110,7 @@ function TransactionsDetailTemplate(Contents) {
           '<div class="LedgerCell">Budget</div>',
         '</div>',
         '<div class="LedgerRow">',
-          '<div class="LedgerCell">' + Contents.category + '</div>',
+          '<div class="LedgerCell">' + Contents.category_id + '</div>',
         '</div>',
       '</li>',
       '<li class="LedgerItem">',
@@ -199,11 +199,11 @@ function getBudgets() {
 
 function reduceTransactions(data) {
   return  _.reduce(data, function(acc, val, key) {
-    if (acc[val.category]) {
-      acc[val.category].totalspent = acc[val.category].totalspent + val.amount;
+    if (acc[val.category_id]) {
+      acc[val.category_id].totalspent = acc[val.category_id].totalspent + val.amount;
     }
-    acc[val.category] = {
-       name: val.category,
+    acc[val.category_id] = {
+       name: val.category_id,
        totalspent: val.amount
     };
     return acc;
@@ -213,7 +213,7 @@ function reduceTransactions(data) {
 Promise.all([getTransactions(), getBudgets()]).then(values => {
   console.log(values);
   var merged = _.map(reduceTransactions(values[0]), function(item) {
-    return _.assign(item, _.find(values[1], ['name', item.name]));
+    return _.assign(item, _.find(values[1], ['_id', item.name]));
   });
   console.log(merged);
   RenderBudgetsList(merged);
