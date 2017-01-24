@@ -919,26 +919,6 @@ body {
   background: url("_img/_icon/dark/arrow_drop_down.svg") no-repeat right;
   border: none;
 }
-.frap {
-  height: 50px;
-  width: 140px;
-  outline: none;
-  text-align: center;
-  border-radius: 100px;
-  border: none;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  cursor: pointer;
-  font-size: 1.2rem;
-}
-.FrapSave {
-  background-color: #f00;
-  background-image: linear-gradient(to right, #ff6100, #ff000d, #500072);
-  z-index: 99;
-  color: #fff;
-  position: fixed;
-  bottom: 15vh;
-  right: 5vw;
-}
 .FormSubmit {
   position: fixed;
   top: 80vh;
@@ -1057,9 +1037,34 @@ input[type=text] {
   margin-left: -3px;
   border-bottom: 1px solid rgba(0,0,0,0.12);
   transition: all 200ms ease-out;
+  border-radius: 0;
+  padding: 0;
+  padding-bottom: 10px;
 }
 input[type=text]:focus {
-  border-color: #62d78c;
+  border-color: #000;
   outline: none;
-  padding-bottom: 10px;
+}
+.Frap {
+  height: 50px;
+  outline: none;
+  text-align: right;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  background-color: transparent;
+  z-index: 99;
+  color: #000;
+  position: fixed;
+  top: 6px;
+  right: 16px;
+  transition: all 200ms ease-out;
+  opacity: 1;
+}
+.Frap.KeyboardOn {
+  top: calc(100vh - 140px);
+}
+.Frap.Inactive {
+  transform: translateY(10px);
+  opacity: 0;
 }
