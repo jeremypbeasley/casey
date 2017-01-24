@@ -7,7 +7,7 @@ $(".ContentContainer." + initialTab).addClass("Active");
 function renderSection(section) {
   $(".ContentContainer").hide();
   var newsection = ".ContentContainer." + section;
-  console.log("Section opened: " + newsection);
+  //console.log("Section opened: " + newsection);
   $(newsection).show();
 }
 $(".AppNav li").click(function() {
@@ -211,11 +211,11 @@ function reduceTransactions(data) {
 }
 
 Promise.all([getTransactions(), getBudgets()]).then(values => {
-  console.log(values);
+  //console.log(values);
   var merged = _.map(reduceTransactions(values[0]), function(item) {
     return _.assign(item, _.find(values[1], ['_id', item.name]));
   });
-  console.log(merged);
+  //console.log(merged);
   RenderBudgetsList(merged);
   RenderBudgetsTracker(merged);
 });
