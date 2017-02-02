@@ -319,7 +319,6 @@ $(document).on("keypress","#BudgetsDetailContents input[type=text]",function(eve
 // SNACKBARS
 
 function displaySnackbar(message, type) {
-  console.log(message);
   if (type == "notif") {
     $('.Snackbar').addClass('TypeNotif');
   }
@@ -339,8 +338,7 @@ function displaySnackbar(message, type) {
 }
 
 $('.SnackbarTrigger').click(function() {
-  console.log("it worked!");
-  displaySnackbar($(this).attr('data-msg'), $(this).attr('data-type'));
+  displaySnackbar($(this).attr('data-msg'));
 });
 
 // ["notif", "conf", "error"]
