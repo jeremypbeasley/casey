@@ -27306,7 +27306,7 @@ return jQuery;
 
 // GLOBAL TAB FUNCTIONALITY
 
-var initialTab = "Budget";
+var initialTab = "Account";
 
 $(".ContentContainer." + initialTab).show();
 $(".ContentContainer." + initialTab).addClass("Active");
@@ -27624,43 +27624,42 @@ $(document).on("keypress","#BudgetsDetailContents input[type=text]",function(eve
 
 // SNACKBARS
 
-function displaySnackbar(message, type) {
+function templateSnackbar(id, message, type) {
+  var snackbarType = "";
   if (type == "notif") {
-    $('.Snackbar').addClass('TypeNotif');
+    snackbarType = "TypeNotif";
   }
   if (type == "conf") {
-    $('.Snackbar').addClass('TypeConf');
+    snackbarType = "TypeConf";
   }
   if (type == "error") {
-    $('.Snackbar').addClass('TypeError');
+    snackbarType = "TypeError";
   }
-  $('.Snackbar').addClass("Active");
-  $('.Snackbar span').html(message); 
+  return [
+    '<div class="Snackbar ' + snackbarType + '" id="' + id + '"><span>' + message + '</span></div>'
+  ].join('\n');
+}
+
+function displaySnackbar(message, type) {
+  var newSnackbarId = "Snackbar_" + Math.random().toString(36).substr(2, 10);
+  $('#SnackbarCont').append(templateSnackbar(newSnackbarId, message, type)) 
   setTimeout(
     function(){ 
-      $('.Snackbar').removeClass("Active TypeNotif TypeConf TypeError");
+      $('#' + newSnackbarId).addClass("Active");
     }, 
-  3000); 
+  100);
+  setTimeout(
+    function(){ 
+      $('#' + newSnackbarId).removeClass("Active TypeNotif TypeConf TypeError");
+    }, 
+  3000);
+  setTimeout(
+    function(){ 
+      $('#' + newSnackbarId).remove();
+    }, 
+  3200);
 }
 
 $('.SnackbarTrigger').click(function() {
-  displaySnackbar($(this).attr('data-msg'));
+  displaySnackbar($(this).attr('data-msg'), $(this).attr('data-type'));
 });
-
-// ["notif", "conf", "error"]
-
-// fetch({ /* request */ })
-//   .then(res => {
-//     if (res.ok) {
-//       return res.json();
-//       console.log("a thing was done");
-//     }
-//   })
-//   .then(data => {
-//     console.log("thing was done");
-//     //console.log(data)
-//     CloseOverlay();
-//     getBudgets();
-//     getTransactions();
-//     alert("Name has been updated");
-//   })
