@@ -316,6 +316,23 @@ $(document).on("keypress","#BudgetsDetailContents input[type=text]",function(eve
   }
 })
 
+// SNACKBARS
+
+function displaySnackbar(message) {
+  $('#Snackbar').show();
+  $('#Snackbar').addClass("Active");
+  $('#Snackbar span').html(message); 
+  setTimeout(
+    function(){ 
+      $('#Snackbar').removeClass("Active");
+    }, 
+  3000); 
+}
+$(document).on("click","#SnackbarTrigger",function(){
+  var elmensanje = $(this).attr("data-msg");
+  displaySnackbar(elmensanje);
+});
+
 
 // fetch({ /* request */ })
 //   .then(res => {
