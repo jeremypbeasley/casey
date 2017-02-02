@@ -1,6 +1,6 @@
 // GLOBAL TAB FUNCTIONALITY
 
-var initialTab = "Account";
+var initialTab = "Budget";
 
 $(".ContentContainer." + initialTab).show();
 $(".ContentContainer." + initialTab).addClass("Active");
