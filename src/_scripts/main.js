@@ -316,6 +316,34 @@ $(document).on("keypress","#BudgetsDetailContents input[type=text]",function(eve
   }
 })
 
+// SNACKBARS
+
+function displaySnackbar(message, type) {
+  console.log(message);
+  if (type == "notif") {
+    $('.Snackbar').addClass('TypeNotif');
+  }
+  if (type == "conf") {
+    $('.Snackbar').addClass('TypeConf');
+  }
+  if (type == "error") {
+    $('.Snackbar').addClass('TypeError');
+  }
+  $('.Snackbar').addClass("Active");
+  $('.Snackbar span').html(message); 
+  setTimeout(
+    function(){ 
+      $('.Snackbar').removeClass("Active TypeNotif TypeConf TypeError");
+    }, 
+  3000); 
+}
+
+$('.SnackbarTrigger').click(function() {
+  console.log("it worked!");
+  displaySnackbar($(this).attr('data-msg'), $(this).attr('data-type'));
+});
+
+// ["notif", "conf", "error"]
 
 // fetch({ /* request */ })
 //   .then(res => {

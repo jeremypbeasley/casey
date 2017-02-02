@@ -42,9 +42,40 @@ body {
 .ContentContainer.Active {
   z-index: 800;
 }
+.Snackbar {
+  width: 100%;
+  max-width: 400px;
+  height: 60px;
+  position: fixed;
+  background-image: linear-gradient(101deg, #ff6100, #ff000d 47%, #500072);
+  background-color: black;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  transform: translateY(60px);
+  transition: all 200ms ease-out; 
+}
+.Snackbar span {
+  padding: 20px 16px;
+  display: block;
+  color: white;
+}
+.Snackbar.Active {
+  transform: translateY(0px);
+}
+.Snackbar.TypeNotif {
+  background-image: linear-gradient(101deg, #ff6100, #ff000d 47%, #500072);
+  background-color: black;
+}
+.Snackbar.TypeConf {
+  background-image: none;
+  background-color: color-greenbright;
+}
+.Snackbar.TypeError {
+  background-image: none;
+  background-color: color-red;
+}
 
-
- 
  
 
 
