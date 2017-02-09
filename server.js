@@ -113,7 +113,7 @@ app.put('/api/transactions/edit', (req, res) => {
   db.collection('transactions')
   .findOneAndUpdate({ _id: req.body._id }, {
     $set: {
-      category_id: req.body.newCategory,
+      category_id: req.body.newCategoryId,
     }
   }, {
     upsert: true

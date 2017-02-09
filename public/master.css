@@ -450,7 +450,7 @@ body {
   background-color: #000;
   bottom: 0;
   left: 0;
-  z-index: 999;
+  z-index: 9999;
   transform: translateY(60px);
   transition: all 200ms ease-out;
 }
@@ -968,7 +968,7 @@ body {
   -webkit-overflow-scrolling: touch;
   left: 0;
   top: 0;
-  z-index: 9999;
+  z-index: 999;
   transition: all 200ms ease-out;
   opacity: 0;
   transform: translateY(10px);
