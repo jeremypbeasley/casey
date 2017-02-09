@@ -27385,10 +27385,10 @@ function RenderTransactionsList(Contents) {
   }
 }
 
-// function getTransactions() {
-//   return $.get("/api/transactions");
-// }
-//
+function getTransactions() {
+  return $.get("/api/transactions");
+}
+
 // getTransactions().then(values => {
 //   RenderTransactionsList(values);
 // });
@@ -27576,21 +27576,20 @@ function reduceTransactions(data) {
   }, {});
 }
 
-// function renderViewBudgets() {
-//   $("#BudgetsList").html("");
-//   Promise.all([getTransactions(), getBudgets()]).then(values => {
-//     //console.log(values);
-//     var merged = _.map(reduceTransactions(values[0]), function(item) {
-//       return _.assign(item, _.find(values[1], ['_id', item.name]));
-//     });
-//     //console.log(merged);
-//     RenderBudgetsList(merged);
-//     RenderBudgetsTracker(merged);
-//   });
-//
-// };
+function renderViewBudgets() {
+  $("#BudgetsList").html("");
+  Promise.all([getTransactions(), getBudgets()]).then(values => {
+    //console.log(values);
+    var merged = _.map(reduceTransactions(values[0]), function(item) {
+      return _.assign(item, _.find(values[1], ['_id', item.name]));
+    });
+    //console.log(merged);
+    RenderBudgetsList(merged);
+    RenderBudgetsTracker(merged);
+  });
+};
 
-// renderViewBudgets();
+renderViewBudgets();
 
 // BUDGETS - Detail
 
@@ -27709,7 +27708,7 @@ function displaySnackbar(message, type) {
   100);
   setTimeout(
     function(){
-      $('#' + newSnackbarId).removeClass("Active TypeNotif TypeConf TypeError");
+      $('#' + newSnackbarId).removeClass("Active");
     },
   3000);
   setTimeout(
