@@ -83,9 +83,18 @@ function getTransactions() {
   return $.get("/api/transactions");
 }
 
-getTransactions().then(values => {
-  RenderTransactionsList(values);
-});
+// getTransactions().then(values => {
+//   RenderTransactionsList(values);
+// });
+
+function viewTransactionsList() {
+  $("#TransactionsList").html("");
+  $.get("/api/transactions", function (result) {
+     RenderTransactionsList(result);
+  })
+}
+
+viewTransactionsList();
 
 // TRANSACTIONS, DETAIL
 
@@ -117,7 +126,7 @@ function transactionsDetailTemplate(contents, categories) {
         '</div>',
         '<div class="LedgerRow">',
           '<div class="LedgerCell">',
-          '<select>' + categories + '</select>',
+          '<select class="CategorySelector" data-transid="' + contents._id + '">' + categories + '</select>',
         '</div>',
       '</li>',
       '<li class="LedgerItem">',
@@ -165,72 +174,101 @@ $(document).on("click","#TransactionsList .LedgerItem",function(e){
   openTransactionsDetail($(this).data('id'));
 });
 
+// TRANSACTIONS, CHANGE CATEGORY
+
+function updateTransactionCategory(_id, newCategoryId, newCategoryName) {
+  fetch('api/transactions/edit', {
+      method: 'put',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        '_id': _id,
+        'newCategoryId': newCategoryId,
+      })
+    })
+  .then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+  })
+  .then(data => {
+    displaySnackbar("Moved to " + newCategoryName + "!" , "conf");
+    viewTransactionsList();
+  })
+}
+
+$(document).on("change",".CategorySelector",function(){
+  updateTransactionCategory(
+    $(this).attr("data-transid"),
+    this.value,
+    $(".CategorySelector option:selected").text()
+  );
+});
 
 // BUDGETS, LIST
 
 
-  function RenderBudgetsTracker(Contents) {
-    var TotalBudget = _.sumBy(Contents, "max").toFixed(0);
-    var TotalSpent = _.sumBy(Contents, "totalspent").toFixed(0);
-    $('#YouveSpent').html("$" + TotalSpent);
-    $("#BudgetTrackerText").html("$" + TotalSpent + " of $" + TotalBudget);
-    var TrackerPercentage = (TotalSpent / TotalBudget * 100).toFixed(2) + "%";
-    $("#BudgetHeaderProgBar").css({ width : TrackerPercentage});
-  }
+function RenderBudgetsTracker(Contents) {
+  var TotalBudget = _.sumBy(Contents, "max").toFixed(0);
+  var TotalSpent = _.sumBy(Contents, "totalspent").toFixed(0);
+  $('#YouveSpent').html("$" + TotalSpent);
+  $("#BudgetTrackerText").html("$" + TotalSpent + " of $" + TotalBudget);
+  var TrackerPercentage = (TotalSpent / TotalBudget * 100).toFixed(2) + "%";
+  $("#BudgetHeaderProgBar").css({ width : TrackerPercentage});
+}
 
-  function BudgetListTemplate(Contents) {
-    //console.log(Contents);
-    return [
-      '<li class="LedgerItem bbg" data-id="' + Contents._id + '" id="Budgets_' + Contents._id + '">',
-        '<div class="LedgerRow">',
-          '<div class="LedgerCell">',
-            Contents.name,
-          '</div>',
-          '<div class="LedgerCell">',
-            '$' + Contents.totalspent.toFixed(0),
-            ' of &#36;' + Contents.max.toFixed(0),
-          '</div>',
+function BudgetListTemplate(Contents) {
+  //console.log(Contents);
+  return [
+    '<li class="LedgerItem bbg" data-id="' + Contents._id + '" id="Budgets_' + Contents._id + '">',
+      '<div class="LedgerRow">',
+        '<div class="LedgerCell">',
+          Contents.name,
         '</div>',
-        '<div class="LedgerRow">',
-          '<div class="LedgerCell ProgBarContainer">',
-          '<span class="Progress"></span>',
-          '</div>',
+        '<div class="LedgerCell">',
+          '$' + Contents.totalspent.toFixed(0),
+          ' of &#36;' + Contents.max.toFixed(0),
         '</div>',
-      '</li>'
-    ].join('\n');
-  }
+      '</div>',
+      '<div class="LedgerRow">',
+        '<div class="LedgerCell ProgBarContainer">',
+        '<span class="Progress"></span>',
+        '</div>',
+      '</div>',
+    '</li>'
+  ].join('\n');
+}
 
-  function RenderBudgetsList(BudgetObject) {
-    for (i = 0; i < BudgetObject.length; i++) {
-      var y = BudgetListTemplate(BudgetObject[i]);
-      $("#BudgetsList").append(y);
-      var TotalBudget = (BudgetObject[i].max).toFixed(0);
-      var TotalSpent = (BudgetObject[i].totalspent).toFixed(0);
-      var TrackerPercentage = (TotalSpent / TotalBudget * 100);
-        if (TrackerPercentage > 100) {
-          $("#Budgets_" + BudgetObject[i]._id + " .Progress").addClass("DangerZone");
-          TrackerPercentage = 100;
-        }
-      $("#Budgets_" + BudgetObject[i]._id + " .Progress").css({ width : TrackerPercentage.toFixed(2) + "%"});
-    }
-  }
-
-  function getBudgets() {
-    return $.get("/api/budgets");
-  }
-
-  function reduceTransactions(data) {
-    return  _.reduce(data, function(acc, val, key) {
-      if (acc[val.category_id]) {
-        acc[val.category_id].totalspent = acc[val.category_id].totalspent + val.amount;
+function RenderBudgetsList(BudgetObject) {
+  for (i = 0; i < BudgetObject.length; i++) {
+    var y = BudgetListTemplate(BudgetObject[i]);
+    $("#BudgetsList").append(y);
+    var TotalBudget = (BudgetObject[i].max).toFixed(0);
+    var TotalSpent = (BudgetObject[i].totalspent).toFixed(0);
+    var TrackerPercentage = (TotalSpent / TotalBudget * 100);
+      if (TrackerPercentage > 100) {
+        $("#Budgets_" + BudgetObject[i]._id + " .Progress").addClass("DangerZone");
+        TrackerPercentage = 100;
       }
-      acc[val.category_id] = {
-         name: val.category_id,
-         totalspent: val.amount
-      };
-      return acc;
-    }, {});
+    $("#Budgets_" + BudgetObject[i]._id + " .Progress").css({ width : TrackerPercentage.toFixed(2) + "%"});
   }
+}
+
+function getBudgets() {
+  return $.get("/api/budgets");
+}
+
+function reduceTransactions(data) {
+  return  _.reduce(data, function(acc, val, key) {
+    if (acc[val.category_id]) {
+      acc[val.category_id].totalspent = acc[val.category_id].totalspent + val.amount;
+    }
+    acc[val.category_id] = {
+       name: val.category_id,
+       totalspent: val.amount
+    };
+    return acc;
+  }, {});
+}
 
 function renderViewBudgets() {
   $("#BudgetsList").html("");
@@ -243,7 +281,6 @@ function renderViewBudgets() {
     RenderBudgetsList(merged);
     RenderBudgetsTracker(merged);
   });
-
 };
 
 renderViewBudgets();
@@ -365,7 +402,7 @@ function displaySnackbar(message, type) {
   100);
   setTimeout(
     function(){
-      $('#' + newSnackbarId).removeClass("Active TypeNotif TypeConf TypeError");
+      $('#' + newSnackbarId).removeClass("Active");
     },
   3000);
   setTimeout(
