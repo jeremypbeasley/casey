@@ -63,7 +63,7 @@ $(document).keyup(function(e) {
 function TransactionsListTemplate(Contents) {
   return [
     '<li class="LedgerItem bbg" data-id="' + Contents._id + '">',
-      '<div class="LedgerCell op50">' + Contents.category_id + '</div>',
+      '<div class="LedgerCell op50">' + Contents.category + '</div>',
       '<div class="LedgerRow FontSizeSm">',
         '<div class="LedgerCell">' + Contents.name + '</div>',
         '<div class="LedgerCell">$' + Contents.amount + '</div>',
@@ -83,14 +83,10 @@ function getTransactions() {
   return $.get("/api/transactions");
 }
 
-// getTransactions().then(values => {
-//   RenderTransactionsList(values);
-// });
-
 function viewTransactionsList() {
   $("#TransactionsList").html("");
   $.get("/api/transactions", function (result) {
-     RenderTransactionsList(result);
+    RenderTransactionsList(result);
   })
 }
 
@@ -126,7 +122,7 @@ function transactionsDetailTemplate(contents, categories) {
         '</div>',
         '<div class="LedgerRow">',
           '<div class="LedgerCell">',
-          '<select class="CategorySelector" data-transid="' + contents._id + '">' + categories + '</select>',
+          '<select class="Selector CategorySelector" data-transid="' + contents._id + '">' + categories + '</select>',
         '</div>',
       '</li>',
       '<li class="LedgerItem">',
@@ -183,6 +179,7 @@ function updateTransactionCategory(_id, newCategoryId, newCategoryName) {
       body: JSON.stringify({
         '_id': _id,
         'newCategoryId': newCategoryId,
+        'newCategoryName': newCategoryName,
       })
     })
   .then(res => {
@@ -191,7 +188,7 @@ function updateTransactionCategory(_id, newCategoryId, newCategoryName) {
     }
   })
   .then(data => {
-    displaySnackbar("Moved to " + newCategoryName + "!" , "conf");
+    displaySnackbar("Moved to " + newCategoryName + "." , "conf");
     viewTransactionsList();
   })
 }
