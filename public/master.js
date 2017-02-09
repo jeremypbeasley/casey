@@ -27423,7 +27423,7 @@ function transactionsDetailTemplate(contents, categories) {
         '</div>',
         '<div class="LedgerRow">',
           '<div class="LedgerCell">',
-          '<select>' + categories + '</select>',
+          '<select class="CategorySelector" data-transid="' + contents._id + '">' + categories + '</select>',
         '</div>',
       '</li>',
       '<li class="LedgerItem">',
@@ -27471,6 +27471,36 @@ $(document).on("click","#TransactionsList .LedgerItem",function(e){
   openTransactionsDetail($(this).data('id'));
 });
 
+// TRANSACTIONS, CHANGE CATEGORY
+
+function updateTransactionCategory(_id, newCategory) {
+  console.log(_id + newCategory);
+  fetch('api/transactions/edit', {
+      method: 'put',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        '_id': _id,
+        'newCategory': newCategory,
+      })
+    })
+  .then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+  })
+  .then(data => {
+    console.log("document updated!");
+    //CloseOverlay();
+    //renderViewBudgets();
+  })
+}
+
+$(document).on("change",".CategorySelector",function(){
+  updateTransactionCategory(
+    $(this).attr("data-transid"),
+    this.value
+  );
+});
 
 // BUDGETS, LIST
 
