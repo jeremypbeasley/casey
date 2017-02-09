@@ -89,6 +89,26 @@ app.get('/api/transactions/totals', (req, res) => {
     });
 });
 
+app.get('/api/transactions/category/total/:category', (req, res) => {
+  db.collection('transactions')
+    .find( { category: req.params.category } )
+    .toArray((err, result) => {
+      if (err) { return console.log(err); }
+      if (!result.length) { 
+        return console.log(err); 
+      } else {
+        console.log(result)
+        // var newstuff = String(_.sumBy(_.map(result, 'amount')));
+        // res.send([
+        //   {
+        //     //"name": req.params.category,
+        //     "budgetstatus": newstuff
+        //   }
+        // ]);
+      }
+    });
+});
+
 // API — Budgets
 
 app.get('/api/budgets/applied', (req, res) => {
@@ -110,45 +130,6 @@ app.get('/api/budgets', (req, res) => {
     });
 });
 
-// app.get('/api/transactions/:category/total', (req, res) => {
-//   db.collection('transactions')
-//     .find( { category: req.params.category } )
-//     .toArray((err, result) => {
-//       if (err) { return console.log(err); }
-//       if (!result.length) { 
-//         return console.log(err); 
-//       } else {
-//         var newstuff = String(_.sumBy(_.map(result, 'amount')));
-//         res.send([
-//           {
-//             "name2": req.params.category,
-//             "budgetstatus": newstuff
-//           }
-//         ]);
-//       }
-//     });
-// });
-
-app.get('/api/transactions/category/total/:category', (req, res) => {
-  db.collection('transactions')
-    .find( { category: req.params.category } )
-    .toArray((err, result) => {
-      if (err) { return console.log(err); }
-      if (!result.length) { 
-        return console.log(err); 
-      } else {
-        console.log(result)
-        // var newstuff = String(_.sumBy(_.map(result, 'amount')));
-        // res.send([
-        //   {
-        //     //"name": req.params.category,
-        //     "budgetstatus": newstuff
-        //   }
-        // ]);
-      }
-    });
-});
-
 app.get('/api/budgets/:_id', (req, res) => {
   db.collection('budgets')
     .find( { _id: req.params._id } )
@@ -161,29 +142,6 @@ app.get('/api/budgets/:_id', (req, res) => {
       }
     });
 });
-
-// BUDGETS - Edit
-
-// router.post("/api/budgets/edit", (req, res) => {
-//   budgetId = req.body._id;
-//   newname = req.body.name;
-//   console.log(newname);
-//   console.log(budgetId);
-//   db.collection('budgets').insert({
-//     "_id": budgetId + "appended",
-//     "name": newname,
-//   }, function (err, doc) {
-//       if (err) {
-//           // If it failed, return error
-//           res.send("There was a problem adding the information to the database.");
-//       }
-//       else {
-//           // And forward to success page
-//           res.redirect("/userlist");
-//           console.log("poop")
-//       }
-//   });
-// });
 
 app.put('/api/budgets/edit', (req, res) => {
   budgetId = req.body._id;
@@ -200,9 +158,6 @@ app.put('/api/budgets/edit', (req, res) => {
     res.send(result)
   })
 })
-
-
-
 
 // Render the app
 
