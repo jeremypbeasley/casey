@@ -1,6 +1,6 @@
 // GLOBAL TAB FUNCTIONALITY
 
-var initialTab = "Budget";
+var initialTab = "Transactions";
 
 $(".ContentContainer." + initialTab).show();
 $(".ContentContainer." + initialTab).addClass("Active");
@@ -21,8 +21,10 @@ var OverlayStatus = false;
 
 $(".Overlay ").hide();
 
-function OpenOverlay(Contents) {
+function openOverlay(Contents) {
+  console.log("opening overlay");
   if (OverlayStatus === false) {
+    console.log("opening overlay + OverlayStatus = false");
     $(".OverlayContent").html(Contents);
     $(".Overlay ").show();
     $(".Overlay ").addClass("Active");
@@ -31,12 +33,14 @@ function OpenOverlay(Contents) {
 }
 
 function CloseOverlay() {
+  console.log("removing class active");
   $(".Overlay ").removeClass("Active");
   setTimeout(waittohide, 200);
   function waittohide() {
+    console.log("waiting to hide");
     $(".LedgerItem").removeClass("Tapped");
     $(".Overlay").hide();
-    OpenOverlay("");
+    openOverlay("");
     OverlayStatus = false;
   }
 }
@@ -44,17 +48,17 @@ function CloseOverlay() {
 $(".OverlayClose").click(function() {
   CloseOverlay();
 });
-$(".Overlay").on("swipe",function(){
-  CloseOverlay();
-});
+// $(".Overlay").on("swipe",function(){
+//   CloseOverlay();
+// });
 
 $(document).keyup(function(e) {
   if (e.keyCode == 27) {
-    CloseOverlay(); 
+    CloseOverlay();
   }
 });
 
-// TRANSACTIONS 
+// TRANSACTIONS, LIST
 
 function TransactionsListTemplate(Contents) {
   return [
@@ -83,34 +87,37 @@ getTransactions().then(values => {
   RenderTransactionsList(values);
 });
 
-function TransactionsDetailTemplate(Contents) {
+// TRANSACTIONS, DETAIL
+
+function transactionsDetailTemplate(contents, categories) {
   return [
     '<div class="pb3">',
       '<div class="FeatureLabel Display2 mt8 pl2">',
-      Contents.name,
+      contents.name,
       '</div>',
     '</div>',
     '<ul class="LedgerSet">',
       '<li class="LedgerItem">',
         '<div class="LedgerRow">',
-          '<div class="LedgerCell">' + Contents.date + ' — ' + Contents.time + '</div>',
+          '<div class="LedgerCell">' + contents.date + ' — ' + contents.time + '</div>',
           '<div class="LedgerCell">',
-          '$' + Contents.amount + '</div>',
+          '$' + contents.amount + '</div>',
         '</div>',
       '</li>',
-      '<li class="LedgerItem bbg btg mt6">',
-        '<div class="LedgerRow">',
-          '<div class="LedgerCell">',
-          'PURCHASE SAFEWAYFOODS PADR NEW YORK NY CARD1490',
-          '</div>',
-        '</div>',
-      '</li>',
+      // '<li class="LedgerItem bbg btg mt6">',
+      //   '<div class="LedgerRow">',
+      //     '<div class="LedgerCell">',
+      //     'PURCHASE SAFEWAYFOODS PADR NEW YORK NY CARD1490',
+      //     '</div>',
+      //   '</div>',
+      // '</li>',
       '<li class="LedgerItem bbg">',
         '<div class="op50 LedgerRow">',
           '<div class="LedgerCell">Budget</div>',
         '</div>',
         '<div class="LedgerRow">',
-          '<div class="LedgerCell">' + Contents.category_id + '</div>',
+          '<div class="LedgerCell">',
+          '<select>' + categories + '</select>',
         '</div>',
       '</li>',
       '<li class="LedgerItem">',
@@ -122,28 +129,44 @@ function TransactionsDetailTemplate(Contents) {
   ].join('\n');
 }
 
-$(document).on("click","#TransactionsList .LedgerItem",function(e){
-  var transactionsId = $(this).data('id');
-  // $(this).removeClass("Tapped");
-  // console.log("removed on tap");
-  $(this).addClass("Tapped");
-  // console.log("added");
-  // function removeTapped() {
-  //   $(this).removeClass("Tapped");
-  //   console.log("removed auto");
-  // }
-  // setTimeout(removeTapped, 300);
-  console.log(transactionsId);
-  $.get('/api/transactions/id/' + transactionsId, function (result) {
-    var OverlayContent = TransactionsDetailTemplate(result);
-    OpenOverlay(OverlayContent);
+function transactionsDetailCategoryListTemplate(budgets, currentBudget) {
+  var output = '';
+  for (i = 0; i < budgets.length; i++) {
+    if (budgets[i]._id == currentBudget) {
+      output += '<option value="' + budgets[i]._id + '" selected>' + budgets[i].name + '</option>';
+    } else {
+      output += '<option value="' + budgets[i]._id + '">' + budgets[i].name + '</option>';
+    }
+  }
+  return output;
+}
+
+function openTransactionsDetail(id) {
+  $.get('/api/transactions/id/' + id, function (result) {
+    var transactionsDetailObject = result;
+    $.get('/api/budgets', function (result) {
+      openOverlay(
+        transactionsDetailTemplate(
+          transactionsDetailObject,
+          transactionsDetailCategoryListTemplate(
+            result,
+            transactionsDetailObject.category_id
+          )
+        )
+      );
+    })
   })
   .fail(function (error) {
     alert("that id was invalid or something");
   });
+}
+
+$(document).on("click","#TransactionsList .LedgerItem",function(e){
+  openTransactionsDetail($(this).data('id'));
 });
 
-// BUDGETS 
+
+// BUDGETS, LIST
 
 
   function RenderBudgetsTracker(Contents) {
@@ -152,7 +175,7 @@ $(document).on("click","#TransactionsList .LedgerItem",function(e){
     $('#YouveSpent').html("$" + TotalSpent);
     $("#BudgetTrackerText").html("$" + TotalSpent + " of $" + TotalBudget);
     var TrackerPercentage = (TotalSpent / TotalBudget * 100).toFixed(2) + "%";
-    $("#BudgetHeaderProgBar").css({ width : TrackerPercentage}); 
+    $("#BudgetHeaderProgBar").css({ width : TrackerPercentage});
   }
 
   function BudgetListTemplate(Contents) {
@@ -188,7 +211,7 @@ $(document).on("click","#TransactionsList .LedgerItem",function(e){
           $("#Budgets_" + BudgetObject[i]._id + " .Progress").addClass("DangerZone");
           TrackerPercentage = 100;
         }
-      $("#Budgets_" + BudgetObject[i]._id + " .Progress").css({ width : TrackerPercentage.toFixed(2) + "%"}); 
+      $("#Budgets_" + BudgetObject[i]._id + " .Progress").css({ width : TrackerPercentage.toFixed(2) + "%"});
     }
   }
 
@@ -229,7 +252,6 @@ renderViewBudgets();
 
 function BudgetsDetailTemplate(Contents) {
   return [
-    // '<form action="#" onsubmit="return false;" method="">',
     '<ul class="LedgerSet mt6" id="BudgetsDetailContents">',
       '<li class="LedgerItem mt6">',
         '<div class="op50 LedgerRow">',
@@ -259,7 +281,6 @@ function BudgetsDetailTemplate(Contents) {
       '</li>',
     '</ul>',
     '<button class="Frap Inactive" id="BudgetsDetailFrap">Save ›</button>',
-    // '</form'
   ].join('\n');
 }
 
@@ -269,7 +290,7 @@ $(document).on("click","#BudgetsList .LedgerItem",function(e){
   $.get('/api/budgets/' + budgetsId, function (result) {
     console.log(result);
     var OverlayContent = BudgetsDetailTemplate(result[0]);
-    OpenOverlay(OverlayContent);
+    openOverlay(OverlayContent);
   })
   .fail(function (error) {
     //alert("that id was invalid or something");
@@ -301,7 +322,7 @@ function updateBudgetsName() {
     console.log("document updated!");
     CloseOverlay();
     renderViewBudgets();
-  }) 
+  })
 }
 
 $(document).on("click touchstart","#BudgetsDetailFrap",function(){
@@ -336,21 +357,21 @@ function templateSnackbar(id, message, type) {
 
 function displaySnackbar(message, type) {
   var newSnackbarId = "Snackbar_" + Math.random().toString(36).substr(2, 10);
-  $('#SnackbarCont').append(templateSnackbar(newSnackbarId, message, type)) 
+  $('#SnackbarCont').append(templateSnackbar(newSnackbarId, message, type))
   setTimeout(
-    function(){ 
+    function(){
       $('#' + newSnackbarId).addClass("Active");
-    }, 
+    },
   100);
   setTimeout(
-    function(){ 
+    function(){
       $('#' + newSnackbarId).removeClass("Active TypeNotif TypeConf TypeError");
-    }, 
+    },
   3000);
   setTimeout(
-    function(){ 
+    function(){
       $('#' + newSnackbarId).remove();
-    }, 
+    },
   3200);
 }
 
