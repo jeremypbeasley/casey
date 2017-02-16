@@ -27496,10 +27496,12 @@ function updateTransactionCategory(_id, newCategoryId, newCategoryName) {
   .then(data => {
     displaySnackbar("Moved to " + newCategoryName + "." , "conf");
     viewTransactionsList();
+    renderViewBudgets();
   })
 }
 
 $(document).on("change",".CategorySelector",function(){
+  console.log($(".CategorySelector option:selected").text());
   updateTransactionCategory(
     $(this).attr("data-transid"),
     this.value,
@@ -27508,7 +27510,6 @@ $(document).on("change",".CategorySelector",function(){
 });
 
 // BUDGETS, LIST
-
 
 function RenderBudgetsTracker(Contents) {
   var TotalBudget = _.sumBy(Contents, "max").toFixed(0);
@@ -27576,11 +27577,11 @@ function reduceTransactions(data) {
 function renderViewBudgets() {
   $("#BudgetsList").html("");
   Promise.all([getTransactions(), getBudgets()]).then(values => {
-    //console.log(values);
+    console.log(values);
     var merged = _.map(reduceTransactions(values[0]), function(item) {
       return _.assign(item, _.find(values[1], ['_id', item.name]));
     });
-    //console.log(merged);
+    console.log(merged);
     RenderBudgetsList(merged);
     RenderBudgetsTracker(merged);
   });
