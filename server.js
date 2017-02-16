@@ -11,7 +11,7 @@ var db
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static('_public'));
 var _ = require('lodash');
 var uniq = require('lodash.uniq');
 var uniqBy = require('lodash.uniqby');
