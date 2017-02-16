@@ -100,13 +100,6 @@ app.get('/api/transactions/category/total/:category', (req, res) => {
         return console.log(err);
       } else {
         return(result)
-        // var newstuff = String(_.sumBy(_.map(result, 'amount')));
-        // res.send([
-        //   {
-        //     //"name": req.params.category,
-        //     "budgetstatus": newstuff
-        //   }
-        // ]);
       }
     });
 });

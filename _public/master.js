@@ -27306,7 +27306,7 @@ return jQuery;
 
 // GLOBAL TAB FUNCTIONALITY
 
-var initialTab = "Transactions";
+var initialTab = "Home";
 
 $(".ContentContainer." + initialTab).show();
 $(".ContentContainer." + initialTab).addClass("Active");
@@ -27512,9 +27512,12 @@ $(document).on("change",".CategorySelector",function(){
 // BUDGETS, LIST
 
 function RenderBudgetsTracker(Contents) {
+  var TotalEarned = 1210;
   var TotalBudget = _.sumBy(Contents, "max").toFixed(0);
   var TotalSpent = _.sumBy(Contents, "totalspent").toFixed(0);
   $('#YouveSpent').html("$" + TotalSpent);
+  $('#RemainingBudget').html("$" + (TotalBudget - TotalSpent));
+  $('#WhatsLeft').html("$" + (TotalEarned - TotalBudget));
   $("#BudgetTrackerText").html("$" + TotalSpent + " of $" + TotalBudget);
   var TrackerPercentage = (TotalSpent / TotalBudget * 100).toFixed(2) + "%";
   $("#BudgetHeaderProgBar").css({ width : TrackerPercentage});
