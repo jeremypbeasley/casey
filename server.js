@@ -93,11 +93,13 @@ app.get('/api/transactions/category/total/:category', (req, res) => {
   db.collection('transactions')
     .find( { category: req.params.category } )
     .toArray((err, result) => {
-      if (err) { return console.log(err); }
+      if (err) {
+        return console.log(err);
+      }
       if (!result.length) {
         return console.log(err);
       } else {
-        console.log(result)
+        return(result)
         // var newstuff = String(_.sumBy(_.map(result, 'amount')));
         // res.send([
         //   {
@@ -136,14 +138,38 @@ app.get('/api/budgets/applied', (req, res) => {
     });
 });
 
-app.get('/api/budgets', (req, res) => {
+app.get('/api/budgets/', (req, res) => {
+  var budgetsObject;
+  var transactionsObject;
   db.collection('budgets')
     .find()
     .toArray((err, result) => {
-      if (err) { return console.log(err); }
-      res.send(result);
-    });
+      if (err) {
+        return console.log(err);
+      } else {
+        budgetsObject = result;
+        db.collection('transactions')
+          .find()
+          .toArray((err, result) => {
+            if (err) {
+              return console.log(err);
+            } else {
+              transactionsObject = _.groupBy(result, 'category');
+              var thing = new Array();
+              _.forEach(transactionsObject, function(value, key) {
+                thing.push({
+                  "name": key,
+                  "totalspent": _.sumBy(value, "amount"),
+                })
+              })
+              end = _(thing).concat(budgetsObject).groupBy('name').map(_.spread(_.assign)).value();
+              res.send(end);
+            }
+        });
+      }
+  });
 });
+
 
 app.get('/api/budgets/:_id', (req, res) => {
   db.collection('budgets')
