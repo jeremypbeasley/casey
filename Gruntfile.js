@@ -8,24 +8,24 @@ module.exports = function(grunt) {
       },
       compile: {
         files: {
-          'public/master.css': 'src/_styles/master.styl',
+          '_public/master.css': '_resources/_styles/master.styl',
         }
       }
     },
-    concat: {   
+    concat: {
       dist: {
         src: [
           'node_modules/jquery/dist/jquery.js',
           'node_modules/lodash/lodash.js',
           // 'node_modules/lodash.sumby/index.js',
-          'src/_scripts/main.js'
-        ], 
-        dest: 'public/master.js',
+          '_resources/_scripts/main.js'
+        ],
+        dest: '_public/master.js',
       }
     },
     watch: {
       scripts: {
-        files: ['src/_scripts/*.js', 'Gruntfile.js', 'src/_styles/*.styl'],
+        files: ['_resources/_scripts/*.js', 'Gruntfile.js', '_resources/_styles/*.styl'],
         tasks: ['concat', 'stylus'],
         options: {
           spawn: false
