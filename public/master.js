@@ -27431,11 +27431,11 @@ function transactionsDetailTemplate(contents, categories) {
           '<select class="Selector CategorySelector" data-transid="' + contents._id + '">' + categories + '</select>',
         '</div>',
       '</li>',
-      '<li class="LedgerItem">',
-        '<div class="op50 LedgerRow">',
-          '<div class="LedgerCell">Add a note...</div>',
-        '</div>',
-      '</li>',
+      // '<li class="LedgerItem">',
+      //   '<div class="op50 LedgerRow">',
+      //     '<div class="LedgerCell">Add a note...</div>',
+      //   '</div>',
+      // '</li>',
     '</ul>'
   ].join('\n');
 }
