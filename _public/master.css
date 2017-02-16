@@ -744,6 +744,10 @@ body {
   right: 50%;
   top: 2rem;
 }
+.WhatsLeftAmt {
+  position: relative;
+  right: 0.9rem;
+}
 .YourMoneySectionAmt {
   font-size: 2rem;
   font-family: 'CircularStdBold', sans-serif;
